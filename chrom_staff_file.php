@@ -1,6 +1,7 @@
+
 <?php
 // register our form css
-function stncForm2_register_js()
+function stncForm_register_js()
 {
     // Register the JS file with a unique handle, file location, and an array of dependencies
     wp_enqueue_script("dropzone",  plugins_url('../assets/js/dropzone.min.js', __FILE__), array('jquery'));
@@ -23,29 +24,28 @@ function stncForm2_register_js()
     //   wp_enqueue_script('stnc_upload');
 }
 
-add_action('wp_enqueue_scripts', 'stncForm2_register_js');
+add_action('wp_enqueue_scripts', 'stncForm_register_js');
 
 // load css into the website's front-end
-function stncForm2_enqueue_style()
+function stncForm_enqueue_style()
 {
-    global $post_type;
-
-    if( 'staff' == $post_type ){
-    wp_enqueue_style('stnc-style', plugins_url('assets/css/min/CHfw-admin.min.css', __FILE__));
+    if ((isset($_GET['page'])) && ($_GET['page'] === 'stncTekForm')) {
+    wp_enqueue_style('stnc-style', plugins_url('../assets/css/stnc.css', __FILE__));
     }
 }
-add_action('admin_enqueue_scripts', 'stncForm2_enqueue_style');
+add_action('admin_enqueue_scripts', 'stncForm_enqueue_style');
 
 
-function dropzone3_enqueue_style2()
+function dropzone3_enqueue_style()
 {
     wp_enqueue_style('dropzone3', "https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.css");
     wp_enqueue_style('stnc-style', plugins_url('../assets/css/stncForm.css', __FILE__));
 }
-add_action('wp_enqueue_scripts', 'dropzone3_enqueue_style2');
+add_action('wp_enqueue_scripts', 'dropzone3_enqueue_style');
 
 
 /*
+
 // load css into the website's front-end
 function mytheme_enqueue_style() {
     wp_enqueue_style( 'mytheme-style', get_stylesheet_uri() ); 
@@ -63,8 +63,8 @@ function mytheme_enqueue_login_style() {
     wp_enqueue_style( 'mytheme-options-style', get_template_directory_uri() . '/css/login.css' ); 
 }
 add_action( 'login_enqueue_scripts', 'mytheme_enqueue_login_style' );
-*/
 
+*/
 
 define('CHfw_Staff_PATH', plugin_dir_path(__FILE__) . 'includes/');
 
