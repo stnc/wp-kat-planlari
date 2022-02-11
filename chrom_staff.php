@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name:Chrom Themes Staff
+Plugin Name: teknopark kat planları 
 Plugin URI:			
-Description: Staff Members plugin for the Nucleon theme.	
+Description: teknopark kat planları 	
 Version: 1.11.97
-Author: Chrom Themes
+Author: selman tunç
 Text Domain: chrom_staff
 Domain Path: /languages/
 */ 

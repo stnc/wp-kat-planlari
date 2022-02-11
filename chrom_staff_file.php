@@ -1,7 +1,7 @@
 
 <?php
 // register our form css
-function stncForm_register_js()
+function stncForm_register_j3s()
 {
     // Register the JS file with a unique handle, file location, and an array of dependencies
     wp_enqueue_script("dropzone",  plugins_url('../assets/js/dropzone.min.js', __FILE__), array('jquery'));
@@ -24,26 +24,35 @@ function stncForm_register_js()
     //   wp_enqueue_script('stnc_upload');
 }
 
-add_action('wp_enqueue_scripts', 'stncForm_register_js');
+add_action('wp_enqueue_scripts', 'stncForm_register_js3');
 
 // load css into the website's front-end
-function stncForm_enqueue_style()
+function stncForm_enqueue_style3()
 {
     if ((isset($_GET['page'])) && ($_GET['page'] === 'stncTekForm')) {
     wp_enqueue_style('stnc-style', plugins_url('../assets/css/stnc.css', __FILE__));
     }
 }
-add_action('admin_enqueue_scripts', 'stncForm_enqueue_style');
+add_action('admin_enqueue_scripts', 'stncForm_enqueue_style3');
 
 
-function dropzone3_enqueue_style()
+function dropzone3_enqueue_style3()
 {
     wp_enqueue_style('dropzone3', "https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.css");
     wp_enqueue_style('stnc-style', plugins_url('../assets/css/stncForm.css', __FILE__));
 }
-add_action('wp_enqueue_scripts', 'dropzone3_enqueue_style');
+add_action('wp_enqueue_scripts', 'dropzone3_enqueue_style3');
 
 
+
+ function admin_body_class( $classes = '' ) {
+    $onboarding_class = isset( $_GET['page'] ) && 'stncFullPage' === $_GET['page'] ? 'stnc-header-page' : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+    $classes .= ' ' . $onboarding_class . ' ';
+
+    return $classes;
+
+}
+add_action( 'admin_body_class',  'admin_body_class' );
 /*
 
 // load css into the website's front-end
@@ -79,7 +88,7 @@ load_plugin_textdomain('CHfw-staff', false, plugin_basename(dirname(__FILE__)) .
 function CHfw_register_post_type_staff()
 {
     $singular = 'Staff';
-    $plural = __('Staff', 'CHfw-Staff');
+    $plural = __('Kat', 'CHfw-Staff');
     $slug = str_replace(' ', '_', strtolower($singular));
     $labels = array(
         'name' => $plural,
@@ -414,6 +423,11 @@ function CHfw_admin_menu()
 {
     add_submenu_page("edit.php?post_type=staff", __("Locations", 'mp-timetable'), __("Locations", 'mp-timetable'), "edit_posts", "edit.php?post_type=locations");//chfw condi
     add_submenu_page("edit.php?post_type=staff", __("Add Locations", 'mp-timetable'), __("Add Locations", 'mp-timetable'), "edit_posts", "post-new.php?post_type=locations");//chfw add treatmens
+
+      add_submenu_page( "edit.php?post_type=staff", 'Ayarlar', 'Ayarlar', 'manage_options', 'stncFullPage', 'stncForm_adminMenu_About_contentsTest' ); ////burası alt kısım onun altında olacak olan bolum için 
+
+
+
 }
 
 add_action('admin_menu', 'CHfw_admin_menu');
@@ -422,6 +436,51 @@ add_action('admin_menu', 'CHfw_admin_menu');
 add_filter('manage_staff_posts_columns', 'CHfw_add_img_column');
 add_filter('manage_staff_posts_custom_column', 'CHfw_manage_img_column', 10, 2);
 
+
+
+if (isset( $_GET['page'] ) && 'stncFullPage' === $_GET['page'] ){
+
+    add_action('admin_notices', function () {
+      echo 'My notice';
+    });
+
+
+    function my_hide_notices_to_all_but_super_admin(){
+       
+            remove_all_actions( 'user_admin_notices' );
+            remove_all_actions( 'admin_notices' );
+        
+   }
+   add_action('in_admin_header', 'my_hide_notices_to_all_but_super_admin', 99);
+ 
+}
+
+function stncForm_adminMenu_About_contentsTest()
+{
+?>
+<style>
+    .stnc-header-page #adminmenumain, .stnc-header-page #wpadminbar, .stnc-header-page #adminmenuback, .stnc-header-page #adminmenuwrap, .stnc-header-page #wpfooter {
+    display: none;
+}
+
+#wpcontent, #wpfooter {
+     margin-left: auto!important; 
+}
+</style>
+    <div id="advanced" class="postbox ">
+        <div class="inside">
+            <div class="card shadow1" style="max-width:100%!important">
+                <h2>Erciyes Teknopark Video Yükleyici</h2>
+                <p>Bu form erciyes teknopark video yükleme işlemi için Selman Tunç tarafından yapılmıştır</p>
+                <pre>[StncForm_videoYukle]</pre>
+                <p><mark class="dont">Ekleme:</mark>&nbsp; üstteki kodu editor içine ekleyiniz</p>
+            </div>
+        </div>
+    </div>
+
+<?php
+
+}
 /*
 add custom_colum
 @use http://bit.ly/2zKE0k4
