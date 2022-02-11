@@ -466,6 +466,10 @@ function stncForm_adminMenu_About_contentsTest()
 #wpcontent, #wpfooter {
      margin-left: auto!important; 
 }
+
+html.wp-toolbar {
+    padding-top: 0!important; 
+}
 </style>
     <div id="advanced" class="postbox ">
         <div class="inside">
