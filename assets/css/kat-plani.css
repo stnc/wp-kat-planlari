@@ -1,0 +1,128 @@
+.kat_detay{background: url("../images/kat_detay_bg.jpg");}
+.kat_detay:after {
+    content: " ";
+    background: #ef5a30;
+    height: 15px;
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+}
+
+.orge-test{position: relative;}
+.orge-test:after {
+    content: " ";
+    width: 15px;
+    height: 100px;
+    display: block;
+    background: #ee5a30;
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+}
+
+.kat-detay-baslik{ color:#37464f;    margin-left: 28px;
+    margin-bottom: 30px;
+    font-size: 32px; }
+.kat-detay-baslik span{ font-weight: 700; }
+
+.ml-pl-0{margin-left: 0; padding-left: 0;}
+
+
+.kat-plani-tekno-3{position:relative;background:url('../images/kat-plan-genel-yeni.png') no-repeat;     width: 100%;height: 360px;background-size: 100%;}
+
+.kat-overlay {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 135px;
+    height: 360px;
+}
+
+.kat-plani-tekno-3h{background:url('../images/kat-plan-genel-yeni-hover.png') no-repeat; width: 100%;height: 360px;background-size: 100%; cursor: pointer;}
+
+.icon{    display: block;  height: 32px;}
+.icon-ev{background: url('../images/icon-ev.png') no-repeat; width: 33px; background-size: 100%;}
+.icon-pil{background: url('../images/icon-pil.png') no-repeat;     width: 27px;background-size: 100%;height: 47px;}
+.icon-yuzde{background: url('../images/icon-yuzde.png') no-repeat;     width: 35px;background-size: 100%;height: 35px;}
+.icon-cetvel{background: url('../images/icon-cetvel.png') no-repeat;     width: 42px;background-size: 100%;}
+.icon-yazici{background: url('../images/icon-yazici.png') no-repeat;     width: 42px;background-size: 100%;height: 45px;}
+
+.teknoAdi{    position: relative;
+    top: 37%;
+    left: 40%;
+    font-size: 35px;
+    font-weight: bold;
+    color: #ee5a30;}
+.doluOfis{    position: absolute;
+    color: #37464f;
+    font-weight: 700;
+    font-size: 12px;
+        left: 53%;
+    top: 2%;
+    text-align: center;}
+
+.doluOfis:hover{color:#fff;}    
+.doluOfis:hover  .icon-ev{background: url('../images/icon-ev-hover.png') no-repeat; width: 33px; background-size: 100%;cursor: pointer;}
+
+.bosOfis{    position: absolute;
+    color: #37464f;
+    font-weight: 700;
+    font-size: 12px;
+        left: 66%;
+    top: 18%;
+    text-align: center;}
+
+.bosOfis:hover{color:#fff;}    
+.bosOfis:hover  .icon-pil{background: url('../images/icon-pil-hover.png') no-repeat; width: 27px;background-size: 100%;height: 47px;cursor: pointer;}
+
+.dolulukOrani{    position: absolute;
+    color: #37464f;
+    font-weight: 700;
+    font-size: 12px;
+        left: 76%;
+    top: 40%;
+    text-align: center;}
+
+.dolulukOrani:hover{color:#fff;}    
+.dolulukOrani:hover  .icon-yuzde{background: url('../images/icon-yuzde-hover.png') no-repeat; width: 35px;background-size: 100%;height: 35px;cursor: pointer;}
+
+.toplamAlan{    position: absolute;
+    color: #37464f;
+    font-weight: 700;
+    font-size: 12px;
+        left: 66%;
+    top: 60%;
+    text-align: center;}
+
+.toplamAlan:hover{color:#fff;}    
+.toplamAlan:hover  .icon-cetvel{background: url('../images/icon-cetvel-hover.png') no-repeat; width: 42px;background-size: 100%;cursor: pointer;}
+
+.dokumAl{    position: absolute;
+    color: #37464f;
+    font-weight: 700;
+    font-size: 12px;
+        left: 50%;
+    top: 78%;
+    text-align: center;}
+
+.dokumAl:hover{color:#fff;}    
+.dokumAl:hover  .icon-yazici{background: url('../images/icon-yazici-hover.png') no-repeat; width: 42px;background-size: 100%;height: 45px;cursor: pointer;}
+
+
+ @media(min-width: 1900px){
+ 	.kat-plani-tekno-3{height: 500px;}
+ 	.dokumAl{left: 52%;top: 76%;}
+ 	.toplamAlan{left: 68%;top: 59%;}
+ 	.dolulukOrani{left: 76%;top: 40%;}
+ }
+ 
+ 
+ 
+ 
+  @media  print{
+    @page  {size: landscape}
+    .hayrullahBox{margin-left: 80px;}
+
+     .bg-gray{height:53vh}
+    .bg-blue{height:53vh}
+}

@@ -1,47 +1,35 @@
 
 <?php
-// register our form css
-function stncForm_register_j3s()
-{
-    // Register the JS file with a unique handle, file location, and an array of dependencies
-    wp_enqueue_script("dropzone",  plugins_url('../assets/js/dropzone.min.js', __FILE__), array('jquery'));
-
-    /*
-<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
- */
-
-    //  wp_register_script("dropzone.dict", plugins_url('../assets/js/dropzone.dict-tr.js', __FILE__) . '', array('jquery'));
-    //   wp_register_script("stnc_upload", plugins_url('../assets/js/stnc_upload.js',__FILE__) , array('jquery'));
-
-    // localize the script to your domain name, so that you can reference the url to admin-ajax.php file easily
-    wp_localize_script('dropzone', 'myAjax', array('ajaxurl' => admin_url('admin-ajax.php')));
-
-    // enqueue jQuery library and the script you registered above
-    wp_enqueue_script('jquery');
-    wp_enqueue_script('dropzone');
-    //     wp_enqueue_script('dropzone.dict');
-    //   wp_enqueue_script('stnc_upload');
-}
-
-add_action('wp_enqueue_scripts', 'stncForm_register_js3');
 
 // load css into the website's front-end
 function stncForm_enqueue_style3()
 {
-    if ((isset($_GET['page'])) && ($_GET['page'] === 'stncTekForm')) {
-    wp_enqueue_style('stnc-style', plugins_url('../assets/css/stnc.css', __FILE__));
-    }
+//    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    wp_enqueue_style('stnc-style-boot', plugins_url('assets/css/bootstrap.min.css', __FILE__));
+    wp_enqueue_style('stnc-style-style2', plugins_url('assets/css/stnc.css', __FILE__));
+ //   wp_enqueue_style('stnc-style-animate', plugins_url('assets/css/animate.css', __FILE__));
+  //  wp_enqueue_style('stnc-style-kat', plugins_url('assets/css/kat-plani.css', __FILE__));
+    
 }
+
+if ((isset($_GET['page'])) && ($_GET['page'] === 'stncFullPage')) {
 add_action('admin_enqueue_scripts', 'stncForm_enqueue_style3');
-
-
-function dropzone3_enqueue_style3()
-{
-    wp_enqueue_style('dropzone3', "https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.css");
-    wp_enqueue_style('stnc-style', plugins_url('../assets/css/stncForm.css', __FILE__));
+add_action('admin_enqueue_scripts', 'custom_script_in_admin');
 }
-add_action('wp_enqueue_scripts', 'dropzone3_enqueue_style3');
+
+
+function custom_script_in_admin($hook) {
+
+
+    
+    wp_register_script( 'stnc-bootstrap',plugin_dir_url( __FILE__ ) . 'assets/js/bootstrap.bundle.min.js', '',true );
+    wp_enqueue_script('stnc-bootstrap');   
+    
+    wp_register_script( 'stnc-my',plugin_dir_url( __FILE__ ) . 'assets/js/my.js', '',true );
+    wp_enqueue_script('stnc-my');
+}
+
 
 
 
@@ -53,20 +41,171 @@ add_action('wp_enqueue_scripts', 'dropzone3_enqueue_style3');
 
 }
 add_action( 'admin_body_class',  'admin_body_class' );
-/*
 
-// load css into the website's front-end
-function mytheme_enqueue_style() {
-    wp_enqueue_style( 'mytheme-style', get_stylesheet_uri() ); 
+
+
+
+
+
+function stncForm_adminMenu_About_contentsTest()
+{
+?>
+<style>
+    .stnc-header-page #adminmenumain, .stnc-header-page #wpadminbar, .stnc-header-page #adminmenuback, .stnc-header-page #adminmenuwrap, .stnc-header-page #wpfooter {
+    display: none;
 }
-add_action( 'wp_enqueue_scripts', 'mytheme_enqueue_style' );
- 
-// load css into the admin pages
-function mytheme_enqueue_options_style() {
-    wp_enqueue_style( 'mytheme-options-style', get_template_directory_uri() . '/css/admin.css' ); 
+
+#wpcontent, #wpfooter {
+     margin-left: auto!important; 
 }
-add_action( 'admin_enqueue_scripts', 'mytheme_enqueue_options_style' );
+
+html.wp-toolbar {
+    padding-top: 0!important; 
+}
+</style>
+
+
+    
+<header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-secondary fixed-top bg-secondary">
+    <div class="container-fluid">
+    <img class="d-block mx-auto mb-1" src="<?php echo plugins_url('assets/images/erciyes-logo.svg', __FILE__)?>" alt="" width="100" height="50">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Notifications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Switch account</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
+          <ul class="dropdown-menu" aria-labelledby="dropdown01">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+    </div>
+  </nav>
+</header>
+
+<main class="flex-shrink-0">
+
+
+<div class="container">
+  <div class="px-4 py-5 my-5 text-center">
+    <h1 class="stnc-title fw-bold">Erciyes Teknopark <span> Kat Planlari </span> ve  <span>Doluluk Oranlari</span></h1>
+</div>
+
+<div class="row">
  
+
+
+
+
+<div class="col-lg-2">
+
+<div class=" card-cover h-100 overflow-hidden rounded-5 shadow-lg stnc-card" style="background-color: #7066D1;">
+          <div class="d-flex flex-column h-100  text-white text-center text-shadow-1">
+            <h2 class="pt-5  display-6 lh-1 fw-bold text-center " style="color:#4A3EA5  ;  font-size: 100px;">1. </h2>
+            <h3 class="pt-5 lh-1 fw-bold text-center ">Bina  </h3>
+
+            <div class="d-flex list-unstyled mt-auto ">
+            <svg class="bd-placeholder-img rounded-circle mt-auto" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+     
+                <rect width="100%" height="100%" fill="#777"></rect>
+                <text x="30%" y="50%" fill="#fff" dy=".3em"> sdsdds</text>
+                <text x="30%" y="50%" fill="#fff" dy=".3em">selman </text>
+            
+            </svg>
+</div>
+    
+            </ul>
+          </div>
+        </div>
+
+
+      </div><!-- /.col-lg-2 -->
+
+
+      <div class="col-lg-2">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+        <h2>Heading</h2>
+        <p>And lastly this, the third column of representative placeholder content.</p>
+        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+      </div><!-- /.col-lg-2 -->
+
+      <div class="col-lg-2">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+        <h2>Heading</h2>
+        <p>And lastly this, the third column of representative placeholder content.</p>
+        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+      </div><!-- /.col-lg-2 -->
+
+      <div class="col-lg-2">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+        <h2>Heading</h2>
+        <p>And lastly this, the third column of representative placeholder content.</p>
+        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+      </div><!-- /.col-lg-2 -->
+
+      <div class="col-lg-2">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+        <h2>Heading</h2>
+        <p>And lastly this, the third column of representative placeholder content.</p>
+        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+      </div><!-- /.col-lg-2 -->
+
+      <div class="col-lg-2">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+        <h2>Heading</h2>
+        <p>And lastly this, the third column of representative placeholder content.</p>
+        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+      </div><!-- /.col-lg-2 -->
+
+
+    </div>
+
+
+  </div>
+
+
+</main>
+
+
+<footer class="footer mt-auto py-3 bg-light stnc-footer">
+  <div class="container">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
+
+<?php
+
+}
+
+/*
 // load css into the login page
 function mytheme_enqueue_login_style() {
     wp_enqueue_style( 'mytheme-options-style', get_template_directory_uri() . '/css/login.css' ); 
@@ -455,36 +594,7 @@ if (isset( $_GET['page'] ) && 'stncFullPage' === $_GET['page'] ){
  
 }
 
-function stncForm_adminMenu_About_contentsTest()
-{
-?>
-<style>
-    .stnc-header-page #adminmenumain, .stnc-header-page #wpadminbar, .stnc-header-page #adminmenuback, .stnc-header-page #adminmenuwrap, .stnc-header-page #wpfooter {
-    display: none;
-}
 
-#wpcontent, #wpfooter {
-     margin-left: auto!important; 
-}
-
-html.wp-toolbar {
-    padding-top: 0!important; 
-}
-</style>
-    <div id="advanced" class="postbox ">
-        <div class="inside">
-            <div class="card shadow1" style="max-width:100%!important">
-                <h2>Erciyes Teknopark Video Yükleyici</h2>
-                <p>Bu form erciyes teknopark video yükleme işlemi için Selman Tunç tarafından yapılmıştır</p>
-                <pre>[StncForm_videoYukle]</pre>
-                <p><mark class="dont">Ekleme:</mark>&nbsp; üstteki kodu editor içine ekleyiniz</p>
-            </div>
-        </div>
-    </div>
-
-<?php
-
-}
 /*
 add custom_colum
 @use http://bit.ly/2zKE0k4
