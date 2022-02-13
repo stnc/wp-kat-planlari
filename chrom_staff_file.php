@@ -98,21 +98,20 @@ html.wp-toolbar {
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <div class="text-center">
+    <h1 class="stnc-title fw-bold">Erciyes Teknopark <span> Kat Planlari </span> ve  <span>Doluluk Oranlari</span></h1>
+</div>
+
       </form>
     </div>
     </div>
   </nav>
 </header>
 
-<main class="flex-shrink-0">
+<main class="flex-shrink-0" style="margin-top:88px">
 
 
-<div class="container">
-  <div class="px-4 py-5 my-5 text-center">
-    <h1 class="stnc-title fw-bold">Erciyes Teknopark <span> Kat Planlari </span> ve  <span>Doluluk Oranlari</span></h1>
-</div>
+<div class="container-fluid">
 
 <div class="row">
  
@@ -125,16 +124,17 @@ html.wp-toolbar {
 <div class=" card-cover h-100 overflow-hidden rounded-5 shadow-lg stnc-card" style="background-color: #7066D1;">
           <div class="d-flex flex-column h-100  text-white text-center text-shadow-1">
             <h2 class="pt-5  display-6 lh-1 fw-bold text-center " style="color:#4A3EA5  ;  font-size: 100px;">1. </h2>
-            <h3 class="pt-5 lh-1 fw-bold text-center ">Bina  </h3>
+            <h3 class="pt-3 mt-3 lh-1 fw-bold text-center ">Bina  </h3>
 
             <div class="d-flex list-unstyled mt-auto ">
             <svg class="bd-placeholder-img rounded-circle mt-auto" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
      
-                <rect width="100%" height="100%" fill="#777"></rect>
-                <text x="30%" y="50%" fill="#fff" dy=".3em"> sdsdds</text>
-                <text x="30%" y="50%" fill="#fff" dy=".3em">selman </text>
-            
-            </svg>
+     <rect width="100%" height="100%" fill="#fff"></rect>
+     <text x="10%" y="40%" fill="#7066D1" dy=".3em " font-size="1.5em"> %</text>
+     <text x="30%" y="40%" fill="#7066D1" dy=".3em" font-size="3.5em" font-weight="bold">85</text>
+     <text x="25%" y="75%" fill="#7066D1" dy=".3em" font-size="2em" font-weight="bold">Dolu</text>
+ 
+ </svg>
 </div>
     
             </ul>
