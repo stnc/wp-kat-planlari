@@ -8,4 +8,4 @@ Author: selman tunç
 Text Domain: chrom_staff
 Domain Path: /languages/
 */ 
-include ('chrom_staff_file.php');
+include ('register.php');
