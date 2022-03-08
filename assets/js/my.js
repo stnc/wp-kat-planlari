@@ -1,4 +1,4 @@
-           $(document).ready(function(){
+jQuery(document).ready(function ($) {
                 $('.teknolar li').click(function(){
                     $('.teknolar li').removeClass('active');
                     $(this).addClass('active');

@@ -8,6 +8,8 @@ if (isset( $_GET['page'] ) && 'stncFullPage' === $_GET['page'] ){
   stnc_wp_floor_admin_notices();
 } else if (isset( $_GET['page'] ) && 'stncTekmap' === $_GET['page']){
   stnc_wp_floor_admin_notices();
+}else if (isset( $_GET['page'] ) && 'stncTekSabit' === $_GET['page']){
+  stnc_wp_floor_admin_notices();
 }
 
 function stnc_wp_floor_plans_admin_body_class( $classes = '' ) {
@@ -17,6 +19,8 @@ function stnc_wp_floor_plans_admin_body_class( $classes = '' ) {
 if (isset( $_GET['page'] ) && 'stncFullPage' === $_GET['page']){
   $onboarding_class ='stnc-header-page'; 
 } else if (isset( $_GET['page'] ) && 'stncTekmap' === $_GET['page']){
+  $onboarding_class ='stnc-header-page'; 
+} else if (isset( $_GET['page'] ) && 'stncTekSabit' === $_GET['page']){
   $onboarding_class ='stnc-header-page'; 
 }
 

@@ -51,8 +51,8 @@ html.wp-toolbar {
     }
 
     .stage-m-size {
-        /* width: 1129px; */
-        /* height: 930px; */
+        width: 1120px;
+    height: 924px;
 
     }
 
@@ -142,7 +142,7 @@ html.wp-toolbar {
             <div id="ex-040-stage" class="stage-m stage-m-size">
 
 
-<div id="ex-040-wall1"><img class="img-fluid" src="<?php echo plugin_dir_url( __FILE__ ) . 'assets/map.jpg'?>" alt=""></div>
+<div id="ex-040-wall1"><img class="img-fluid-" src="<?php echo plugin_dir_url( __FILE__ ) . 'assets/map.jpg'?>" alt=""></div>
 
 
 <?php 
@@ -169,7 +169,7 @@ global $wpdb;
             $table = "wp_stnc_floor";
             $data = array(
                 'name'    => $_POST['your-name'],
-				'location'    => $_POST['your-email'],
+				'location'    =>'{\"left\":32,\"top\":88,\"width\":74.42500305175781,\"height\":26,\"x\":32,\"y\":88,\"right\":106.42500305175781,\"bottom\":114}',
             );
             $format = array(
                 '%s','%s','%s','%s','%s','%s','%s'
@@ -248,6 +248,9 @@ global $wpdb;
         $i=0;  
         $top=88;  
      foreach( $results as $key =>$result ):
+$data=  str_replace([" ", '\\'], null, $result->location);
+$position=  json_decode( $data, true, JSON_UNESCAPED_SLASHES);
+
 ?>
         var draggable<?php  echo $result->name;?> = new PlainDraggable(document.getElementById('ex-<?php  echo $result->name;?>-draggable'), {
             onDragEnd: function (moveTo) {
@@ -258,14 +261,15 @@ global $wpdb;
                         right: moveTo.left + rect.width,
                         bottom: moveTo.top + rect.height
                     }
-                console.log(rect)
+             
                 ajaxCall(<?php  echo $result->id;?>,rect)
+             
                 // Check confliction if it's possible.
             },
-            bottom: <?php  echo $i;?>,
-            left: <?php  echo $i;?>,
-            right: <?php  echo $i?>,
-            top: <?php  echo   $top;?>,
+            bottom: <?php  echo  $position["bottom"]!="" ? $position["bottom"] : '0'; ?>,
+            left:  <?php  echo  $position["left"]!="" ? $position["left"] : '0'; ?>,
+            right:  <?php  echo  $position["right"]!="" ? $position["right"] : '0'; ?>,
+            top:  <?php  echo  $position["top"]!="" ? $position["top"] : '0'; ?>,
         });
         <?php  endforeach ?>
 
@@ -291,12 +295,13 @@ const data = new FormData();
 data.append('action', 'stnc_wp_floor_stncStatus_ajax_request');
 data.append('nonce', ajax_obj.nonce);
 data.append('id', id);
-data.append('location', JSON.stringify(location));
+data.append('location',JSON.stringify(location));
 
 fetch(ajax_obj.ajaxurl, {
         method: "POST",
         credentials: 'same-origin',
-        body: data,
+        // headers: new Headers({'content-type': 'application/json'}),
+        body:  data,
     })
     .then(response => {
         if (response.ok) {

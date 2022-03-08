@@ -34,6 +34,10 @@ if ((isset($_GET['page'])) && ($_GET['page'] === 'stncFullPage')) {
     stnc_wp_floor_all_scritps();
 }
 
+if ((isset($_GET['page'])) && ($_GET['page'] === 'stncTekSabit')) {
+    stnc_wp_floor_all_scritps();
+}
+
 if ((isset($_GET['page'])) && ($_GET['page'] === 'stncTekmap')) {  
     stnc_wp_floor_all_scritps();
     add_action('admin_enqueue_scripts', 'stnc_wp_floor_map_script_in_admin');

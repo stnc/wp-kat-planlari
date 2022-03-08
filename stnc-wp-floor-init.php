@@ -8,7 +8,11 @@ Author: https://github.com/stnc/wp-kat-planlari
 Text Domain: stnc-wp-floor-plans
 Domain Path: /languages/
 */ 
+error_reporting(E_ALL);
+error_reporting(-1);
+ini_set('error_reporting', E_ALL);
 
+header('Content-type: application/json');
 
 $stnc_wp_floor_plans_postID = isset($_GET['post']) ? $_GET['post'] : null;//post  id  for edit
 $stnc_wp_floor_post_type = get_post_type($stnc_wp_floor_plans_postID);//get type
@@ -35,6 +39,7 @@ include ('stnc-kiosk-ajax.php');//ajax
 
 include ('mockup-liste.php');
 include ('harita.php');
+include ('haritaSabit.php');
 
 require_once "helper.php";
 require_once "list_table.php";
