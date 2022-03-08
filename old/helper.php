@@ -7,14 +7,14 @@ if (!defined('ABSPATH')) {
 
 
 // used for tracking error messages
-function stnc_wp_floor_plans_errors(){
+function stncForm_errors(){
     static $wp_error; // Will hold global variable safely
     return isset($wp_error) ? $wp_error : ($wp_error = new WP_Error(null, null, null));
 }
 
 
 // displays error messages from form submissions
-function stnc_wp_floor_plans_show_error_messages() {
+function stncForm_show_error_messages() {
 	if($codes = stncForm_errors()->get_error_codes()) {
 		echo '<div class="stncForm_errors">';
 		    // Loop error codes and display errors
@@ -33,7 +33,7 @@ function stnc_wp_floor_plans_show_error_messages() {
  * @param array $list The request sent from WP REST API.
  * @return array random array list
  */
-function stnc_wp_floor_plans_shuffle_assoc($list)
+function shuffle_assoc($list)
 {
     if (!is_array($list)) {
         return $list;

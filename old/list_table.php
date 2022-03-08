@@ -47,7 +47,7 @@ if (!class_exists('WP_List_Table')) {
  * 
  * Our theme for this list table is going to be movies.
  */
-class Stnc_wp_floor_List_Table extends WP_List_Table
+class TT_Example_List_Table extends WP_List_Table
 {
 
 	/**
@@ -379,29 +379,29 @@ if ($data -> media_id!=0){
 
 
 			?>
-<div id="advanced" class="postbox ">
-    <div class="inside">
-        <div class="card shadow1" style="max-width:100%!important">
-            <h2>Erciyes Teknopark Video Yükleyici Yüklenen Bilgiler</h2>
+			<div id="advanced" class="postbox ">
+				<div class="inside">
+					<div class="card shadow1" style="max-width:100%!important">
+						<h2>Erciyes Teknopark Video Yükleyici Yüklenen Bilgiler</h2>
 
-            <div><mark class="dont">Adı Soyadı:</mark> <?php echo $data ->namelastname;?></div>
-            <hr>
-            <div><mark class="dont">Şirket:</mark> <?php echo $data->company_name;?></div>
-            <hr>
-            <div><mark class="dont">Telefon:</mark> <?php echo $data->phone;?></div>
-            <hr>
-            <div><mark class="dont">Mail adresi:</mark> <?php echo $data->mail_adress;?></div>
-            <hr>
-            <div><mark class="dont">web site:</mark> <?php echo $data->web_site;?></div>
-            <hr>
-            <div><mark class="dont">Seyahat Engeli:</mark> <?php echo $data->travel_ban;?></div>
-            <hr>
-            <div><mark class="dont">Eklenen Dosya:</mark><?php echo $oynat?></div>
-        </div>
-    </div>
-</div>
-
-<?php
+						<div><mark class="dont">Adı Soyadı:</mark> <?php echo $data ->namelastname;?></div>
+						<hr>
+						<div><mark class="dont">Şirket:</mark> <?php echo $data->company_name;?></div>
+						<hr>
+						<div><mark class="dont">Telefon:</mark> <?php echo $data->phone;?></div>
+						<hr>
+						<div><mark class="dont">Mail adresi:</mark> <?php echo $data->mail_adress;?></div>
+						<hr>
+						<div><mark class="dont">web site:</mark> <?php echo $data->web_site;?></div>
+						<hr>
+						<div><mark class="dont">Seyahat Engeli:</mark> <?php echo $data->travel_ban;?></div>
+						<hr>
+						<div><mark class="dont">Eklenen Dosya:</mark><?php echo $oynat?></div>
+					</div>
+				</div>
+			</div>
+		
+		<?php
 		
 		
 
@@ -467,21 +467,21 @@ if ($data -> media_id!=0){
 	protected function display_tablenav($which)
 	{
 ?>
-<div class="tablenav <?php echo esc_attr($which); ?>">
+		<div class="tablenav <?php echo esc_attr($which); ?>">
 
-    <?php if ($this->has_items()) : ?>
-    <div class="alignleft actions bulkactions">
-        <?php $this->bulk_actions($which); ?>
-    </div>
-    <?php
+			<?php if ($this->has_items()) : ?>
+				<div class="alignleft actions bulkactions">
+					<?php $this->bulk_actions($which); ?>
+				</div>
+			<?php
 			endif;
 			$this->extra_tablenav($which);
 			$this->pagination($which);
 			?>
 
-    <br class="clear" />
-</div>
-<?php
+			<br class="clear" />
+		</div>
+	<?php
 	}
 
 	/**
@@ -528,26 +528,23 @@ if ($data -> media_id!=0){
 	{
 	?>
 
-<div class="<?php echo (esc_attr($args['container']['class'])); ?>">
-    <label for="<?php echo (esc_attr($args['select']['id'])); ?>"
-        class="<?php echo (esc_attr($args['label']['class'])); ?>">
-    </label>
-    <select name="<?php echo (esc_attr($args['select']['name'])); ?>"
-        id="<?php echo (esc_attr($args['select']['id'])); ?>">
-        <?php
+		<div class="<?php echo (esc_attr($args['container']['class'])); ?>">
+			<label for="<?php echo (esc_attr($args['select']['id'])); ?>" class="<?php echo (esc_attr($args['label']['class'])); ?>">
+			</label>
+			<select name="<?php echo (esc_attr($args['select']['name'])); ?>" id="<?php echo (esc_attr($args['select']['id'])); ?>">
+				<?php
 				foreach ($args['options'] as $id => $title) {
 				?>
-        <option <?php if ($args['select']['selected'] === $id) { ?> selected="selected" <?php } ?>
-            value="<?php echo (esc_attr($id)); ?>">
-            <?php echo esc_html(\ucwords($title)); ?>
-        </option>
-        <?php
+					<option <?php if ($args['select']['selected'] === $id) { ?> selected="selected" <?php } ?> value="<?php echo (esc_attr($id)); ?>">
+						<?php echo esc_html(\ucwords($title)); ?>
+					</option>
+				<?php
 				}
 				?>
-    </select>
-</div>
+			</select>
+		</div>
 
-<?php
+	<?php
 	}
 
 	/**
@@ -590,39 +587,39 @@ if ($data -> media_id!=0){
  * so we've instead called those methods explicitly. It keeps things flexible, and
  * it's the way the list tables are used in the WordPress core.
  */
-function stnc_wp_floor_render_list_page()
+function tt_render_list_page()
 {
 
 	//Create an instance of our package class...
-	$testListTable = new Stnc_wp_floor_List_Table();
+	$testListTable = new TT_Example_List_Table();
 	//Fetch, prepare, sort, and filter our data...
 	$testListTable->prepare_items();
 
 	?>
-<div class="wrap">
+	<div class="wrap">
 
-    <div id="icon-users" class="icon32"><br /></div>
-    <h2>Erciyes Teknopark Video Gönderileri</h2>
+		<div id="icon-users" class="icon32"><br /></div>
+		<h2>Erciyes Teknopark Video Gönderileri</h2>
 
-    <div
-        style="background:#ECECEC;border:1px solid #CCC;padding:0 10px;margin-top:5px;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;">
-        <p>Bu eklenti Erciyes Teknopark İçin Selman TUNÇ tarafından yapılmıştır, <br>
-            Eklentiyi bu <a href="https://github.com/stnc/wp-form" target="_blank"
-                style="text-decoration:none;">linkten</a> indirebilirsiniz </p>
+		<div style="background:#ECECEC;border:1px solid #CCC;padding:0 10px;margin-top:5px;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;">
+			<p>Bu eklenti Erciyes Teknopark İçin Selman TUNÇ tarafından yapılmıştır, <br>
+				Eklentiyi bu <a href="https://github.com/stnc/wp-form" target="_blank" style="text-decoration:none;">linkten</a> indirebilirsiniz </p>
 
-    </div>
+		</div>
 
-    <!-- Forms are NOT created automatically, so you need to wrap the table in one to use features like bulk actions -->
-    <form id="movies-filter" method="post">
-        <!-- For plugins, we also need to ensure that the form posts back to our current page -->
-        <input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>" />
-        <!-- Now we can render the completed list table -->
-        <?php
+		<!-- Forms are NOT created automatically, so you need to wrap the table in one to use features like bulk actions -->
+		<form id="movies-filter" method="post">
+			<!-- For plugins, we also need to ensure that the form posts back to our current page -->
+			<input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>" />
+			<!-- Now we can render the completed list table -->
+			<?php
 
 			$testListTable->search_box('search', 'search_id');
 			$testListTable->display() ?>
-    </form>
+		</form>
 
-</div>
+	</div>
 <?php
 }
+
+

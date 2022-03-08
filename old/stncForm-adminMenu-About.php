@@ -1,5 +1,5 @@
 <?php
-function stnc_wp_floor_plans_adminMenu_About_contents()
+function stncForm_adminMenu_About_contents()
 {
 ?>
     <div id="advanced" class="postbox ">
@@ -18,7 +18,7 @@ function stnc_wp_floor_plans_adminMenu_About_contents()
 }
 
 
-function stnc_wp_floor_plans_adminMenu_About_contents2()
+function stncForm_adminMenu_About_contents2()
 {
     set_current_screen();
     $admin_body_class = array( 'pll-wizard', 'wp-core-ui' );
@@ -53,6 +53,51 @@ function stnc_wp_floor_plans_adminMenu_About_contents2()
     </div>
 	</body>
 </html>
+<?php
+
+}
+
+///kullanılmıyor 
+function   stncForm_adminMenu_About_test()
+{
+
+?>
+    <div class="col-container">
+        <div class="col-left">
+            <div class="col-wrap">
+
+                <div class="card shadow1">
+                    <h2>Erciyes Teknopark Video Yükleyici</h2>
+                    <p>Bu form erciyes teknopark video yükleme işlemi için Selman Tunç tarafından yapılmıştır</p>
+                    <pre>[StncForm_RegisterForm]</pre>
+                    <p><mark class="dont">Ekleme:</mark>&nbsp; üstteki kodu editor içine ekleyiniz</p>
+                </div>
+
+                <div class="card shadow1">
+                    <h2>Erciyes Teknopark Video Yükleyici</h2>
+                    <p>Bu form erciyes teknopark video yükleme işlemi için Selman Tunç tarafından yapılmıştır</p>
+                    <pre>[StncForm_RegisterForm]</pre>
+                    <p><mark class="dont">Ekleme:</mark>&nbsp; üstteki kodu editor içine ekleyiniz</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-right">
+            <div class="col-wrap">
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
 <?php
 
 }
