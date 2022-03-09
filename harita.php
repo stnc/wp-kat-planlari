@@ -5,10 +5,13 @@ function stnc_wp_floor_adminMenu_map()
 
 
     // if (!empty($_POST)) {
-
+        $kat_numarasi        ='';
     if ((isset($_POST['kaydet'])) && ($_POST['kaydet'] === 'kaydet')) {
  //sanitize_text_field
-  
+ $kat_numarasi        = isset($_POST["kat_numarasi"]) ? sanitize_text_field($_POST["kat_numarasi"]) : "";
+
+
+
         $success =   $wpdb->insert( 
             'wp_stnc_floor', 
             array( 
