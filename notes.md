@@ -7,7 +7,7 @@
 https://stackoverflow.com/questions/29991284/php-get-svg-tag-from-svg-file-and-show-it-in-html-in-div -->
 
 
-
+https://wordpress.stackexchange.com/questions/186315/how-to-use-update-and-delete-query-in-wordpress
 
 
 <?php 

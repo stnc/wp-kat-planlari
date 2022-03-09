@@ -11,7 +11,9 @@ global $wpdb;
 .stnc-header-page #wpfooter {
     display: none;
 }
-
+#wpcontent{
+    padding-left: 0 !important;
+}
 #wpcontent,
 #wpfooter {
     margin-left: auto !important;
@@ -107,13 +109,13 @@ html.wp-toolbar {
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex">
+
                     <div class="text-center">
                         <h1 class="stnc-title fw-bold">Erciyes Teknopark <span> Kat Planlari </span> ve <span>Doluluk
                                 Oranlari</span></h1>
                     </div>
 
-                </form>
+               
             </div>
         </div>
     </nav>
@@ -179,39 +181,9 @@ $position=  json_decode( $data, true, JSON_UNESCAPED_SLASHES);
 
             <div class="col-lg-3">
 
-            <?php
-        if (!empty($_POST)) {
-        global $wpdb;
-            $table = "wp_stnc_floor";
-            $data = array(
-                'name'    => $_POST['your-name'],
-				'location'    =>'{\"left\":32,\"top\":88,\"width\":74.42500305175781,\"height\":26,\"x\":32,\"y\":88,\"right\":106.42500305175781,\"bottom\":114}',
-            );
-            $format = array(
-                '%s','%s','%s','%s','%s','%s','%s'
-            );
-            $success=$wpdb->insert( $table, $data, $format );
-            if($success){
-				echo '<h3>Your request successfully send to HomeFix! Our Staff will contact you!</h3>' ; 
-			}
-		}
-		?>
-	<div id="primary" class="content-area">
-		<form method="post">
-		<p><label> Your Name<br />
-			<input type="text" name="your-name" value="test" size="40" /></label></p>
-		<p><label> Your Email<br />
-			<input type="text" name="your-email" value="ff@fff.com" size="40"/></label></p>
+  
 
-		<p><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit" /></p>
-		</form>
-
-		</main><!-- .site-main -->
-	</div><!-- .content-area -->
-
-           
-
-            </div><!-- /.col-lg-2 -->
+            </div><!-- /.col-lg-3 -->
 
 
         </div>
