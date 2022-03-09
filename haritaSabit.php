@@ -92,10 +92,10 @@ html.wp-toolbar {
                         <a class="nav-link" href="#">Notifications</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
+                        <a class="nav-link" href="/wp-admin/admin.php?page=stncTekmap">editor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Switch account</a>
+                        <a class="nav-link" href="/wp-admin/admin.php?page=stncTekSabit">sabit harita</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
