@@ -144,7 +144,7 @@ html.wp-toolbar {
 
 
 
-            <div class="col-lg-8">
+            <div class="col-lg-9">
 
       
             <div id="ex-040-stage" class="stage-m stage-m-size">
@@ -169,7 +169,7 @@ global $wpdb;
 
             </div><!-- /.col-lg-2 -->
 
-            <div class="col-lg-4">
+            <div class="col-lg-3">
 
             <?php
         if (!empty($_POST)) {

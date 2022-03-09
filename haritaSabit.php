@@ -130,7 +130,7 @@ html.wp-toolbar {
 
 
 
-            <div class="col-lg-8">
+            <div class="col-lg-9">
 
       
             <div id="ex-040-stage" class="stage-m stage-m-size">
@@ -140,7 +140,8 @@ html.wp-toolbar {
     
 <img class="img-fluid-" src="<?php echo plugin_dir_url( __FILE__ ) . 'assets/map.jpg'?>" alt="">
 
-<?php 
+<?php
+
 
 global $wpdb;
         $sql = "SELECT * FROM wp_stnc_floor ";
@@ -152,7 +153,7 @@ $data=  str_replace([" ", '\\'], null, $result->location);
 $position=  json_decode( $data, true, JSON_UNESCAPED_SLASHES);
 ?>
 
- <div style="
+ <div data-toggle="tooltip" data-placement="left" title="stnc yazılım <?php  echo $result->name;?>" style="
               left:  <?php  echo  $position["left"]!="" ? $position["left"]-32 : '0'; ?>px;
         
             top:  <?php  echo  $position["top"]!="" ? $position["top"]-88 : '0'; ?>px;
@@ -176,7 +177,7 @@ $position=  json_decode( $data, true, JSON_UNESCAPED_SLASHES);
 
             </div><!-- /.col-lg-2 -->
 
-            <div class="col-lg-4">
+            <div class="col-lg-3">
 
             <?php
         if (!empty($_POST)) {
@@ -221,7 +222,12 @@ $position=  json_decode( $data, true, JSON_UNESCAPED_SLASHES);
 
 </main>
 
+<script>
+jQuery(document).ready(function ($) {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 
+</script>
 
 <?php
 
