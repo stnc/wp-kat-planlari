@@ -1,3 +1,7 @@
+resım ekleyebilme 
+geçmiş kiracılar 
+  
+  
   https://www.pngtosvg.com/ -->
   https://code-boxx.com/drag-drop-sortable-list-javascript/#sec-download -->
   https://github.com/eyeofchaos/eocjsNewsticker -->
