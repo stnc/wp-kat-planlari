@@ -39,6 +39,7 @@ function stnc_wp_floor_adminMenu_map()
                 'email' =>   $email ,
                 'phone' =>   $phone ,
                 'mobile_phone' => $mobile_phone ,
+                'square_meters' => $square_meters ,
                 'web_site' =>   $web_site ,
                 'map_location' =>   $map_location ,
                  'company_description' =>   $company_description ,
@@ -217,8 +218,8 @@ html.wp-toolbar {
                         foreach ($results as $result) :
                         ?>
 
-                    <div id="ex-<?php echo $result->floor_no; ?>-draggable" class="draggable">eleman
-                        <?php echo $result->floor_no; ?></div>
+                    <div id="ex-<?php echo $result->floor_no; ?>-draggable" class="draggable">
+                        <?php echo $result->company_name; ?></div>
                     <?php
                         endforeach
                         ?>
