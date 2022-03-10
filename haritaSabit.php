@@ -49,10 +49,10 @@ html.wp-toolbar {
 
     .draggable {
         display: inline-block;
-        padding: 1px 4px;
-        font-weight: bold;
-        color: white;
-        background-color: indianred;
+        /* padding: 1px 4px; */
+        /* font-weight: bold; */
+        /* color: white; */
+        /* background-color: indianred; */
     }
     .draggable {
         position: absolute;
@@ -146,21 +146,38 @@ html.wp-toolbar {
 
 
 global $wpdb;
-        $sql = "SELECT * FROM wp_stnc_floor ";
+$stncForm_tableNameMain = $wpdb->prefix . 'stnc_floor_building';
+        $sql = "SELECT * FROM ".$stncForm_tableNameMain."";
         $results = $wpdb->get_results($sql);
         $i=0;  
         $top=88;  
      foreach( $results as $key =>$result ):
-$data=  str_replace([" ", '\\'], null, $result->location);
+$data=  str_replace([" ", '\\'], null, $result->map_location);
 $position=  json_decode( $data, true, JSON_UNESCAPED_SLASHES);
 ?>
 
- <div data-toggle="tooltip" data-placement="left" title="stnc yazılım <?php  echo $result->name;?>" style="
-              left:  <?php  echo  $position["left"]!="" ? $position["left"]-32 : '0'; ?>px;
+ <div data-toggle="tooltip" data-placement="left" title="<?php  echo $result->company_name;?>" style="left:<?php  echo  $position["left"]!="" ? $position["left"]-32 : '0'; ?>px; top:  <?php  echo  $position["top"]!="" ? $position["top"]-88 : '0'; ?>px;" id="ex-<?php  echo $result->floor_no;?>-draggable" data-bs-toggle="tooltip"  
+            class="draggable"> 
+        <span style="border-radius: 78px;
+    /* padding: 1px; */
+    color: blanchedalmond;
+    background-color: blue;
+    display: inline-block;
+    width: 26px;
+    float: left;
+    margin: 0;
+    padding: 0;"><?php  echo $result->floor_no;?></span>
+        <span style="       border-radius: 78px;
+    padding: 1px;
+    color: #212529;
+
+    display: block;
+    width: 90px;
+
+    margin: 0;
+    padding: 0;"><?php  echo $result->square_meters;?> m2</span>
         
-            top:  <?php  echo  $position["top"]!="" ? $position["top"]-88 : '0'; ?>px;
-            " id="ex-<?php  echo $result->name;?>-draggable" data-bs-toggle="tooltip"  
-            class="draggable">eleman <?php  echo $result->name;?></div>
+        </div>
 
 
 

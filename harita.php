@@ -7,26 +7,50 @@ function stnc_wp_floor_adminMenu_map()
     global $wpdb;
     global $stncForm_tableNameMain;
 
+    date_default_timezone_set('Europe/Istanbul');
+      $date = date('Y-m-d h:i:s a', time());
+    
     // if (!empty($_POST)) {
         $kat_numarasi        ='';
     if ((isset($_POST['kaydet'])) && ($_POST['kaydet'] === 'kaydet')) {
  //sanitize_text_field
- $kat_numarasi        = isset($_POST["kat_numarasi"]) ? sanitize_text_field($_POST["kat_numarasi"]) : "";
+     $floor_no = isset($_POST["floor_no"]) ? sanitize_text_field($_POST["floor_no"]) : "0";
+     $company_name = isset($_POST["company_name"]) ? sanitize_text_field($_POST["company_name"]) : " isim eklenmemiş";
+     $square_meters = isset($_POST["square_meters"]) ? sanitize_text_field($_POST["square_meters"]) : 0;
+     $email = isset($_POST["email"]) ? sanitize_text_field($_POST["email"]) : " ";
+     $phone = isset($_POST["phone"]) ? sanitize_text_field($_POST["phone"]) : " ";
+     $mobile_phone = isset($_POST["mobile_phone"]) ? sanitize_text_field($_POST["mobile_phone"]) : " ";
+     $web_site = isset($_POST["web_site"]) ? sanitize_text_field($_POST["web_site"]) : " ";
+     $map_location = isset($_POST["map_location"]) ? sanitize_text_field($_POST["map_location"]) : '{"left":12,"top":112,"width":82.42500305175781,"height":30,"x":12,"y":112,"right":94.42500305175781,"bottom":142}';
+     $company_description = isset($_POST["company_description"]) ? sanitize_text_field($_POST["company_description"]) : " ";
+     $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
+     $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
+
 
 
 
         $success =   $wpdb->insert( 
             $stncForm_tableNameMain, 
             array( 
-                'column1' => 'value1', 
-                'column2' => 123 
+                'building_id' => 1, 
+                'floor_id' => 1,
+                'floor_no' =>   $floor_no ,
+                'company_name' => $company_name ,
+                'email' =>   $email ,
+                'phone' =>   $phone ,
+                'mobile_phone' => $mobile_phone ,
+                'web_site' =>   $web_site ,
+                'map_location' =>   $map_location ,
+                 'company_description' =>   $company_description ,
+                'address' =>   $address ,
+                'add_date' =>   $date ,
             ), 
         );
 
 
       
         if ($success) {
-            echo '<h3>Your request successfully send to HomeFix! Our Staff will contact you!</h3>';
+            echo '<h3>Kayıt yapıldı</h3>';
         }
     }
 ?>
@@ -193,8 +217,8 @@ html.wp-toolbar {
                         foreach ($results as $result) :
                         ?>
 
-                    <div id="ex-<?php echo $result->name; ?>-draggable" class="draggable">eleman
-                        <?php echo $result->name; ?></div>
+                    <div id="ex-<?php echo $result->floor_no; ?>-draggable" class="draggable">eleman
+                        <?php echo $result->floor_no; ?></div>
                     <?php
                         endforeach
                         ?>
@@ -214,9 +238,9 @@ html.wp-toolbar {
                                 <h5 class="card-title">Firma Ekleme</h5>
 
                                 <div class="form-group">
-                                    <label for="kat_numarasi">Kat Numarasi</label>
-                                    <input type="number" name="kat_numarasi" value="" class="form-control"
-                                        id="kat_numarasi" min="1" max="50">
+                                    <label for="floor_no">Kat Numarasi</label>
+                                    <input type="number" name="floor_no" value="" class="form-control"
+                                        id="floor_no" min="1" max="50">
                                     <small id="kat_numarasiHelp" class="form-text text-muted">kat numarasi sayisal
                                         olmalidir</small>
                                 </div>
@@ -257,7 +281,7 @@ html.wp-toolbar {
                                     <input type="text" name="web_site" value="" class="form-control" id="web_site">
                                 </div>
                                 <hr>
-                            
+
                                 <div class="form-group">
                                     <label for="company_description">Firma hakkında detaylı bilgi </label>
                                     <textarea class="form-control" name="company_description" id="company_description"
@@ -350,12 +374,12 @@ global $wpdb;
             $i = 0;
             $top = 88;
             foreach ($results as $key => $result) :
-                $data =  str_replace([" ", '\\'], null, $result->location);
+                $data =  str_replace([" ", '\\'], null, $result->map_location);
                 $position =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
 
             ?>
-    var draggable<?php echo $result->name; ?> = new PlainDraggable(document.getElementById(
-        'ex-<?php echo $result->name; ?>-draggable'), {
+    var draggable<?php echo $result->floor_no; ?> = new PlainDraggable(document.getElementById(
+        'ex-<?php echo $result->floor_no; ?>-draggable'), {
         leftTop: true,
         onDragEnd: function(moveTo) {
             var rect = this.rect,
@@ -367,6 +391,7 @@ global $wpdb;
                 }
 
             ajaxCall(<?php echo $result->id; ?>, rect)
+            console.log( rect)
 
             // Check confliction if it's possible.
         },
