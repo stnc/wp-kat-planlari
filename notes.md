@@ -13,3 +13,18 @@ wp_redirect
 https://wordpress.stackexchange.com/questions/82857/how-to-call-wp3-5-media-library-manager
 
 https://wordpress.stackexchange.com/questions/198781/wordpress-ajax-file-upload-frontend
+
+
+
+
+https://www.antalyateknokent.com.tr/tr/ar-ge-3-binasi/kod-yazilim.html
+
+sağ tıklama  https://www.google.com/search?q=javasript+right+click+dropdown-toggle&rlz=1C1GCEA_enTR988TR988&sxsrf=APq-WBuubAcuhx_QrZj1F-IgAGONkD3_2w%3A1646816350342&ei=XmwoYt7_E9aTxc8P7Om0kA0&ved=0ahUKEwjepsn81Lj2AhXWSfEDHew0DdIQ4dUDCA4&uact=5&oq=javasript+right+click+dropdown-toggle&gs_lcp=Cgdnd3Mtd2l6EAM6BwgAEEcQsAM6BAgAEA06BggAEA0QHkoECEEYAEoECEYYAFBsWNwCYPwGaAFwAXgAgAHEAYgB6QKSAQMwLjKYAQCgAQGgAQLIAQjAAQE&sclient=gws-wiz
+olayı evetnt 
+https://jsfiddle.net/djibe89/qej2ppcq
+
+
+
+tarayica sayfa aciksa kapatilsin mi olayi 
+Changes you made may not be saved.
+https://www.google.com/search?q=javascr%27pt+Changes+you+made+may+not+be+saved.&rlz=1C1FKPE_trTR967TR967&oq=javascr%27pt+Changes+you+made+may+not+be+saved.&aqs=chrome..69i57.2219j0j7&sourceid=chrome&ie=UTF-8

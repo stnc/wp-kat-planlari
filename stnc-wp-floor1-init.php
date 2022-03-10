@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name:  yeni Teknopark Kat Planları 
-Plugin URI:			
-Description: Erciyes Teknopark Kat Planları  (by stnc)
+Plugin URI:	https://github.com/stnc/wp-kat-planlari		
+Description: Erciyes Teknopark Kat Planları
 Version: 2.0.0
-Author: https://github.com/stnc/wp-kat-planlari
+Author: selman tunç
 Text Domain: stnc-wp-floor-plans
 Domain Path: /languages/
 */ 
@@ -26,6 +26,7 @@ $stnc_wp_floor_post_type_post = isset($_REQUEST['post_type']) ? $_REQUEST['post_
 
 
 include ('register_css_js.php');
+include ('installTable.php');
 
 require("extraOptions.php");
 

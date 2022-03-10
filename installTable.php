@@ -1,37 +1,37 @@
 <?php
-$stncForm_tableNameMain = 'wp_stnc_floor';
-function stnc_wp_floor_database_install()
+$stncForm_tableNameMain = 'stnc_floor_building';
+function stnc_wp_floor_database_install1()
 {
     global $wpdb;
     global $stncForm_tableNameMain;
     $charset_collate = $wpdb->get_charset_collate();
-    $sql = "CREATE TABLE IF NOT EXISTS  " . $wpdb->prefix . $stncForm_tableNameMain . " (
+     $sql = "CREATE TABLE IF NOT EXISTS  " . $wpdb->prefix . $stncForm_tableNameMain . " (
             id INT NOT NULL AUTO_INCREMENT,
-            bina_id tinyint DEFAULT NULL,
-            kat_id tinyint DEFAULT NULL,  
-            kat_numarasi tinyint DEFAULT NULL,
-            firma_adi varchar(255) DEFAULT NULL,
-            metrekare varchar(255) DEFAULT NULL,
+            building_id tinyint DEFAULT NULL,
+            floor_id tinyint DEFAULT NULL,  
+            floor_no tinyint DEFAULT NULL,
+            company_name varchar(255) DEFAULT NULL,
+            square_meters varchar(255) DEFAULT NULL,
             email varchar(255) DEFAULT NULL,
-            telefon varchar(255) DEFAULT NULL,
-            mobile_telefon varchar(255) DEFAULT NULL,
-            mail_adresi varchar(255) DEFAULT NULL,
+            phone varchar(255) DEFAULT NULL,
+            mobile_phone varchar(255) DEFAULT NULL,
+     
             web_site varchar(255) DEFAULT NULL,
-            harita_konumu varchar(255) DEFAULT NULL,
-            firma_aciklama TEXT DEFAULT NULL,
-            adresi TEXT DEFAULT NULL,
+            map_location varchar(255) DEFAULT NULL,
+            company_description TEXT DEFAULT NULL,
+            address TEXT DEFAULT NULL,
             media_id INT DEFAULT NULL,
-            eklenme_tarihi DATETIME NOT NULL,
+            add_date DATETIME NOT NULL,
             PRIMARY KEY  (id)
         ) $charset_collate;";
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-    //  dbDelta($sql);
+     dbDelta($sql);
     // echo $wpdb->last_error;
 }
 
-register_activation_hook(__FILE__, 'stnc_wp_floor_database_install');
+register_activation_hook(__FILE__, 'stnc_wp_floor_database_install1');
 
-add_action('admin_init', 'stnc_wp_floor_database_install');
+add_action('admin_init', 'stnc_wp_floor_database_install1');
 
 function stnc_wp_floor_remove_database()
 {
