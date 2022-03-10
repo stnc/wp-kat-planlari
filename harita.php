@@ -372,8 +372,6 @@ global $wpdb;
             global $stncForm_tableNameMain;
             $sql = "SELECT * FROM ".$stncForm_tableNameMain." ";
             $results = $wpdb->get_results($sql);
-            $i = 0;
-            $top = 88;
             foreach ($results as $key => $result) :
                 $data =  str_replace([" ", '\\'], null, $result->map_location);
                 $position =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
@@ -381,7 +379,7 @@ global $wpdb;
             ?>
     var draggable<?php echo $result->floor_no; ?> = new PlainDraggable(document.getElementById(
         'ex-<?php echo $result->floor_no; ?>-draggable'), {
-        leftTop: true,
+        leftTop: false,
         onDragEnd: function(moveTo) {
             var rect = this.rect,
                 moveToRect = {

@@ -156,7 +156,7 @@ $data=  str_replace([" ", '\\'], null, $result->map_location);
 $position=  json_decode( $data, true, JSON_UNESCAPED_SLASHES);
 ?>
 
- <div data-toggle="tooltip" data-placement="left" title="<?php  echo $result->company_name;?>" style="left:<?php  echo  $position["left"]!="" ? $position["left"]-32 : '0'; ?>px; top:  <?php  echo  $position["top"]!="" ? $position["top"]-88 : '0'; ?>px;" id="ex-<?php  echo $result->floor_no;?>-draggable" data-bs-toggle="tooltip"  
+ <div data-toggle="tooltip" data-placement="left" title="<?php  echo $result->company_name;?>" style="left:<?php  echo  $position["left"]!="" ? $position["left"]-32 : '0'; ?>px; top:  <?php  echo  $position["top"]!="" ? $position["top"]-77 : '0'; ?>px;" id="ex-<?php  echo $result->floor_no;?>-draggable" data-bs-toggle="tooltip"  
             class="draggable"> 
         <span style="border-radius: 78px;
     /* padding: 1px; */
