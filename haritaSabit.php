@@ -196,7 +196,8 @@ function stnc_wp_floor_adminMenu_map_sabit()
 
                 <div class="col-lg-3">
 
-
+burada firmalarin listesi olacak 
+ayrica css duzelt 
 
                 </div><!-- /.col-lg-3 -->
 
