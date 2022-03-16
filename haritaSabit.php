@@ -93,7 +93,8 @@ function stnc_wp_floor_adminMenu_map_sabit()
                             <a class="nav-link" href="#">Notifications</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/wp-admin/admin.php?page=stncEditorHarita">editor</a>
+                        <a class="nav-link" href="/wp-admin/admin.php?page=stncEditorHarita&add=ok">editor</a>
+
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/wp-admin/admin.php?page=stncSabitHarita">sabit harita</a>
