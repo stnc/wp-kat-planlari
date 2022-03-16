@@ -15,7 +15,7 @@ if (isset( $_GET['page'] ) && 'stncFullPage' === $_GET['page'] ){
 function stnc_wp_floor_plans_admin_body_class( $classes = '' ) {
     // $onboarding_class = isset( $_GET['page'] ) && 'stncFullPage' === $_GET['page'] ? 'stnc-header-page' : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
     // $classes .= ' ' . $onboarding_class . ' ';
-
+    $onboarding_class='';
 if (isset( $_GET['page'] ) && 'stncFullPage' === $_GET['page']){
   $onboarding_class ='stnc-header-page'; 
 } else if (isset( $_GET['page'] ) && 'stncSabitHarita' === $_GET['page']){

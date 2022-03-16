@@ -70,6 +70,7 @@ function stnc_wp_floor_adminMenu_map()
             echo '<h3>Kayıt güncellendi</h3>';
         }
     }
+
     if ((isset($_POST['kaydet'])) && ($_POST['kaydet'] === 'yeniKaydet')) {
         $floor_no = isset($_POST["floor_no"]) ? sanitize_text_field($_POST["floor_no"]) : "0";
         $company_name = isset($_POST["company_name"]) ? sanitize_text_field($_POST["company_name"]) : " isim eklenmemiş";
@@ -108,103 +109,7 @@ function stnc_wp_floor_adminMenu_map()
             echo '<h3>Kayıt yapıldı</h3>';
         }
     }
-
-
-
-
-
-
-
-
-
 ?>
-
-
-    ?>
-    <style>
-        .stnc-header-page #adminmenumain,
-        .stnc-header-page #wpadminbar,
-        .stnc-header-page #adminmenuback,
-        .stnc-header-page #adminmenuwrap,
-        .stnc-header-page #wpfooter {
-            display: none;
-        }
-
-        #wpcontent {
-            padding-left: 0 !important;
-        }
-
-        #wpcontent,
-        #wpfooter {
-            margin-left: auto !important;
-        }
-
-        html.wp-toolbar {
-            padding-top: 0 !important;
-        }
-
-
-        #ex-040-stage {
-            /* width: 100%; */
-            position: relative;
-            display: block;
-        }
-
-        /* kurulumda boyutlandirma buradan da verilebilri  */
-        #ex-040-draggable {
-            /* bottom: 122px;
-        height: 20px;
-        left: 30px;
-        right: 104.609375px;
-        top: 102px;
-        width: 74.609375px; */
-            border-radius: 20px;
-            position: absolute;
-        }
-
-        #ex-040-wall2 {
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .col>.stage-m {
-            margin-bottom: 0;
-        }
-
-        .stage-m-size {
-            width: 1120px;
-            height: 924px;
-
-        }
-
-
-
-
-
-
-
-        .draggable {
-            display: inline-block;
-            padding: 3px 7px;
-            font-weight: bold;
-            color: white;
-            background-color: indianred;
-        }
-
-
-
-        .stage-m {
-            background-color: #d4d4d4;
-            margin-bottom: 1em;
-        }
-
-        #ex-040-wall2 path {
-            fill: #fff;
-        }
-    </style>
-
-
 
     <header>
         <!-- Fixed navbar -->
@@ -275,7 +180,6 @@ function stnc_wp_floor_adminMenu_map()
                         $results = $wpdb->get_results($sql);
                         foreach ($results as $result) :
                         ?>
-
                             <div id="ex-<?php echo $result->id; ?>-draggable" data-id="<?php echo $result->id; ?>" class="draggable">
                                 <?php echo $result->company_name; ?></div>
                         <?php
@@ -407,38 +311,7 @@ function stnc_wp_floor_adminMenu_map()
         window.addEventListener('load', function() {
             'use strict';
             <?php
-            /*
-global $wpdb;
-        $sql = "SELECT * FROM wp_stnc_floor ";
-        $results = $wpdb->get_results($sql);
-        $i=0;  
-        $top=88;  
-     foreach( $results as $key =>$result ):
-      
-        $key=$key+5*7;
-?>
-    var draggable<?php  echo $result->name;?> = new PlainDraggable(document.getElementById(
-        'ex-<?php  echo $result->name;?>-draggable'), {
-        onDragEnd: function(moveTo) {
-            var rect = this.rect,
-                moveToRect = {
-                    left: 0,
-                    top: 0,
-                    right: moveTo.left + rect.width,
-                    bottom: moveTo.top + rect.height
-                }
-            console.log(rect)
-            // Check confliction if it's possible.
-        },
-        bottom: <?php  echo $i;?>,
-        left: <?php  echo $i;?>,
-        right: <?php  echo $i?>,
-        top: <?php  echo   $top+$i*$key;?>,
-    });
-    <?php 
-          $i++;
-    endforeach
-*/
+
 
             global $wpdb;
             global $stncForm_tableNameMain;
@@ -549,12 +422,6 @@ global $wpdb;
             });
         })
     </script>
-
-    <!-- <footer class="footer mt-auto py-3 bg-light stnc-footer">
-    <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
-    </div>
-</footer> -->
 
 <?php
 
