@@ -1,9 +1,9 @@
 <?php
-$stncForm_tableNameMain = 'stnc_floor_building';
+
 function stnc_wp_floor_database_install1()
 {
     global $wpdb;
-    global $stncForm_tableNameMain;
+    $stncForm_tableNameMain = 'stnc_floor_building';
     $charset_collate = $wpdb->get_charset_collate();
      $sql = "CREATE TABLE IF NOT EXISTS  " . $wpdb->prefix . $stncForm_tableNameMain . " (
             id INT NOT NULL AUTO_INCREMENT,
