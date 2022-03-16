@@ -34,11 +34,12 @@ if ((isset($_GET['page'])) && ($_GET['page'] === 'stncFullPage')) {
     stnc_wp_floor_all_scritps();
 }
 
-if ((isset($_GET['page'])) && ($_GET['page'] === 'stncTekSabit')) {
+if ((isset($_GET['page'])) && ($_GET['page'] === 'stncEditorHarita')) {
     stnc_wp_floor_all_scritps();
+    add_action('admin_enqueue_scripts', 'stnc_wp_floor_map_script_in_admin');
 }
 
-if ((isset($_GET['page'])) && ($_GET['page'] === 'stncTekmap')) {  
+if ((isset($_GET['page'])) && ($_GET['page'] === 'stncSabitHarita')) {  
     stnc_wp_floor_all_scritps();
     add_action('admin_enqueue_scripts', 'stnc_wp_floor_map_script_in_admin');
  }

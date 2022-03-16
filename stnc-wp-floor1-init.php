@@ -39,7 +39,7 @@ include ('stnc-kiosk-ajax.php');//ajax
 // include("stnc-kiosk-ajax.php");
 
 include ('mockup-liste.php');
-include ('harita.php');
+include ('harita-editor.php');
 include ('haritaSabit.php');
 
 require_once "helper.php";

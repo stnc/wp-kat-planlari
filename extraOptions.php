@@ -6,9 +6,9 @@ add_filter('manage_staff_posts_custom_column', 'CHfw_manage_img_column', 10, 2);
 
 if (isset( $_GET['page'] ) && 'stncFullPage' === $_GET['page'] ){
   stnc_wp_floor_admin_notices();
-} else if (isset( $_GET['page'] ) && 'stncTekmap' === $_GET['page']){
+} else if (isset( $_GET['page'] ) && 'stncSabitHarita' === $_GET['page']){
   stnc_wp_floor_admin_notices();
-}else if (isset( $_GET['page'] ) && 'stncTekSabit' === $_GET['page']){
+}else if (isset( $_GET['page'] ) && 'stncEditorHarita' === $_GET['page']){
   stnc_wp_floor_admin_notices();
 }
 
@@ -18,9 +18,9 @@ function stnc_wp_floor_plans_admin_body_class( $classes = '' ) {
 
 if (isset( $_GET['page'] ) && 'stncFullPage' === $_GET['page']){
   $onboarding_class ='stnc-header-page'; 
-} else if (isset( $_GET['page'] ) && 'stncTekmap' === $_GET['page']){
+} else if (isset( $_GET['page'] ) && 'stncSabitHarita' === $_GET['page']){
   $onboarding_class ='stnc-header-page'; 
-} else if (isset( $_GET['page'] ) && 'stncTekSabit' === $_GET['page']){
+} else if (isset( $_GET['page'] ) && 'stncEditorHarita' === $_GET['page']){
   $onboarding_class ='stnc-header-page'; 
 }
 

@@ -1,6 +1,13 @@
 resım ekleyebilme 
 geçmiş kiracılar 
   
+
+
+    
+  //https://wordpress.stackexchange.com/questions/385544/wpdb-update-table 
+  //https://www.codegrepper.com/code-examples/php/frameworks/wordpress/wpdb+update+query+in+wordpress
+
+  
   
   https://www.pngtosvg.com/ -->
   https://code-boxx.com/drag-drop-sortable-list-javascript/#sec-download -->

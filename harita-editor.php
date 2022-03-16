@@ -7,27 +7,77 @@ function stnc_wp_floor_adminMenu_map()
     global $wpdb;
     global $stncForm_tableNameMain;
 
-    date_default_timezone_set('Europe/Istanbul');
-      $date = date('Y-m-d h:i:s a', time());
+       date_default_timezone_set('Europe/Istanbul');
+      $date = date('Y-m-d h:i:s');
     
-    // if (!empty($_POST)) {
-        $kat_numarasi        ='';
-    if ((isset($_POST['kaydet'])) && ($_POST['kaydet'] === 'kaydet')) {
- //sanitize_text_field
-     $floor_no = isset($_POST["floor_no"]) ? sanitize_text_field($_POST["floor_no"]) : "0";
-     $company_name = isset($_POST["company_name"]) ? sanitize_text_field($_POST["company_name"]) : " isim eklenmemiş";
-     $square_meters = isset($_POST["square_meters"]) ? sanitize_text_field($_POST["square_meters"]) : 0;
-     $email = isset($_POST["email"]) ? sanitize_text_field($_POST["email"]) : " ";
-     $phone = isset($_POST["phone"]) ? sanitize_text_field($_POST["phone"]) : " ";
-     $mobile_phone = isset($_POST["mobile_phone"]) ? sanitize_text_field($_POST["mobile_phone"]) : " ";
-     $web_site = isset($_POST["web_site"]) ? sanitize_text_field($_POST["web_site"]) : " ";
-     $map_location = isset($_POST["map_location"]) ? sanitize_text_field($_POST["map_location"]) : '{"left":12,"top":112,"width":82.42500305175781,"height":30,"x":12,"y":112,"right":94.42500305175781,"bottom":142}';
-     $company_description = isset($_POST["company_description"]) ? sanitize_text_field($_POST["company_description"]) : " ";
-     $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
-     $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
 
+      
 
+      if ((isset($_GET['show'])) && ($_GET['show'] === 'ok')) {
+        $thepost = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".$stncForm_tableNameMain."  WHERE id = %d", $_GET['edit']));
+        //    print_r( $thepost );
+        //   $floor_no = isset($_POST["floor_no"]) ? sanitize_text_field($_POST["floor_no"]) : "0";
+        $floor_no = $thepost->floor_no ;
+        $company_name = $thepost->company_name ;
+        $square_meters = $thepost->square_meters ;
+        $email =  $thepost->email ;
+        $phone = $thepost->phone ;
+        $mobile_phone = $thepost->mobile_phone ;
+        $web_site = $thepost->web_site ;
+        $map_location = $thepost->map_location ;
+        $company_description =  $thepost->company_description ;
+        $address =  $thepost->address ;
+      }  if ((isset($_POST['kaydet'])) && ($_POST['kaydet'] === 'guncelle')) {
+        $floor_no = isset($_POST["floor_no"]) ? sanitize_text_field($_POST["floor_no"]) : "0";
+        $company_name = isset($_POST["company_name"]) ? sanitize_text_field($_POST["company_name"]) : " isim eklenmemiş";
+        $square_meters = isset($_POST["square_meters"]) ? sanitize_text_field($_POST["square_meters"]) : 0;
+        $email = isset($_POST["email"]) ? sanitize_text_field($_POST["email"]) : " ";
+        $phone = isset($_POST["phone"]) ? sanitize_text_field($_POST["phone"]) : " ";
+        $mobile_phone = isset($_POST["mobile_phone"]) ? sanitize_text_field($_POST["mobile_phone"]) : " ";
+        $web_site = isset($_POST["web_site"]) ? sanitize_text_field($_POST["web_site"]) : " ";
+        $map_location = isset($_POST["map_location"]) ? sanitize_text_field($_POST["map_location"]) : '{"left":12,"top":112,"width":82.42500305175781,"height":30,"x":12,"y":112,"right":94.42500305175781,"bottom":142}';
+        $company_description = isset($_POST["company_description"]) ? sanitize_text_field($_POST["company_description"]) : " ";
+        $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
+          $success =   $wpdb->update( 
+              $stncForm_tableNameMain, 
+              array( 
+                  'building_id' => 1, 
+                  'floor_id' => 1,
+                  'floor_no' =>   $floor_no ,
+                  'company_name' => $company_name ,
+                  'square_meters' => $square_meters ,
+                  'email' =>   $email ,
+                  'phone' =>   $phone ,
+                  'mobile_phone' => $mobile_phone ,
+               
+                  'web_site' =>   $web_site ,
+                 
+                   'company_description' =>   $company_description ,
+                  'address' =>   $address ,
+                  'media_id' =>   1 ,
+                  'add_date' =>   $date ,
+              ), 
+              array('id' => $_GET['edit'])
+          );
 
+        //   echo $wpdb->last_query;
+        //   die;
+
+        
+          if ($success) {
+              echo '<h3>Kayıt güncellendi</h3>';
+          }
+      } if ((isset($_POST['kaydet'])) && ($_POST['kaydet'] === 'yeniKaydet')) {
+        $floor_no = isset($_POST["floor_no"]) ? sanitize_text_field($_POST["floor_no"]) : "0";
+        $company_name = isset($_POST["company_name"]) ? sanitize_text_field($_POST["company_name"]) : " isim eklenmemiş";
+        $square_meters = isset($_POST["square_meters"]) ? sanitize_text_field($_POST["square_meters"]) : 0;
+        $email = isset($_POST["email"]) ? sanitize_text_field($_POST["email"]) : " ";
+        $phone = isset($_POST["phone"]) ? sanitize_text_field($_POST["phone"]) : " ";
+        $mobile_phone = isset($_POST["mobile_phone"]) ? sanitize_text_field($_POST["mobile_phone"]) : " ";
+        $web_site = isset($_POST["web_site"]) ? sanitize_text_field($_POST["web_site"]) : " ";
+        $map_location = isset($_POST["map_location"]) ? sanitize_text_field($_POST["map_location"]) : '{"left":12,"top":112,"width":82.42500305175781,"height":30,"x":12,"y":112,"right":94.42500305175781,"bottom":142}';
+        $company_description = isset($_POST["company_description"]) ? sanitize_text_field($_POST["company_description"]) : " ";
+        $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
 
         $success =   $wpdb->insert( 
             $stncForm_tableNameMain, 
@@ -44,6 +94,7 @@ function stnc_wp_floor_adminMenu_map()
                 'map_location' =>   $map_location ,
                  'company_description' =>   $company_description ,
                 'address' =>   $address ,
+                'media_id' =>   1 ,
                 'add_date' =>   $date ,
             ), 
         );
@@ -54,6 +105,15 @@ function stnc_wp_floor_adminMenu_map()
             echo '<h3>Kayıt yapıldı</h3>';
         }
     }
+
+      
+
+
+      
+
+     
+
+   
 ?>
 
 
@@ -163,10 +223,10 @@ html.wp-toolbar {
                         <a class="nav-link" href="#">Notifications</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/wp-admin/admin.php?page=stncTekmap">editor</a>
+                        <a class="nav-link" href="/wp-admin/admin.php?page=stncEditorHarita">editor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/wp-admin/admin.php?page=stncTekSabit">sabit harita</a>
+                        <a class="nav-link" href="/wp-admin/admin.php?page=stncSabitHarita">sabit harita</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
@@ -218,7 +278,8 @@ html.wp-toolbar {
                         foreach ($results as $result) :
                         ?>
 
-                    <div id="ex-<?php echo $result->floor_no; ?>-draggable" class="draggable">
+                    <div id="ex-<?php echo $result->id; ?>-draggable" data-id="<?php echo $result->id; ?>"
+                        class="draggable">
                         <?php echo $result->company_name; ?></div>
                     <?php
                         endforeach
@@ -238,71 +299,91 @@ html.wp-toolbar {
                             <div class="card-body">
                                 <h5 class="card-title">Firma Ekleme</h5>
 
+
+
+
+
+
                                 <div class="form-group">
                                     <label for="floor_no">Kat Numarasi</label>
-                                    <input type="number" name="floor_no" value="" class="form-control"
-                                        id="floor_no" min="1" max="50">
+                                    <input type="number" name="floor_no" value="<?php echo $floor_no ?>"
+                                        class="form-control" id="floor_no" min="1" max="50">
                                     <small id="kat_numarasiHelp" class="form-text text-muted">kat numarasi sayisal
                                         olmalidir</small>
                                 </div>
                                 <hr>
                                 <div class="form-group">
                                     <label for="company_name">Firma adi</label>
-                                    <input type="text" name="company_name" value="" class="form-control"
-                                        id="company_name" min="1" max="50">
+                                    <input type="text" name="company_name" value="<?php echo $company_name ?>"
+                                        class="form-control" id="company_name" min="1" max="50">
                                 </div>
                                 <hr>
 
                                 <div class="form-group">
                                     <label for="square_meters">Bina metrekare</label>
-                                    <input type="text" name="square_meters" value="" class="form-control"
-                                        id="square_meters" min="1" max="50">
+                                    <input type="text" name="square_meters" value="<?php echo $square_meters ?>"
+                                        class="form-control" id="square_meters" min="1" max="50">
                                 </div>
                                 <hr>
 
                                 <div class="form-group">
                                     <label for="email">Firma email adresi</label>
-                                    <input type="text" name="email" value="" class="form-control" id="email">
+                                    <input type="text" name="email" value="<?php echo $email ?>" class="form-control"
+                                        id="email">
                                 </div>
                                 <hr>
 
                                 <div class="form-group">
                                     <label for="phone">Firma telefon </label>
-                                    <input type="text" name="phone" value="" class="form-control" id="phone">
+                                    <input type="text" name="phone" value="<?php echo $phone ?>" class="form-control"
+                                        id="phone">
                                 </div>
                                 <hr>
                                 <div class="form-group">
                                     <label for="mobile_phone">Firma cep telefon </label>
-                                    <input type="text" name="mobile_phone" value="" class="form-control"
-                                        id="mobile_phone">
+                                    <input type="text" name="mobile_phone" value="<?php echo $mobile_phone ?>"
+                                        class="form-control" id="mobile_phone">
                                 </div>
                                 <hr>
                                 <div class="form-group">
                                     <label for="web_site">Firma WEB sitesi </label>
-                                    <input type="text" name="web_site" value="" class="form-control" id="web_site">
+                                    <input type="text" name="web_site" value="<?php echo $web_site ?>"
+                                        class="form-control" id="web_site">
                                 </div>
                                 <hr>
 
                                 <div class="form-group">
                                     <label for="company_description">Firma hakkında detaylı bilgi </label>
                                     <textarea class="form-control" name="company_description" id="company_description"
-                                        rows="3"></textarea>
+                                        rows="3"><?php echo $company_description ?></textarea>
                                 </div>
 
                                 <hr>
                                 <div class="form-group">
                                     <label for="address">adress</label>
-                                    <input type="text" name="address" value="" class="form-control" id="address">
+                                    <input type="text" name="address" value="<?php echo $address ?>"
+                                        class="form-control" id="address">
                                 </div>
                                 <hr>
                                 <div class="form-group">
                                     <label for="media_id">Resim </label>
-                                    <input type="text" name="media_id" value="" class="form-control" id="media_id">
+                                    <input type="text" name="media_id" value="<?php echo $media_id ?>"
+                                        class="form-control" id="media_id">
                                 </div>
                                 <hr>
                                 <br>
-                                <input type="hidden" name="kaydet" value="kaydet" />
+
                                 <button type="submit" value="Kaydet" class="btn btn-primary">Kaydet</button>
+
+
+                                <?php 
+                                  if ((isset($_GET['edit']))) : ?>
+                                <input type="hidden" name="kaydet" value="guncelle" />
+                                <?php else: ?>
+                                <input type="hidden" name="kaydet" value="yeniKaydet" />
+                                <?php endif ?>
+
+
 
                             </div>
                         </div>
@@ -328,7 +409,11 @@ html.wp-toolbar {
 
 </div>
 
-
+<div class="dropdown-menu dropdown-menu-sm" id="context-menu">
+    <a class="dropdown-item edit" href="#">Düzenle</a>
+    <!-- <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a> -->
+</div>
 </main>
 
 <script>
@@ -377,8 +462,8 @@ global $wpdb;
                 $position =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
 
             ?>
-    var draggable<?php echo $result->floor_no; ?> = new PlainDraggable(document.getElementById(
-        'ex-<?php echo $result->floor_no; ?>-draggable'), {
+    var draggable<?php echo $result->id; ?> = new PlainDraggable(document.getElementById(
+        'ex-<?php echo $result->id; ?>-draggable'), {
         leftTop: false,
         onDragEnd: function(moveTo) {
             var rect = this.rect,
@@ -390,7 +475,7 @@ global $wpdb;
                 }
 
             ajaxCall(<?php echo $result->id; ?>, rect)
-            console.log( rect)
+            console.log(rect)
 
             // Check confliction if it's possible.
         },
@@ -449,6 +534,33 @@ function ajaxCall(id, location) {
             console.log("error2")
         });
 }
+
+var editId = 0;
+
+jQuery(document).ready(function($) {
+    $('.draggable').on('contextmenu', function(e) {
+        $("#context-menu a.edit").attr("href",
+            "/wp-admin/admin.php?page=stncEditorHarita&show=ok&edit=" + $(
+                this).data('id'))
+        var top = e.pageY - 1;
+        var left = e.pageX - 90;
+        $("#context-menu").css({
+            display: "block",
+            top: top,
+            left: left
+        }).addClass("show");
+        return false; //blocks default Webbrowser right click menu
+    }).on("click", function() {
+
+        $("#context-menu").removeClass("show").hide();
+
+    });
+
+    $("#context-menu a").on("click", function() {
+        $(this).parent().removeClass("show").hide();
+
+    });
+})
 </script>
 
 <!-- <footer class="footer mt-auto py-3 bg-light stnc-footer">
