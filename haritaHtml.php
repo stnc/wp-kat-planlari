@@ -164,7 +164,7 @@
                                 <hr>
 
                                 <div class="form-group">      
-              <input type="hidden"  name="stnc_wp_kiosk_Metabox_video" id="stnc_wp_kiosk_Metabox_video">
+              <input type="hidden"  name="media_id" id="media_id">
               <input id="stnc_wp_kiosk_Metabox_video_extra" class="page_upload_trigger_element button button-primary button-large" name="stnc_wp_kiosk_Metabox_video_extra" type="button" value="Video Yükle / Seç" style="">
         <span class="form_hint">Eğer video Eklenecekse burayı kullanınız, eğer video eklenmişse oncelik video da olacaktır</span>
         <br>

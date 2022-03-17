@@ -35,7 +35,7 @@ jQuery.noConflict();
             wp.media.editor.send.attachment = function (props, attachment) {
                 if (_custom_media) {
 
-                    jQuery("#stnc_wp_kiosk_Metabox_video" ).val(attachment.id);
+                    jQuery("#media_id" ).val(attachment.id);
                     var filename = attachment.url;
                     var file_extension = filename.split('.').pop();//find extension
                     if (file_extension == "jpg" || file_extension == "jpeg" || file_extension == "png" || file_extension == "gif") {
