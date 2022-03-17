@@ -162,12 +162,15 @@
                                     <input type="text" name="address" value="<?php echo $address ?>" class="form-control" id="address">
                                 </div>
                                 <hr>
-                                <div class="form-group">
-                                    <label for="media_id">Resim </label>
-                                    <input type="text" name="media_id" value="<?php echo $media_id ?>" class="form-control" id="media_id">
-                                </div>
-                                <hr>
-                                <br>
+
+                                <div class="form-group">      
+              <input type="hidden"  name="stnc_wp_kiosk_Metabox_video" id="stnc_wp_kiosk_Metabox_video">
+              <input id="stnc_wp_kiosk_Metabox_video_extra" class="page_upload_trigger_element button button-primary button-large" name="stnc_wp_kiosk_Metabox_video_extra" type="button" value="Video Yükle / Seç" style="">
+        <span class="form_hint">Eğer video Eklenecekse burayı kullanınız, eğer video eklenmişse oncelik video da olacaktır</span>
+        <br>
+        <div class="background_attachment_metabox_container"></div>
+        </div>
+
 
                                 <button type="submit" value="Kaydet" class="btn btn-primary">Kaydet</button>
 

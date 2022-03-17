@@ -24,7 +24,7 @@ function stnc_wp_floor_adminMenu_map()
         $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
         $media_id = isset($_POST["media_id"]) ? sanitize_text_field($_POST["media_id"]) : " ";
         include ('haritaHtml.php');
-        die;
+     
     }
 
     if ((isset($_GET['show'])) && ($_GET['show'] === 'ok')) {
@@ -44,7 +44,7 @@ function stnc_wp_floor_adminMenu_map()
         $id =  $thepost->id;
          $media_id =  $thepost->media_id;
         include ('haritaHtml.php');
-        die;
+ 
     }
 
     if ((isset($_POST['kaydet'])) && ($_POST['kaydet'] === 'guncelle')) {
@@ -90,7 +90,7 @@ function stnc_wp_floor_adminMenu_map()
         }
 
        include ('haritaHtml.php');
-       die;
+ 
     }
 
     if ((isset($_POST['kaydet'])) && ($_POST['kaydet'] === 'yeniKaydet')) {
@@ -132,6 +132,6 @@ function stnc_wp_floor_adminMenu_map()
         }
 
         include ('haritaHtml.php');
-        die;
+ 
     }
 }
