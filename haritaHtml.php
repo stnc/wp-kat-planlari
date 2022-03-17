@@ -91,7 +91,7 @@
 
                            <?php if ((isset($_GET['edit'])) ) {
                              $title=' <h5 class="card-title">Firma duzenleme</h5>';
-                             $form='    <form action="/wp-admin/admin.php?page=stncEditorHarita&edit='.$_GET['edit'].'" method="post"> ';
+                             $form='    <form action="/wp-admin/admin.php?page=stncEditorHarita&show=ok&edit='.$_GET['edit'].'" method="post"> ';
                            } else {
                             $form='    <form action="/wp-admin/admin.php?page=stncEditorHarita" method="post"> ';
                            }
@@ -164,9 +164,8 @@
                                 <hr>
 
                                 <div class="form-group">      
-              <input type="hidden"  name="media_id" id="media_id">
+              <input type="hidden"  value="<?php echo $media_id ?>" name="media_id" id="media_id">
               <input id="stnc_wp_kiosk_Metabox_video_extra" class="page_upload_trigger_element button button-primary button-large" name="stnc_wp_kiosk_Metabox_video_extra" type="button" value="Video Yükle / Seç" style="">
-        <span class="form_hint">Eğer video Eklenecekse burayı kullanınız, eğer video eklenmişse oncelik video da olacaktır</span>
         <br>
         <div class="background_attachment_metabox_container"></div>
         </div>

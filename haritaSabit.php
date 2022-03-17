@@ -2,76 +2,47 @@
 function stnc_wp_floor_adminMenu_map_sabit()
 {
     global $wpdb;
+
+    global $wpdb;
+    $stncForm_tableNameMain = $wpdb->prefix . 'stnc_floor_building';
+    $sql = "SELECT * FROM " . $stncForm_tableNameMain . "";
+    $results = $wpdb->get_results($sql);
+    $i = 0;
+    $top = 88;
+
 ?>
     <style>
-        .stnc-header-page #adminmenumain,
-        .stnc-header-page #wpadminbar,
-        .stnc-header-page #adminmenuback,
-        .stnc-header-page #adminmenuwrap,
-        .stnc-header-page #wpfooter {
-            display: none;
-        }
+.dragAbsolute{
+    padding: 3px 7px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    height: 26px;
+    width: 84px;
+    text-align: center;
+}
+.dragAbsoluteSpan1{
+border-radius: 78px;
+    /* padding: 1px; */
+    color: blanchedalmond;
+    background-color: blue;
+    display: inline-block;
+    width: 26px;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+.dragAbsoluteSpan2{
+    border-radius: 78px;
+    padding: 1px;
+    color: #212529;
 
-        #wpcontent {
-            padding-left: 0 !important;
-        }
+    display: block;
+    width: 90px;
 
-        #wpcontent,
-        #wpfooter {
-            margin-left: auto !important;
-        }
-
-        html.wp-toolbar {
-            padding-top: 0 !important;
-        }
-
-
-        #ex-040-stage {
-            /* width: 100%; */
-            position: relative;
-            display: block;
-        }
-
-
-        #ex-040-wall2 {
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .col>.stage-m {
-            margin-bottom: 0;
-        }
-
-        .stage-m-size {
-            width: 1120px;
-            height: 924px;
-
-        }
-
-        .draggable {
-            display: inline-block;
-            /* padding: 1px 4px; */
-            /* font-weight: bold; */
-            /* color: white; */
-            /* background-color: indianred; */
-        }
-
-        .draggable {
-            position: absolute;
-            height: 26px;
-            width: 84px;
-            text-align: center;
-        }
-
-        .stage-m {
-            background-color: #d4d4d4;
-            margin-bottom: 1em;
-        }
-
-        #ex-040-wall2 path {
-            fill: #fff;
-        }
+    margin: 0;
+    padding: 0;
+}
     </style>
 
 
@@ -144,36 +115,15 @@ function stnc_wp_floor_adminMenu_map_sabit()
                             <?php
 
 
-                            global $wpdb;
-                            $stncForm_tableNameMain = $wpdb->prefix . 'stnc_floor_building';
-                            $sql = "SELECT * FROM " . $stncForm_tableNameMain . "";
-                            $results = $wpdb->get_results($sql);
-                            $i = 0;
-                            $top = 88;
+                          
                             foreach ($results as $key => $result) :
                                 $data =  str_replace([" ", '\\'], null, $result->map_location);
                                 $position =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
                             ?>
 
-                                <div data-toggle="tooltip" data-placement="left" title="<?php echo $result->company_name; ?>" style="left:<?php echo  $position["left"] != "" ? $position["left"] - 32 : '0'; ?>px; top:  <?php echo  $position["top"] != "" ? $position["top"] - 77 : '0'; ?>px;" id="ex-<?php echo $result->floor_no; ?>-draggable" data-bs-toggle="tooltip" class="draggable">
-                                    <span style="border-radius: 78px;
-    /* padding: 1px; */
-    color: blanchedalmond;
-    background-color: blue;
-    display: inline-block;
-    width: 26px;
-    float: left;
-    margin: 0;
-    padding: 0;"><?php echo $result->floor_no; ?></span>
-                                    <span style="       border-radius: 78px;
-    padding: 1px;
-    color: #212529;
-
-    display: block;
-    width: 90px;
-
-    margin: 0;
-    padding: 0;"><?php echo $result->square_meters; ?> m2</span>
+                                <div data-toggle="tooltip" data-placement="left" title="<?php echo $result->company_name; ?>" style="left:<?php echo  $position["left"] != "" ? $position["left"] - 32 : '0'; ?>px; top:  <?php echo  $position["top"] != "" ? $position["top"] - 77 : '0'; ?>px;" id="ex-<?php echo $result->floor_no; ?>-draggable" data-bs-toggle="tooltip" class="dragAbsolute">
+                                    <span class="dragAbsoluteSpan1"><?php echo $result->floor_no; ?></span>
+                                    <span class="dragAbsoluteSpan2" ><?php echo $result->square_meters; ?> m2</span>
 
                                 </div>
 
@@ -195,9 +145,29 @@ function stnc_wp_floor_adminMenu_map_sabit()
                 </div><!-- /.col-lg-2 -->
 
                 <div class="col-lg-3">
+                <span class="badge bg-secondary">Firma Listesi</span>
 
-burada firmalarin listesi olacak 
-ayrica css duzelt 
+                <ul class="list-group">
+
+
+  <?php
+  foreach ($results as $key => $result) :
+                                $data =  str_replace([" ", '\\'], null, $result->map_location);
+                                $position =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
+                            ?>
+
+
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                               <span>  <?php echo $result->company_name; ?></span>
+    <span class="badge bg-primary rounded-pill float-start">Bina No: <?php echo $result->floor_no; ?></span>
+    <strong  class="float-start"><a href="/wp-admin/admin.php?page=stncEditorHarita&show=ok&edit=<?php echo $result->id; ?>">E</a></strong>
+  </li>
+
+
+                            <?php endforeach ?>
+
+
+</ul>
 
                 </div><!-- /.col-lg-3 -->
 
