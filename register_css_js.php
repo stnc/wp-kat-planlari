@@ -17,18 +17,10 @@ function stnc_wp_floor_script_in_admin($hook) {
 
 
 
-    // wp_register_script( 'stnc-bootstrap',plugin_dir_url( __FILE__ ) . 'assets/js/bootstrap.bundle.min.js', '',true );
-    // wp_enqueue_script('stnc-bootstrap');   
+    wp_register_script( 'stnc-bootstrap',plugin_dir_url( __FILE__ ) . 'assets/js/bootstrap.bundle.min.js', '',true );
+    wp_enqueue_script('stnc-bootstrap');   
     
 
-
-
-
-    //     wp_enqueue_script('media-upload'); //Provides all the functions needed to upload, validate and give format to files.
-    // wp_enqueue_script('thickbox'); //Responsible for managing the modal window.
-    // wp_enqueue_style('thickbox'); //Provides the styles needed for this window.
-    
-    
 
 
 
