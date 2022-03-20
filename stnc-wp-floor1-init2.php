@@ -38,7 +38,7 @@ include ('stnc-kiosk-ajax.php');//ajax
 // include("pages/onizleme/onizleme.php");//ek 2
 // include("stnc-kiosk-ajax.php");
 
-include ('mockup-liste.php');
+include ('anaSayfa.php');
 include ('harita-editor.php');
 include ('haritaSabit.php');
 

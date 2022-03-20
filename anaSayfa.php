@@ -82,14 +82,7 @@ function stnc_wp_floor_adminMenu_About_contentsTest()
                         <div class="d-flex flex-column h-100  text-white text-center text-shadow-1">
                             <h2 class="pt-5  display-6 lh-1 fw-bold text-center " style="color:#4A3EA5  ;  font-size: 100px;">1. </h2>
                             <h3 class="pt-3 mt-3 lh-1 fw-bold text-center ">Bina </h3>
-                            <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle " href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
-          <ul class="dropdown-menu " aria-labelledby="dropdown01" data-bs-popper="none">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-    </div>
+        
                             <div class="d-flex list-unstyled mt-auto ">
                                 <svg class="bd-placeholder-img rounded-circle mt-auto" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
 
@@ -107,15 +100,23 @@ function stnc_wp_floor_adminMenu_About_contentsTest()
                         </div>
                     </div>
 
-                    <ul>
-                        <li>xxx</li>
-                        <li><select class="form-select form-select-sm" aria-label=".form-select-sm example">
-  <option selected>Katkar</option>
-  <option value="1">Bodrum kat </option>
-  <option value="2">zenin kat </option>
-  <option value="3">1 kat</option>
-</select></li>
-                    </ul>
+
+<br>
+
+<select class="form-select form-select-sm" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
+<option value="">kat  seciniz</option>
+<option value="1kat">1 kat</option>
+<option value="2kat">2 kat</option>
+</select>
+
+<script type="text/javascript">
+  function handleSelect(elm)
+  {
+     window.location = elm.value+".php";
+  }
+</script>
+
+
 
 
                 </div><!-- /.col-lg-2 -->
