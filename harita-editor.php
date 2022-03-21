@@ -59,6 +59,7 @@ function stnc_wp_floor_adminMenu_map()
         $company_description = isset($_POST["company_description"]) ? sanitize_text_field($_POST["company_description"]) : " ";
         $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
         $media_id = isset($_POST["media_id"]) ? sanitize_text_field($_POST["media_id"]) : " ";
+        
         $success =   $wpdb->update(
             $stncForm_tableNameMain,
             array(
