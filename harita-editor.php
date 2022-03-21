@@ -2,8 +2,18 @@
 
 $stncForm_tableNameMain = $wpdb->prefix . 'stnc_floor_building';
 
+    //allow redirection, even if my theme starts to send output to the browser
+    add_action('init', 'do_output_buffer');
+    function do_output_buffer() {
+            ob_start();
+    }
+
+    
 function stnc_wp_floor_adminMenu_map()
 {
+
+
+
     global $wpdb;
     global $stncForm_tableNameMain;
 
@@ -27,7 +37,7 @@ function stnc_wp_floor_adminMenu_map()
     }
 
     if ((isset($_GET['show'])) && ($_GET['show'] === 'ok')) {
-        $thepost = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tableNameMain . "  WHERE id = %d", $_GET['id']));
+        $thepost = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tableNameMain . "  WHERE id = %d", $_GET['edit']));
         //    print_r( $thepost );
         //   $floor_no = isset($_POST["floor_no"]) ? sanitize_text_field($_POST["floor_no"]) : "0";
         $floor_no = $thepost->floor_no;
@@ -47,7 +57,7 @@ function stnc_wp_floor_adminMenu_map()
     }
 
     if ((isset($_POST['kaydet'])) && ($_POST['kaydet'] === 'guncelle')) {
-        $floor_no = isset($_POST["floor_no"]) ? sanitize_text_field($_POST["floor_no"]) : "0";
+        $door_number = isset($_POST["door_number"]) ? sanitize_text_field($_POST["door_number"]) : "0";
         $company_name = isset($_POST["company_name"]) ? sanitize_text_field($_POST["company_name"]) : " isim eklenmemiş";
         $square_meters = isset($_POST["square_meters"]) ? sanitize_text_field($_POST["square_meters"]) : 0;
         $email = isset($_POST["email"]) ? sanitize_text_field($_POST["email"]) : " ";
@@ -64,7 +74,7 @@ function stnc_wp_floor_adminMenu_map()
             array(
                 'building_id' => 1,
                 'floor_id' => 1,
-                'floor_no' =>   $floor_no,
+                'door_number' =>   $door_number,
                 'company_name' => $company_name,
                 'square_meters' => $square_meters,
                 'email' =>   $email,
@@ -81,8 +91,8 @@ function stnc_wp_floor_adminMenu_map()
             array('id' => $_POST['id'])
         );
 
-        //   echo $wpdb->last_query;
-        //   die;
+          echo $wpdb->last_query;
+          die;
 
 
         if ($success) {
@@ -94,23 +104,25 @@ function stnc_wp_floor_adminMenu_map()
     }
 
     if ((isset($_POST['kaydet'])) && ($_POST['kaydet'] === 'yeniKaydet')) {
-        $floor_no = isset($_POST["floor_no"]) ? sanitize_text_field($_POST["floor_no"]) : "0";
+        $door_number = isset($_POST["door_number"]) ? sanitize_text_field($_POST["door_number"]) : "0";
         $company_name = isset($_POST["company_name"]) ? sanitize_text_field($_POST["company_name"]) : " isim eklenmemiş";
         $square_meters = isset($_POST["square_meters"]) ? sanitize_text_field($_POST["square_meters"]) : 0;
         $email = isset($_POST["email"]) ? sanitize_text_field($_POST["email"]) : " ";
         $phone = isset($_POST["phone"]) ? sanitize_text_field($_POST["phone"]) : " ";
         $mobile_phone = isset($_POST["mobile_phone"]) ? sanitize_text_field($_POST["mobile_phone"]) : " ";
         $web_site = isset($_POST["web_site"]) ? sanitize_text_field($_POST["web_site"]) : " ";
-        $map_location = isset($_POST["map_location"]) ? sanitize_text_field($_POST["map_location"]) : '{"left":12,"top":112,"width":82.42500305175781,"height":30,"x":12,"y":112,"right":94.42500305175781,"bottom":142}';
+        $map_location = '{"left":12,"top":112,"width":82.42500305175781,"height":30,"x":12,"y":112,"right":94.42500305175781,"bottom":142}';
         $company_description = isset($_POST["company_description"]) ? sanitize_text_field($_POST["company_description"]) : " ";
         $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
+        $building_id = isset($_GET["binaid"]) ? sanitize_text_field($_GET["binaid"]) : " ";
+        $floor_id = isset($_GET["kat"]) ? sanitize_text_field($_GET["kat"]) : " ";
 
         $success =   $wpdb->insert(
             $stncForm_tableNameMain,
             array(
-                'building_id' => 1,
-                'floor_id' => 1,
-                'floor_no' =>   $floor_no,
+                'building_id' =>   $building_id,
+                'floor_id' =>   $floor_id,
+                'door_number' =>   $door_number,
                 'company_name' => $company_name,
                 'email' =>   $email,
                 'phone' =>   $phone,
@@ -125,13 +137,19 @@ function stnc_wp_floor_adminMenu_map()
             ),
         );
 
+        // echo $wpdb->last_query;
+        // die;
 
 
         if ($success) {
             echo '<h3>Kayıt yapıldı</h3>';
+            $lastid = $wpdb->insert_id;
+            wp_redirect('/wp-admin/admin.php?page=stncEditorHarita&show=ok&edit='. $lastid, 302);
+            die;
         }
 
         include ('haritaHtml.php');
  
     }
+
 }

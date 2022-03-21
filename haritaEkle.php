@@ -62,19 +62,9 @@
                             $title=' <h5 class="card-title">Firma Ekleme</h5>';
                             endif ?>
 
-        <?php if ((isset($_GET['edit'])) ) {
-                             $title=' <h5 class="card-title">Firma duzenleme</h5>';
-                             $form='    <form action="/wp-admin/admin.php?page=stncEditorHarita&show=ok&edit='.$_GET['edit'].'" method="post"> ';
-                           } else {
-                            $form='    <form action="/wp-admin/admin.php?page=stncEditorHarita" method="post"> ';
-                           }
+                  <form action="/wp-admin/admin.php?page=stncEditorHarita&binaid=<?php echo $_GET['binaid'] ?>&kat=<?php echo $_GET['kat'] ?>" method="post">
                          
-                           
-                           
-                           ?>
 
-
-        <?php    echo $form  ?>
         <div class="row">
 
             <div class="col-md-6">
@@ -86,9 +76,9 @@
 
 
                         <div class="form-group">
-                            <label for="floor_no">Bina Numarasi</label>
-                            <input type="number" name="floor_no" value="<?php echo $floor_no ?>" class="form-control"
-                                id="floor_no" min="1" max="50">
+                            <label for="door_number">Kapi  Numarasi</label>
+                            <input type="number" name="door_number" value="<?php echo $door_number ?>" class="form-control"
+                                id="door_number" min="1" max="50">
                             <small id="kat_numarasiHelp" class="form-text text-muted">kat numarasi sayisal
                                 olmalidir</small>
                         </div>
@@ -178,13 +168,10 @@
                         <button type="submit" value="Kaydet" class="btn btn-primary">Kaydet</button>
 
 
-                        <?php
-                                        if ((isset($_GET['edit']))) : ?>
-                        <input type="hidden" name="kaydet" value="guncelle" />
-                        <input type="hidden" name="id" value="<?php echo $id ?>" />
-                        <?php else : ?>
+                    
+                                
                         <input type="hidden" name="kaydet" value="yeniKaydet" />
-                        <?php endif ?>
+                    
 
 
 
@@ -194,7 +181,7 @@
 
         </div>
         
-        <?php    echo "</form> "  ?>
+     </form>
         <?php endif ?>
 
 

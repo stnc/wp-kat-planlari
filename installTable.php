@@ -9,7 +9,7 @@ function stnc_wp_floor_database_install1()
             id INT NOT NULL AUTO_INCREMENT,
             building_id tinyint DEFAULT NULL,
             floor_id tinyint DEFAULT NULL,  
-            floor_no tinyint DEFAULT NULL,
+            door_number tinyint DEFAULT NULL,
             company_name varchar(255) DEFAULT NULL,
             square_meters varchar(255) DEFAULT NULL,
             email varchar(255) DEFAULT NULL,

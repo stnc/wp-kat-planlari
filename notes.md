@@ -1,7 +1,7 @@
 resım ekleyebilme 
 geçmiş kiracılar 
   
-
+haritahtml ye gecince teknokats olunca harita yuklenmeli 
 
     
   //https://wordpress.stackexchange.com/questions/385544/wpdb-update-table 

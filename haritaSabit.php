@@ -87,7 +87,7 @@ border-radius: 78px;
                             <a class="nav-link" href="/wp-admin/admin.php?page=stncFullPage">Tümünü göster</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="/wp-admin/admin.php?page=stncEditorHarita&add=ok&teknoId=<?php echo $_GET['binaid']?>">yeni ekle</a>
+                        <a class="nav-link" href="/wp-admin/admin.php?page=stncEditorHarita&add=ok&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">yeni ekle</a>
 
                         </li>
                         <li class="nav-item">
