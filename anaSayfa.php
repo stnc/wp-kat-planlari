@@ -105,8 +105,12 @@ function stnc_wp_floor_adminMenu_About_contentsTest()
 
 <select class="form-select form-select-sm" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
 <option value="">kat  seciniz</option>
-<option value="1kat">1 kat</option>
-<option value="2kat">2 kat</option>
+<option value="/wp-admin/admin.php?page=stncSabitHarita&id=1&teknoid=1">zemin kat</option>
+<option value="/wp-admin/admin.php?page=stncSabitHarita&id=2&teknoid=1">bodrum kat</option>
+<option value="/wp-admin/admin.php?page=stncSabitHarita&id=3&teknoid=1">1 kat</option>
+<option value="/wp-admin/admin.php?page=stncSabitHarita&id=4&teknoid=1">2 kat</option>
+<option value="/wp-admin/admin.php?page=stncSabitHarita&id=5&teknoid=1">3 kat</option>
+
 </select>
 
 <script type="text/javascript">

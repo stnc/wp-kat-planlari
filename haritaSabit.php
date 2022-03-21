@@ -1,15 +1,17 @@
 <?php
 function stnc_wp_floor_adminMenu_map_sabit()
 {
+    
     global $wpdb;
+    $results = array();
+    if ((isset($_GET['id'])) && is_numeric($_GET['id'])) {
 
-    global $wpdb;
-    $stncForm_tableNameMain = $wpdb->prefix . 'stnc_floor_building';
-    $sql = "SELECT * FROM " . $stncForm_tableNameMain . "";
-    $results = $wpdb->get_results($sql);
-    $i = 0;
-    $top = 88;
-
+        $stncForm_tableNameMain = $wpdb->prefix . 'stnc_floor_building';
+        $sql = "SELECT * FROM " . $stncForm_tableNameMain . "  WHERE id=1";
+        $results = $wpdb->get_results($sql);
+        $i = 0;
+        $top = 88;
+    }
 ?>
     <style>
 .dragAbsolute{
