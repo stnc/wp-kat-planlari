@@ -3,15 +3,36 @@ function stnc_wp_floor_adminMenu_map_sabit()
 {
     
     global $wpdb;
+
+
+    $stncForm_tekno_kats ='tekno_kats';
+$map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,kat.tekno_id,kat.scheme,bina.id
+ AS bina_id,kat.id AS katid  FROM tekno_kats AS kat INNER JOIN teknos  AS bina  ON  bina.id=%d AND kat.id = %d", $_GET['binaid'],$_GET['kat']));
+        //    print_r( $thepost );
+        //   $floor_no = isset($_POST["floor_no"]) ? sanitize_text_field($_POST["floor_no"]) : "0";
+        $scheme = $map->scheme;
+        $binaName = $map->bina;
+        $kat_adi = $map->kat_adi;
+
+
+
     $results = array();
     if ((isset($_GET['id'])) && is_numeric($_GET['id'])) {
 
         $stncForm_tableNameMain = $wpdb->prefix . 'stnc_floor_building';
-        $sql = "SELECT * FROM " . $stncForm_tableNameMain . "  WHERE id=1";
+        $sql = "SELECT * FROM " . $stncForm_tableNameMain . "  WHERE id=".$_GET['id'];
         $results = $wpdb->get_results($sql);
         $i = 0;
         $top = 88;
     }
+
+
+//             for ($i=0;$i<=10;$i++)
+//             {
+//                 echo $i;
+//                 echo '<br>';
+//             }
+// die;
 ?>
     <style>
 .dragAbsolute{
@@ -63,10 +84,10 @@ border-radius: 78px;
                             <a class="nav-link active" aria-current="page" href="/wp-admin">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Notifications</a>
+                            <a class="nav-link" href="/wp-admin/admin.php?page=stncFullPage">Tümünü göster</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="/wp-admin/admin.php?page=stncEditorHarita&add=ok">editor</a>
+                        <a class="nav-link" href="/wp-admin/admin.php?page=stncEditorHarita&add=ok&teknoId=<?php echo $_GET['binaid']?>">yeni ekle</a>
 
                         </li>
                         <li class="nav-item">
@@ -100,7 +121,7 @@ border-radius: 78px;
 
             <div class="row">
 
-
+<h3><?php echo $binaName ?> / <?php echo $kat_adi ?></h3>
 
 
 
@@ -112,7 +133,8 @@ border-radius: 78px;
 
                         <div id="ex-040-wall1">
 
-                            <img class="img-fluid-" src="<?php echo plugin_dir_url(__FILE__) . 'assets/map.jpg' ?>" alt="">
+
+                          <img class="img-fluid-" src="<?php echo plugin_dir_url(__FILE__) . 'assets/teknokat/'.   $scheme  ?>" alt="">
 
                             <?php
 
@@ -152,18 +174,18 @@ border-radius: 78px;
                 <ul class="list-group">
 
 
-  <?php
-  foreach ($results as $key => $result) :
-                                $data =  str_replace([" ", '\\'], null, $result->map_location);
-                                $position =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
+                          <?php
+                              foreach ($results as $key => $result) :
+                                   $data =  str_replace([" ", '\\'], null, $result->map_location);
+                                   $position =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
                             ?>
 
 
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                               <span>  <?php echo $result->company_name; ?></span>
-    <span class="badge bg-primary rounded-pill float-start">Bina No: <?php echo $result->floor_no; ?></span>
-    <strong  class="float-start"><a href="/wp-admin/admin.php?page=stncEditorHarita&show=ok&edit=<?php echo $result->id; ?>">E</a></strong>
-  </li>
+                                  <span>  <?php echo $result->company_name; ?></span>
+                                  <span class="badge bg-primary rounded-pill float-start">Bina No: <?php echo $result->floor_no; ?></span>
+                                   <strong  class="float-start"><a href="/wp-admin/admin.php?page=stncEditorHarita&show=ok&edit=<?php echo $result->id; ?>">E</a></strong>
+                                </li>
 
 
                             <?php endforeach ?>

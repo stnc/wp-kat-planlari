@@ -34,7 +34,7 @@ function stnc_wp_floor_adminMenu_About_contentsTest()
                 <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/wp-admin">Dashboard</a>
+                            <a class="nav-link active" aria-current="page" href="/wp-admin/admin.php?page=stncFullPage">Dashboard</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Notifications</a>
@@ -105,18 +105,19 @@ function stnc_wp_floor_adminMenu_About_contentsTest()
 
 <select class="form-select form-select-sm" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
 <option value="">kat  seciniz</option>
-<option value="/wp-admin/admin.php?page=stncSabitHarita&id=1&teknoid=1">zemin kat</option>
-<option value="/wp-admin/admin.php?page=stncSabitHarita&id=2&teknoid=1">bodrum kat</option>
-<option value="/wp-admin/admin.php?page=stncSabitHarita&id=3&teknoid=1">1 kat</option>
-<option value="/wp-admin/admin.php?page=stncSabitHarita&id=4&teknoid=1">2 kat</option>
-<option value="/wp-admin/admin.php?page=stncSabitHarita&id=5&teknoid=1">3 kat</option>
+<option value="/wp-admin/admin.php?page=stncSabitHarita&binaid=1&kat=1">bodrum kat</option>
+<option value="/wp-admin/admin.php?page=stncSabitHarita&binaid=1&kat=2">zemin kat</option>
+<option value="/wp-admin/admin.php?page=stncSabitHarita&binaid=1&kat=3">1 kat</option>
+<option value="/wp-admin/admin.php?page=stncSabitHarita&binaid=1&kat=4">2 kat</option>
+<option value="/wp-admin/admin.php?page=stncSabitHarita&binaid=1&kat=5">3 kat</option>
+<option value="/wp-admin/admin.php?page=stncSabitHarita&binaid=1&kat=6">4 kat</option>
 
 </select>
 
 <script type="text/javascript">
   function handleSelect(elm)
   {
-     window.location = elm.value+".php";
+     window.location = elm.value;
   }
 </script>
 
