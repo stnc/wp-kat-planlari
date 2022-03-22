@@ -3,6 +3,12 @@ geçmiş kiracılar
   
 haritahtml ye gecince teknokats olunca harita yuklenmeli 
 
+
+v
+
+https://chandranrahul.wordpress.com/2018/01/03/session-based-flash-messages-in-wordpress/
+
+
     
   //https://wordpress.stackexchange.com/questions/385544/wpdb-update-table 
   //https://www.codegrepper.com/code-examples/php/frameworks/wordpress/wpdb+update+query+in+wordpress

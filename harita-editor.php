@@ -11,6 +11,7 @@ $stncForm_tableNameMain = $wpdb->prefix . 'stnc_floor_building';
     
 function stnc_wp_floor_adminMenu_map()
 {
+    //  map_view_stnc
 
 
 
@@ -37,22 +38,22 @@ function stnc_wp_floor_adminMenu_map()
     }
 
     if ((isset($_GET['show'])) && ($_GET['show'] === 'ok')) {
-        $thepost = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tableNameMain . "  WHERE id = %d", $_GET['id']));
-        //    print_r( $thepost );
-        //   $floor_no = isset($_POST["floor_no"]) ? sanitize_text_field($_POST["floor_no"]) : "0";
-        $floor_no = $thepost->floor_no;
-        $company_name = $thepost->company_name;
-        $square_meters = $thepost->square_meters;
-        $email =  $thepost->email;
-        $phone = $thepost->phone;
-        $mobile_phone = $thepost->mobile_phone;
-        $web_site = $thepost->web_site;
-        $map_location = $thepost->map_location;
-        $company_description =  $thepost->company_description;
-        $address =  $thepost->address;
-        $id =  $thepost->id;
-         $media_id =  $thepost->media_id;
-        include ('haritaHtml.php');
+        // $thepost = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tableNameMain . "  WHERE id = %d", $_GET['id']));
+
+        // $door_number = $thepost->door_number;
+        // $company_name = $thepost->company_name;
+        // $square_meters = $thepost->square_meters;
+        // $email =  $thepost->email;
+        // $phone = $thepost->phone;
+        // $mobile_phone = $thepost->mobile_phone;
+        // $web_site = $thepost->web_site;
+        // $map_location = $thepost->map_location;
+        // $company_description =  $thepost->company_description;
+        // $address =  $thepost->address;
+        // $id =  $thepost->id;
+        //  $media_id =  $thepost->media_id;
+        include ('map/map_draggrable-map-editor.php');
+        // include ('haritaHtml.php');
  
     }
 
@@ -103,7 +104,7 @@ function stnc_wp_floor_adminMenu_map()
  
     }
 
-    if ((isset($_POST['kaydet'])) && ($_POST['kaydet'] === 'yeniKaydet')) {
+    if ((isset($_GET['kaydet'])) && ($_GET['kaydet'] === 'yeniKaydet')) {
         $door_number = isset($_POST["door_number"]) ? sanitize_text_field($_POST["door_number"]) : "0";
         $company_name = isset($_POST["company_name"]) ? sanitize_text_field($_POST["company_name"]) : " isim eklenmemiş";
         $square_meters = isset($_POST["square_meters"]) ? sanitize_text_field($_POST["square_meters"]) : 0;

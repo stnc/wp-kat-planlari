@@ -40,7 +40,7 @@ include ('stnc-kiosk-ajax.php');//ajax
 
 include ('anaSayfa.php');
 include ('harita-editor.php');
-include ('map/map-show.php');
+include ('map/map_view.php');
 
 require_once "helper.php";
 require_once "list_table.php";
