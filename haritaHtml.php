@@ -1,6 +1,6 @@
 <?php 
-$stncForm_tekno_kats = $wpdb->prefix . 'tekno_kats';
-$map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tekno_kats . "  WHERE id = %d", $_GET['teknoid']));
+$stncForm_tekno_kats ='tekno_kats';
+$map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tekno_kats . "  WHERE id = %d", $_GET['id']));
         //    print_r( $thepost );
         //   $floor_no = isset($_POST["floor_no"]) ? sanitize_text_field($_POST["floor_no"]) : "0";
         $scheme = $map->scheme;
@@ -26,10 +26,10 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tekno_kats . 
                         <a class="nav-link" href="#">Notifications</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/wp-admin/admin.php?page=stncEditorHarita&add=ok">editor</a>
+                        <a class="nav-link" href="/wp-admin/admin.php?page=map_editor_stnc&add=ok">editor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/wp-admin/admin.php?page=stncSabitHarita">sabit harita</a>
+                        <a class="nav-link" href="/wp-admin/admin.php?page=map_view_stnc">sabit harita</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
@@ -101,16 +101,16 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tekno_kats . 
 
 
                     <?php 
-                        //   $form='<form action="/wp-admin/admin.php?page=stncEditorHarita" method="post"> ';
+                        //   $form='<form action="/wp-admin/admin.php?page=map_editor_stnc" method="post"> ';
                          if ((isset($_GET['add']))  ) : 
                             $title=' <h5 class="card-title">Firma Ekleme</h5>';
                             endif ?>
 
                     <?php if ((isset($_GET['edit'])) ) {
                              $title=' <h5 class="card-title">Firma duzenleme</h5>';
-                             $form='    <form action="/wp-admin/admin.php?page=stncEditorHarita&show=ok&edit='.$_GET['edit'].'" method="post"> ';
+                             $form='    <form action="/wp-admin/admin.php?page=map_editor_stnc&show=ok&edit='.$_GET['edit'].'" method="post"> ';
                            } else {
-                            $form='    <form action="/wp-admin/admin.php?page=stncEditorHarita" method="post"> ';
+                            $form='    <form action="/wp-admin/admin.php?page=map_editor_stnc" method="post"> ';
                            }
                          
                            
@@ -226,7 +226,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tekno_kats . 
             <?php endif ?>
 
 
-            
+
         </div>
     </div>
 
@@ -339,7 +339,7 @@ var editId = 0;
 jQuery(document).ready(function($) {
     $('.draggable').on('contextmenu', function(e) {
         $("#context-menu a.edit").attr("href",
-            "/wp-admin/admin.php?page=stncEditorHarita&show=ok&edit=" + $(
+            "/wp-admin/admin.php?page=map_editor_stnc&show=ok&edit=" + $(
                 this).data('id'))
         var top = e.pageY - 1;
         var left = e.pageX - 90;

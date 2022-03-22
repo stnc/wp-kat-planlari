@@ -41,18 +41,18 @@ function stnc_wp_floor_map_script_in_admin($hook) {
 
 
 
-if ((isset($_GET['page'])) && ($_GET['page'] === 'stncFullPage')) {
+if ((isset($_GET['page'])) && ($_GET['page'] === 'map_homepage_stnc')) {
     stnc_wp_floor_all_scritps();
 }
 
-if ((isset($_GET['page'])) && ($_GET['page'] === 'stncEditorHarita')) {
+if ((isset($_GET['page'])) && ($_GET['page'] === 'map_editor_stnc')) {
 
     stnc_wp_floor_all_scritps();
     add_action('admin_enqueue_scripts', 'stnc_wp_floor_map_script_in_admin');
    
 }
 
-if ((isset($_GET['page'])) && ($_GET['page'] === 'stncSabitHarita')) {  
+if ((isset($_GET['page'])) && ($_GET['page'] === 'map_view_stnc')) {  
 
     stnc_wp_floor_all_scritps();
     add_action('admin_enqueue_scripts', 'stnc_wp_floor_map_script_in_admin');

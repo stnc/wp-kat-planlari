@@ -37,7 +37,7 @@ function stnc_wp_floor_adminMenu_map()
     }
 
     if ((isset($_GET['show'])) && ($_GET['show'] === 'ok')) {
-        $thepost = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tableNameMain . "  WHERE id = %d", $_GET['edit']));
+        $thepost = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tableNameMain . "  WHERE id = %d", $_GET['id']));
         //    print_r( $thepost );
         //   $floor_no = isset($_POST["floor_no"]) ? sanitize_text_field($_POST["floor_no"]) : "0";
         $floor_no = $thepost->floor_no;
@@ -144,7 +144,7 @@ function stnc_wp_floor_adminMenu_map()
         if ($success) {
             echo '<h3>Kayıt yapıldı</h3>';
             $lastid = $wpdb->insert_id;
-            wp_redirect('/wp-admin/admin.php?page=stncEditorHarita&show=ok&edit='. $lastid, 302);
+            wp_redirect('/wp-admin/admin.php?page=map_editor_stnc&binaid='.$building_id.'&kat='. $floor_id.'&show=ok&id='. $lastid, 302);
             die;
         }
 

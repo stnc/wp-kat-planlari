@@ -13,7 +13,7 @@ function stncForm_enqueue_style3()
     
 }
 
-if ((isset($_GET['page'])) && ($_GET['page'] === 'stncFullPage')) {
+if ((isset($_GET['page'])) && ($_GET['page'] === 'map_homepage_stnc')) {
 add_action('admin_enqueue_scripts', 'stncForm_enqueue_style3');
 add_action('admin_enqueue_scripts', 'custom_script_in_admin');
 }
@@ -34,7 +34,7 @@ function custom_script_in_admin($hook) {
 
 
  function admin_body_class( $classes = '' ) {
-    $onboarding_class = isset( $_GET['page'] ) && 'stncFullPage' === $_GET['page'] ? 'stnc-header-page' : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+    $onboarding_class = isset( $_GET['page'] ) && 'map_homepage_stnc' === $_GET['page'] ? 'stnc-header-page' : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
     $classes .= ' ' . $onboarding_class . ' ';
 
     return $classes;
@@ -75,7 +75,7 @@ add_filter('manage_staff_posts_custom_column', 'CHfw_manage_img_column', 10, 2);
 
 
 
-if (isset( $_GET['page'] ) && 'stncFullPage' === $_GET['page'] ){
+if (isset( $_GET['page'] ) && 'map_homepage_stnc' === $_GET['page'] ){
 
     add_action('admin_notices', function () {
       echo 'My notice';
@@ -109,12 +109,12 @@ add_action('admin_menu', 'StncMainMenu');
 function StncMainMenu(){
 //     add_menu_page('Erciyes Teknopark Başvuruları','Teknopark Form', 'manage_options', 'stncTekForm', 'tt_render_list_page','dashicons-networking'); ////burası main menuyu ekler yani üst ksıım 
 //  //   add_submenu_page( 'stncTekForm', 'Ayarlar', 'Ayarlar', 'manage_options', 'stGnlolOptions', 'stncForm_adminMenu_About_contents' ); ////burası alt kısım onun altında olacak olan bolum için 
-//  add_submenu_page( "stncTekForm", 'Kat', 'Ayarlar', 'manage_options', 'stncFullPage', 'stncForm_adminMenu_About_contentsTest' ); ////burası alt kısım onun altında olacak olan bolum için 
+//  add_submenu_page( "stncTekForm", 'Kat', 'Ayarlar', 'manage_options', 'map_homepage_stnc', 'stncForm_adminMenu_About_contentsTest' ); ////burası alt kısım onun altında olacak olan bolum için 
 
 
 
- add_menu_page('Erciyes Teknopark Başvuruları','Teknopark KAtlar', 'manage_options', 'stncFullPage', 'stncForm_adminMenu_About_contentsTest','dashicons-networking'); ////burası main menuyu ekler yani üst ksıım 
+ add_menu_page('Erciyes Teknopark Başvuruları','Teknopark KAtlar', 'manage_options', 'map_homepage_stnc', 'stncForm_adminMenu_About_contentsTest','dashicons-networking'); ////burası main menuyu ekler yani üst ksıım 
  //   add_submenu_page( 'stncTekForm', 'Ayarlar', 'Ayarlar', 'manage_options', 'stGnlolOptions', 'stncForm_adminMenu_About_contents' ); ////burası alt kısım onun altında olacak olan bolum için 
- add_submenu_page( "stncFullPage", 'Kat', 'Ayarlar', 'manage_options', 'stncTekForm', 'tt_render_list_page' ); ////burası alt kısım onun altında olacak olan bolum için 
+ add_submenu_page( "map_homepage_stnc", 'Kat', 'Ayarlar', 'manage_options', 'stncTekForm', 'tt_render_list_page' ); ////burası alt kısım onun altında olacak olan bolum için 
 
 }

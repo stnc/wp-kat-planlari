@@ -15,16 +15,16 @@
                         <a class="nav-link active" aria-current="page" href="/wp-admin">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/wp-admin/admin.php?page=stncFullPage">Tümünü göster</a>
+                        <a class="nav-link" href="/wp-admin/admin.php?page=map_homepage_stnc">Tümünü göster</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link"
-                            href="/wp-admin/admin.php?page=stncEditorHarita&add=ok&teknoId=<?php echo $_GET['binaid']?>">yeni
+                            href="/wp-admin/admin.php?page=map_editor_stnc&add=ok&teknoId=<?php echo $_GET['binaid']?>">yeni
                             ekle</a>
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/wp-admin/admin.php?page=stncSabitHarita">sabit harita</a>
+                        <a class="nav-link" href="/wp-admin/admin.php?page=map_view_stnc">sabit harita</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
@@ -57,12 +57,12 @@
 
         <?php if ((isset($_GET['edit'])) || (isset($_GET['add']))  ) : ?>
         <?php 
-                        //   $form='<form action="/wp-admin/admin.php?page=stncEditorHarita" method="post"> ';
+                        //   $form='<form action="/wp-admin/admin.php?page=map_editor_stnc" method="post"> ';
                          if ((isset($_GET['add']))  ) : 
                             $title=' <h5 class="card-title">Firma Ekleme</h5>';
                             endif ?>
 
-                  <form action="/wp-admin/admin.php?page=stncEditorHarita&binaid=<?php echo $_GET['binaid'] ?>&kat=<?php echo $_GET['kat'] ?>" method="post">
+                  <form action="/wp-admin/admin.php?page=map_editor_stnc&binaid=<?php echo $_GET['binaid'] ?>&kat=<?php echo $_GET['kat'] ?>" method="post">
                          
 
         <div class="row">

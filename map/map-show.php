@@ -1,30 +1,31 @@
 <?php
-function stnc_wp_floor_adminMenu_map_sabit()
+function stnc_wp_floor_adminMenu_map_view_stnc()
 {
     
     global $wpdb;
-
+$binaId=$_GET['binaid'];
+$katId=$_GET['kat'];
 
     $stncForm_tekno_kats ='tekno_kats';
 $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,kat.tekno_id,kat.scheme,bina.id
- AS bina_id,kat.id AS katid  FROM tekno_kats AS kat INNER JOIN teknos  AS bina  ON  bina.id=%d AND kat.id = %d", $_GET['binaid'],$_GET['kat']));
+ AS bina_id,kat.id AS katid  FROM tekno_kats AS kat INNER JOIN teknos  AS bina  ON  bina.id=%d AND kat.id = %d", $binaId,$katId));
         //    print_r( $thepost );
-        //   $floor_no = isset($_POST["floor_no"]) ? sanitize_text_field($_POST["floor_no"]) : "0";
-        $scheme = $map->scheme;
-        $binaName = $map->bina;
-        $kat_adi = $map->kat_adi;
+        //   $door_number = isset($_POST["door_number"]) ? sanitize_text_field($_POST["door_number"]) : "0";
+         $scheme = $map->scheme;
+    
+         $binaName = $map->bina;
+    
+         $kat_adi = $map->kat_adi;
 
 
-
-    $results = array();
-    if ((isset($_GET['id'])) && is_numeric($_GET['id'])) {
-
+       $results = array();
         $stncForm_tableNameMain = $wpdb->prefix . 'stnc_floor_building';
-        $sql = "SELECT * FROM " . $stncForm_tableNameMain . "  WHERE id=".$_GET['id'];
+         $sql = "SELECT * FROM " . $stncForm_tableNameMain . ' WHERE building_id='.$binaId.' and  floor_id='.$katId.'';
+   
         $results = $wpdb->get_results($sql);
         $i = 0;
         $top = 88;
-    }
+    
 
 
 //             for ($i=0;$i<=10;$i++)
@@ -74,7 +75,7 @@ border-radius: 78px;
         <!-- Fixed navbar -->
         <nav class="navbar navbar-expand-md navbar-secondary fixed-top bg-secondary">
             <div class="container-fluid">
-                <img class="d-block mx-auto mb-1" src="<?php echo plugins_url('assets/images/erciyes-logo.svg', __FILE__) ?>" alt="" width="100" height="50">
+                <img class="d-block mx-auto mb-1" src="<?php echo plugins_url('../assets/images/erciyes-logo.svg', __FILE__) ?>" alt="" width="100" height="50">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -84,14 +85,14 @@ border-radius: 78px;
                             <a class="nav-link active" aria-current="page" href="/wp-admin">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/wp-admin/admin.php?page=stncFullPage">Tümünü göster</a>
+                            <a class="nav-link" href="/wp-admin/admin.php?page=map_homepage_stnc">Tümünü göster</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="/wp-admin/admin.php?page=stncEditorHarita&add=ok&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">yeni ekle</a>
+                        <a class="nav-link" href="/wp-admin/admin.php?page=map_editor_stnc&add=ok&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">yeni ekle</a>
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/wp-admin/admin.php?page=stncSabitHarita">sabit harita</a>
+                            <a class="nav-link" href="/wp-admin/admin.php?page=map_view_stnc">sabit harita</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
@@ -134,7 +135,7 @@ border-radius: 78px;
                         <div id="ex-040-wall1">
 
 
-                          <img class="img-fluid-" src="<?php echo plugin_dir_url(__FILE__) . 'assets/teknokat/'.   $scheme  ?>" alt="">
+                          <img class="img-fluid-" src="<?php echo plugin_dir_url(__FILE__) . '../assets/teknokat/'.   $scheme  ?>" alt="">
 
                             <?php
 
@@ -145,8 +146,8 @@ border-radius: 78px;
                                 $position =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
                             ?>
 
-                                <div data-toggle="tooltip" data-placement="left" title="<?php echo $result->company_name; ?>" style="left:<?php echo  $position["left"] != "" ? $position["left"] - 32 : '0'; ?>px; top:  <?php echo  $position["top"] != "" ? $position["top"] - 77 : '0'; ?>px;" id="ex-<?php echo $result->floor_no; ?>-draggable" data-bs-toggle="tooltip" class="dragAbsolute">
-                                    <span class="dragAbsoluteSpan1"><?php echo $result->floor_no; ?></span>
+                                <div data-toggle="tooltip" data-placement="left" title="<?php echo $result->company_name; ?>" style="left:<?php echo  $position["left"] != "" ? $position["left"] - 32 : '0'; ?>px; top:  <?php echo  $position["top"] != "" ? $position["top"] - 77 : '0'; ?>px;" id="ex-<?php echo $result->door_number; ?>-draggable" data-bs-toggle="tooltip" class="dragAbsolute">
+                                    <span class="dragAbsoluteSpan1"><?php echo $result->door_number; ?></span>
                                     <span class="dragAbsoluteSpan2" ><?php echo $result->square_meters; ?> m2</span>
 
                                 </div>
@@ -183,8 +184,8 @@ border-radius: 78px;
 
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                   <span>  <?php echo $result->company_name; ?></span>
-                                  <span class="badge bg-primary rounded-pill float-start">Bina No: <?php echo $result->floor_no; ?></span>
-                                   <strong  class="float-start"><a href="/wp-admin/admin.php?page=stncEditorHarita&show=ok&edit=<?php echo $result->id; ?>">E</a></strong>
+                                  <span class="badge bg-primary rounded-pill float-start">Bina No: <?php echo $result->door_number; ?></span>
+                                   <strong  class="float-start"><a href="/wp-admin/admin.php?page=map_editor_stnc&show=ok&edit=<?php echo $result->id; ?>">E</a></strong>
                                 </li>
 
 
