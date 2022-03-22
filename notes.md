@@ -2,7 +2,7 @@ resım ekleyebilme
 geçmiş kiracılar 
   
 haritahtml ye gecince teknokats olunca harita yuklenmeli 
-
+https://www.jquery-az.com/bootstrap-tooltip-simple-and-customized-tooltips-demos/
 
 v
 

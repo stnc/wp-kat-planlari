@@ -6,20 +6,21 @@ function stnc_wp_floor_adminMenu_map_view_stnc()
 $binaId=$_GET['binaid'];
 $katId=$_GET['kat'];
 
-    $stncForm_tekno_kats ='tekno_kats';
-$map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,kat.tekno_id,kat.scheme,bina.id
- AS bina_id,kat.id AS katid  FROM tekno_kats AS kat INNER JOIN teknos  AS bina  ON  bina.id=%d AND kat.id = %d", $binaId,$katId));
+$wp_stnc_map_floors =$wpdb->prefix . 'stnc_map_floors';
+$wp_stnc_map_building =$wpdb->prefix . 'stnc_map_building';
+    $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,kat.tekno_id,kat.scheme,bina.id
+    AS bina_id,kat.id AS katid  FROM ".   $wp_stnc_map_floors." AS kat INNER JOIN ".$wp_stnc_map_building."  AS bina  ON  bina.id=%d AND kat.id = %d", $binaId,$katId));
         //    print_r( $thepost );
         //   $door_number = isset($_POST["door_number"]) ? sanitize_text_field($_POST["door_number"]) : "0";
          $scheme = $map->scheme;
-    
+        
          $binaName = $map->bina;
     
          $kat_adi = $map->kat_adi;
 
 
        $results = array();
-        $stncForm_tableNameMain = $wpdb->prefix . 'stnc_floor_building';
+        $stncForm_tableNameMain = $wpdb->prefix . 'stnc_map_floors_locations';
           $sql = "SELECT * FROM " . $stncForm_tableNameMain . ' WHERE building_id='.$binaId.' and  floor_id='.$katId.'';
    
         $results = $wpdb->get_results($sql);

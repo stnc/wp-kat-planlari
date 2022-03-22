@@ -15,7 +15,7 @@ function stnc_wp_floor_stncStatus_ajax_request() {
 
  $jsonText =$_POST['location'];
 
- $stncForm_tableNameMain = $wpdb->prefix . 'stnc_floor_building';
+ $stncForm_tableNameMain = $wpdb->prefix . 'stnc_map_floors_locations';
 
    $wpdb->update( $stncForm_tableNameMain, array('map_location'=>$jsonText), array('id'=>$id));
 

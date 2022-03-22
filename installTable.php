@@ -2,8 +2,9 @@
 
 function stnc_wp_floor_database_install1()
 {
-    global $wpdb;
-    $stncForm_tableNameMain = 'stnc_floor_building';
+    global $wpdb; //wp_stnc_map_floors
+    $stncForm_tableNameMain = 'stnc_map_floors_locations';
+    
     $charset_collate = $wpdb->get_charset_collate();
      $sql = "CREATE TABLE IF NOT EXISTS  " . $wpdb->prefix . $stncForm_tableNameMain . " (
             id INT NOT NULL AUTO_INCREMENT,
@@ -15,7 +16,6 @@ function stnc_wp_floor_database_install1()
             email varchar(255) DEFAULT NULL,
             phone varchar(255) DEFAULT NULL,
             mobile_phone varchar(255) DEFAULT NULL,
-     
             web_site varchar(255) DEFAULT NULL,
             map_location varchar(255) DEFAULT NULL,
             company_description TEXT DEFAULT NULL,
@@ -26,6 +26,21 @@ function stnc_wp_floor_database_install1()
         ) $charset_collate;";
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
      dbDelta($sql);
+
+     $stncForm_tableNameMain = 'stnc_map_building';
+     $charset_collate = $wpdb->get_charset_collate();
+      $sql = "CREATE TABLE IF NOT EXISTS  " . $wpdb->prefix . $stncForm_tableNameMain . " (
+             id INT NOT NULL AUTO_INCREMENT,
+             name varchar(255) DEFAULT NULL,
+             global_capacity INT(10) UNSIGNED NOT NULL,
+             total_office INT(10) UNSIGNED NOT NULL,
+             created_at TIMESTAMP NULL DEFAULT NULL,
+             updated_at TIMESTAMP NULL DEFAULT NULL,
+             PRIMARY KEY  (id)
+         ) $charset_collate;";
+         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+      dbDelta($sql);
+
     // echo $wpdb->last_error;
 }
 

@@ -1,7 +1,5 @@
 <?php
 
-$stncForm_tableNameMain = $wpdb->prefix . 'stnc_floor_building';
-
     //allow redirection, even if my theme starts to send output to the browser
     add_action('init', 'do_output_buffer');
     function do_output_buffer() {
@@ -57,7 +55,7 @@ function stnc_wp_floor_adminMenu_map()
  
     }
 
-    if ((isset($_POST['kaydet'])) && ($_POST['kaydet'] === 'guncelle')) {
+    if ((isset($_GET['kaydet'])) && ($_GET['kaydet'] === 'guncelle')) {
         $door_number = isset($_POST["door_number"]) ? sanitize_text_field($_POST["door_number"]) : "0";
         $company_name = isset($_POST["company_name"]) ? sanitize_text_field($_POST["company_name"]) : " isim eklenmemiş";
         $square_meters = isset($_POST["square_meters"]) ? sanitize_text_field($_POST["square_meters"]) : 0;

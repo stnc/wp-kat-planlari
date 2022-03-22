@@ -1,6 +1,6 @@
 <?php 
-$stncForm_tekno_kats = $wpdb->prefix . 'tekno_kats';
-$map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tekno_kats . "  WHERE id = %d", $_GET['teknoid']));
+$stncForm_wp_stnc_map_floors = $wpdb->prefix . 'stnc_map_floors';
+$map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_wp_stnc_map_floors . "  WHERE id = %d", $_GET['teknoid']));
         //    print_r( $thepost );
         //   $floor_no = isset($_POST["floor_no"]) ? sanitize_text_field($_POST["floor_no"]) : "0";
         $scheme = $map->scheme;
