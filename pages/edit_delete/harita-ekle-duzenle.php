@@ -16,6 +16,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
     
          $kat_adi = $map->kat_adi;
 
+      
          $title ="Ekleme";
          $form = '<form action="/wp-admin/admin.php?page=map_editor_stnc&st_trigger=add_save&binaid='. $_GET['binaid'] .'&kat='. $_GET['kat'] .'" method="post">';
 
@@ -194,7 +195,11 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                         name="stnc_wp_kiosk_Metabox_video_extra" type="button" value="Resim Yükle / Seç" style="">
                     <br>
                     <br>
-                    <div class="background_attachment_metabox_container"></div>
+                   <?php  if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) :  ?>
+                    <div class="background_attachment_metabox_container">  <img src=" <?php echo $image[0]; ?> " alt="">  </div>
+                    <?php else : ?>
+                    <div class="background_attachment_metabox_container">  </div>
+                    <?php endif ; ?>
                 </div>
                 <br>
                     <div class="form-group">

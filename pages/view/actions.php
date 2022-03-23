@@ -20,7 +20,7 @@
          $binaName = $map->bina;
     // echo '<br>';
      $kat_adi = $map->kat_adi;
-     
+
 
        $results = array();
         $stncForm_tableNameMain = $wpdb->prefix . 'stnc_map_floors_locations';

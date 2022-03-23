@@ -27,8 +27,10 @@ function stnc_wp_floor_adminMenu_map_editor()
         $company_description =  $thepost->company_description;
         $address =  $thepost->address;
         $id =  $thepost->id;
-        $media_id =  $thepost->media_id;
-
+          $media_id =  $thepost->media_id;
+    
+         $image = wp_get_attachment_image_src(    $media_id  ,'thumbnail' );
+    
         include ('harita-ekle-duzenle.php');
     }
 
@@ -47,6 +49,7 @@ function stnc_wp_floor_adminMenu_map_editor()
         $media_id = isset($_POST["media_id"]) ? sanitize_text_field($_POST["media_id"]) : " ";
         $building_id = isset($_GET["binaid"]) ? sanitize_text_field($_GET["binaid"]) : " ";
         $floor_id = isset($_GET["kat"]) ? sanitize_text_field($_GET["kat"]) : " ";
+        $media_id = isset($_POST["media_id"]) ? sanitize_text_field($_POST["media_id"]) : 0;
         $success =   $wpdb->update(
             $stncForm_tableNameMain,
             array(
@@ -63,7 +66,7 @@ function stnc_wp_floor_adminMenu_map_editor()
 
                 'company_description' =>   $company_description,
                 'address' =>   $address,
-                'media_id' =>   1,
+                'media_id' =>    $media_id,
                 'add_date' =>   $date,
             ),
             array('id' => $_GET['id'])
@@ -110,6 +113,7 @@ function stnc_wp_floor_adminMenu_map_editor()
         $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
         $building_id = isset($_GET["binaid"]) ? sanitize_text_field($_GET["binaid"]) : " ";
         $floor_id = isset($_GET["kat"]) ? sanitize_text_field($_GET["kat"]) : " ";
+        $media_id = isset($_POST["media_id"]) ? sanitize_text_field($_POST["media_id"]) : 0;
 
         $success =   $wpdb->insert(
             $stncForm_tableNameMain,
@@ -126,7 +130,7 @@ function stnc_wp_floor_adminMenu_map_editor()
                 'map_location' =>   $map_location,
                 'company_description' =>   $company_description,
                 'address' =>   $address,
-                'media_id' =>   1,
+                'media_id' =>      $media_id ,
                 'add_date' =>   $date,
             ),
         );
