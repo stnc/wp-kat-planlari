@@ -38,7 +38,7 @@ include ('stnc-kiosk-ajax.php');//ajax
 
 
 
-include ('anaSayfa.php');
+include ('01-home.php');
 
 include ('pages/edit_delete/actions.php');
 include ('pages/view/actions.php');
