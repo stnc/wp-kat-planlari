@@ -14,9 +14,6 @@ function stnc_wp_floor_adminMenu_map_editor()
     date_default_timezone_set('Europe/Istanbul');
     $date = date('Y-m-d h:i:s');
 
-
-
-
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) {
         $thepost = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tableNameMain . "  WHERE id = %d", $_GET['id']));
         $door_number = $thepost->door_number;
@@ -36,6 +33,7 @@ function stnc_wp_floor_adminMenu_map_editor()
     }
 
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'update')) {
+        session_start();
         $door_number = isset($_POST["door_number"]) ? sanitize_text_field($_POST["door_number"]) : "0";
         $company_name = isset($_POST["company_name"]) ? sanitize_text_field($_POST["company_name"]) : " isim eklenmemiş";
         $square_meters = isset($_POST["square_meters"]) ? sanitize_text_field($_POST["square_meters"]) : 0;
@@ -73,7 +71,7 @@ function stnc_wp_floor_adminMenu_map_editor()
 
 
         if ($success) {
-            echo '<h3>Kayıt güncellendi</h3>';
+            $_SESSION['stnc_map_flash_msg'] = 'Kayıt Güncellendi';
             wp_redirect('/wp-admin/admin.php?page=map_editor_stnc&binaid='.$building_id.'&kat='. $floor_id.'&st_trigger=show&id='.$_GET['id'], 302);
             die;
         }
@@ -99,6 +97,7 @@ function stnc_wp_floor_adminMenu_map_editor()
 
 
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'add_save')) {
+        session_start();
         $door_number = isset($_POST["door_number"]) ? sanitize_text_field($_POST["door_number"]) : "0";
         $company_name = isset($_POST["company_name"]) ? sanitize_text_field($_POST["company_name"]) : " isim eklenmemiş";
         $square_meters = isset($_POST["square_meters"]) ? sanitize_text_field($_POST["square_meters"]) : 0;
@@ -137,7 +136,7 @@ function stnc_wp_floor_adminMenu_map_editor()
 
 
         if ($success) {
-            echo '<h3>Kayıt yapıldı</h3>';
+            $_SESSION['stnc_map_flash_msg'] = 'Kayıt Yapıldı';
             $lastid = $wpdb->insert_id;
             wp_redirect('/wp-admin/admin.php?page=map_editor_stnc&binaid='.$building_id.'&kat='. $floor_id.'&st_trigger=show&id='. $lastid, 302);
             die;

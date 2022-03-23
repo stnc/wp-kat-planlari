@@ -28,7 +28,8 @@ jQuery.noConflict();
         jQuery('.page_upload_trigger_element').on('click', function (e) {
             var _custom_media = true;
             var _orig_send_attachment = wp.media.editor.send.attachment;
-            var send_attachment_bkp = wp.media.editor.send.attachment;
+            // var send_attachment_bkp = wp.media.editor.send.attachment;
+  
             var button = jQuery(this);
             var id = button.attr('id').replace('_extra', '');
             _custom_media = true;
@@ -36,6 +37,8 @@ jQuery.noConflict();
                 if (_custom_media) {
 
                     jQuery("#media_id" ).val(attachment.id);
+                    // $('.custom_media_url').val(attachment.url);
+                    // $('.custom_media_id').val(attachment.id);
                     var filename = attachment.url;
                     var file_extension = filename.split('.').pop();//find extension
                     if (file_extension == "jpg" || file_extension == "jpeg" || file_extension == "png" || file_extension == "gif") {

@@ -1,9 +1,6 @@
 <?php
 //get event trıgger 
 //page=map_view_stnc & st_trigger === 'map_editor' 
-  
-
-    
 ?>
 <style>
 .dragAbsolute {
@@ -154,7 +151,7 @@
                                         <th scope="row"><?php echo  $key?></th>
                                         <td><?php echo $result->company_name; ?></td>
                                         <td><?php echo $result->door_number; ?></td>
-     <td><a  href="/wp-admin/admin.php?page=map_editor_stnc&st_trigger=show&binaid=<?php echo $binaId?>&kat=<?php echo $katId?>&id=<?php echo $result->id; ?>">duzenle</a></td>
+     <td><a  href="/wp-admin/admin.php?page=map_editor_stnc&st_trigger=show&binaid=<?php echo $binaId?>&kat=<?php echo $katId?>&id=<?php echo $result->id; ?>">Düzenle</a></td>
                                         </tr>
                             
 

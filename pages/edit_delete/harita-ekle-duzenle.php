@@ -1,4 +1,5 @@
 <?php
+session_start();
 $binaId=$_GET['binaid'];
 $katId=$_GET['kat'];
 
@@ -44,7 +45,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                     <li class="nav-item">
                         <a class="nav-link" href="/wp-admin/admin.php?page=map_homepage_stnc">Genel harita</a>
                     </li>
-                    
+
                 </ul>
 
                 <div class="text-center">
@@ -65,26 +66,36 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
     <div class="container-fluid">
 
 
-    <span style="color:red"><?php echo $binaName ?> / <?php echo $kat_adi ?> </span> için firma <?php  echo $title?> işlemi
+        <div> <span style="color:red"><?php echo $binaName ?> / <?php echo $kat_adi ?> </span> için firma
+            <?php  echo $title?> işlemi
 
+        </div>
 
-    
-     <?php echo $form  ?>
+        <?php
+                if (isset($_SESSION['stnc_map_flash_msg'] )) {
+                ?>
+        <p class="alert alert-danger">
+            <?php echo $_SESSION['stnc_map_flash_msg']; ?>
+        </p>
+        <?php unset($_SESSION['stnc_map_flash_msg']); ?>
+        <?php } ?>
+
+        <?php echo $form  ?>
 
         <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md-4">
 
                 <div class="card">
                     <div class="card-body">
 
-                    <h5 class="card-title">Firma <?php  echo $title?></h5>
+                        <h5 class="card-title">Firma <?php  echo $title?></h5>
 
 
                         <div class="form-group">
-                            <label for="door_number">Kapi  Numarasi</label>
-                            <input type="number" name="door_number" value="<?php echo $door_number ?>" class="form-control"
-                                id="door_number" min="1" max="50">
+                            <label for="door_number">Kapi Numarasi</label>
+                            <input type="number" name="door_number" value="<?php echo $door_number ?>"
+                                class="form-control" id="door_number" min="1" max="50">
                             <small id="kat_numarasiHelp" class="form-text text-muted">kat numarasi sayisal
                                 olmalidir</small>
                         </div>
@@ -127,10 +138,10 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
 
 
 
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                 
+
                         <div class="form-group">
                             <label for="mobile_phone">Firma cep telefon </label>
                             <input type="text" name="mobile_phone" value="<?php echo $mobile_phone ?>"
@@ -155,28 +166,17 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                         <hr>
                         <div class="form-group">
                             <label for="address">adress</label>
-            
-                                <textarea class="form-control" name="address" id="address"       rows="3"><?php echo $address ?></textarea>
+
+                            <textarea class="form-control" name="address" id="address"
+                                rows="3"><?php echo $address ?></textarea>
                         </div>
                         <hr>
 
-                        <div class="form-group">
-                            <input type="hidden" value="<?php echo $media_id ?>" name="media_id" id="media_id">
-                            <input id="stnc_wp_kiosk_Metabox_video_extra"
-                                class="page_upload_trigger_element button button-primary button-large"
-                                name="stnc_wp_kiosk_Metabox_video_extra" type="button" value="Video Yükle / Seç"
-                                style="">
-                            <br>
-                            <div class="background_attachment_metabox_container"></div>
-                        </div>
 
 
-                        <button type="submit" value="Kaydet" class="btn btn-primary">Kaydet</button>
 
 
-                    
-                    
-                    
+
 
 
 
@@ -184,10 +184,37 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                 </div>
             </div>
 
+
+            <div class="col-md-4">
+            <br>    <br>    <br>
+                <div class="form-group">
+                    <input type="hidden" value="<?php echo $media_id ?>" name="media_id" id="media_id">
+                    <input id="stnc_wp_kiosk_Metabox_video_extra"
+                        class="page_upload_trigger_element button button-primary button-large"
+                        name="stnc_wp_kiosk_Metabox_video_extra" type="button" value="Resim Yükle / Seç" style="">
+                    <br>
+                    <br>
+                    <div class="background_attachment_metabox_container"></div>
+                </div>
+                <br>
+                    <div class="form-group">
+                     <button type="submit" value="Kaydet" class="btn btn-primary">Kaydet</button>
+                    </div>
+                    <br>    <br>
+                    <a style="color:orange"
+                href="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">Bina
+                Haritası</a>
+                <br>
+                <br>
+              
+            <a style="color:blue"
+                href="/wp-admin/admin.php?page=map_view_stnc&st_trigger=map_editor&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">Bina
+                Harita Editörü</a>
+            </div>
         </div>
-        
+
         <?php echo   '</form>' ?>
-    
+
 
 
 

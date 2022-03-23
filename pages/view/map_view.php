@@ -172,7 +172,7 @@
                             <td><?php echo $result->company_name; ?></td>
                             <td><?php echo $result->door_number; ?></td>
                             <td><a
-                                    href="/wp-admin/admin.php?page=map_editor_stnc&st_trigger=show&binaid=<?php echo $binaId?>&kat=<?php echo $katId?>&id=<?php echo $result->id; ?>">duzenle</a>
+                                    href="/wp-admin/admin.php?page=map_editor_stnc&st_trigger=show&binaid=<?php echo $binaId?>&kat=<?php echo $katId?>&id=<?php echo $result->id; ?>">Düzenle</a>
                             </td>
                         </tr>
 

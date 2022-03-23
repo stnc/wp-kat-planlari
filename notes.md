@@ -4,7 +4,10 @@ geçmiş kiracılar
 haritahtml ye gecince teknokats olunca harita yuklenmeli 
 https://www.jquery-az.com/bootstrap-tooltip-simple-and-customized-tooltips-demos/
 
-v
+aynı kapı numarasında fırma var mı yok mu 
+yenı eklerken kapı numarası na bakılmalı belkı update ıcınde 
+ekle düzenlede fırmaya don gıbı bısey lazım 
+
 
 https://chandranrahul.wordpress.com/2018/01/03/session-based-flash-messages-in-wordpress/
 
