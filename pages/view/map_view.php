@@ -1,40 +1,8 @@
 <?php
-function stnc_wp_floor_adminMenu_map_view_stnc()
-{
+//get event trıgger 
+//page=map_view_stnc & st_trigger === 'show' 
+
     
-    global $wpdb;
-$binaId=$_GET['binaid'];
-$katId=$_GET['kat'];
-
-$wp_stnc_map_floors =$wpdb->prefix . 'stnc_map_floors';
-$wp_stnc_map_building =$wpdb->prefix . 'stnc_map_building';
-    $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,kat.tekno_id,kat.scheme,bina.id
-    AS bina_id,kat.id AS katid  FROM ".   $wp_stnc_map_floors." AS kat INNER JOIN ".$wp_stnc_map_building."  AS bina  ON  bina.id=%d AND kat.id = %d", $binaId,$katId));
-        //    print_r( $thepost );
-        //   $door_number = isset($_POST["door_number"]) ? sanitize_text_field($_POST["door_number"]) : "0";
-         $scheme = $map->scheme;
-        
-         $binaName = $map->bina;
-    
-         $kat_adi = $map->kat_adi;
-
-
-       $results = array();
-        $stncForm_tableNameMain = $wpdb->prefix . 'stnc_map_floors_locations';
-          $sql = "SELECT * FROM " . $stncForm_tableNameMain . ' WHERE building_id='.$binaId.' and  floor_id='.$katId.'';
-   
-        $results = $wpdb->get_results($sql);
-        $i = 0;
-        $top = 88;
-    
-
-
-//             for ($i=0;$i<=10;$i++)
-//             {
-//                 echo $i;
-//                 echo '<br>';
-//             }
-// die;
 ?>
 <style>
 .dragAbsolute {
@@ -79,7 +47,7 @@ $wp_stnc_map_building =$wpdb->prefix . 'stnc_map_building';
     <nav class="navbar navbar-expand-md navbar-secondary fixed-top bg-secondary">
         <div class="container-fluid">
             <img class="d-block mx-auto mb-1"
-                src="<?php echo plugins_url('../assets/images/erciyes-logo.svg', __FILE__) ?>" alt="" width="100"
+                src="<?php echo plugins_url('../../assets/images/erciyes-logo.svg', __FILE__) ?>" alt="" width="100"
                 height="50">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -94,15 +62,15 @@ $wp_stnc_map_building =$wpdb->prefix . 'stnc_map_building';
                         <a class="nav-link" href="/wp-admin/admin.php?page=map_homepage_stnc">Tümünü göster</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"
-                            href="/wp-admin/admin.php?page=map_editor_stnc&add=ok&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">yeni
+                        <a class="nav-link" st_trigger=new
+                            href="/wp-admin/admin.php?page=map_editor_stnc&st_trigger=new&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">yeni
                             ekle</a>
 
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link"
-                            href="/wp-admin/admin.php?page=map_editor_stnc&show=ok&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">yerleşim
+                            href="/wp-admin/admin.php?page=map_view_stnc&st_trigger=map_editor&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">yerleşim
                             değiştir</a>
                     </li>
 
@@ -151,7 +119,7 @@ $wp_stnc_map_building =$wpdb->prefix . 'stnc_map_building';
 
 
                         <img class="img-fluid-"
-                            src="<?php echo plugin_dir_url(__FILE__) . '../assets/teknokat/'.   $scheme  ?>" alt="">
+                            src="<?php echo plugin_dir_url(__FILE__) . '../../assets/teknokat/'.   $scheme  ?>" alt="">
 
                         <?php
 
@@ -204,7 +172,7 @@ $wp_stnc_map_building =$wpdb->prefix . 'stnc_map_building';
                             <td><?php echo $result->company_name; ?></td>
                             <td><?php echo $result->door_number; ?></td>
                             <td><a
-                                    href="/wp-admin/admin.php?page=map_editor_stnc&show=ok&edit=<?php echo $result->id; ?>">duzenle</a>
+                                    href="/wp-admin/admin.php?page=map_editor_stnc&st_trigger=show&binaid=<?php echo $binaId?>&kat=<?php echo $katId?>&id=<?php echo $result->id; ?>">duzenle</a>
                             </td>
                         </tr>
 
@@ -231,7 +199,3 @@ jQuery(document).ready(function($) {
     $('[data-toggle="tooltip"]').tooltip()
 })
 </script>
-
-<?php
-
-}

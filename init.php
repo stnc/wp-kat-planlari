@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name:  yeni Teknopark Kat Planları 
+Plugin Name:  Teknopark Kat Planları 
 Plugin URI:	https://github.com/stnc/wp-kat-planlari		
 Description: Erciyes Teknopark Kat Planları
 Version: 2.0.0
@@ -22,7 +22,10 @@ $stnc_wp_floor_post_type_post = isset($_REQUEST['post_type']) ? $_REQUEST['post_
 
 // define('stnc_wp_floor_plans_PATH', plugin_dir_path(__FILE__) . 'metaBox/');
 
-
+add_action('init', 'do_output_buffer');
+function do_output_buffer() {
+        ob_start();
+}
 
 
 include ('register_css_js.php');
@@ -33,14 +36,12 @@ require("extraOptions.php");
 include ('register_Pages.php');//ek 1
 include ('stnc-kiosk-ajax.php');//ajax
 
-// include("pages/configurationPages/init.php");//ek 2
-// include("pages/about/about.php");//ek 2
-// include("pages/onizleme/onizleme.php");//ek 2
-// include("stnc-kiosk-ajax.php");
+
 
 include ('anaSayfa.php');
-include ('harita-editor.php');
-include ('map/map_view.php');
+
+include ('pages/edit_delete/actions.php');
+include ('pages/view/actions.php');
 
 require_once "helper.php";
 require_once "list_table.php";

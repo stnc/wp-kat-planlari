@@ -41,7 +41,32 @@ function stnc_wp_floor_database_install1()
          require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
       dbDelta($sql);
 
+
+
+      $stncForm_tableNameMain = 'stnc_map_floors';
+      $charset_collate = $wpdb->get_charset_collate();
+       $sql = "CREATE TABLE IF NOT EXISTS  " . $wpdb->prefix . $stncForm_tableNameMain . " (
+              id INT NOT NULL AUTO_INCREMENT,
+              name VARCHAR(255) NOT NULL ,
+              tekno_id INT(10) UNSIGNED NOT NULL,
+              type INT(11) NOT NULL,
+              full_office INT(10) UNSIGNED NOT NULL,
+              empty_office INT(10) UNSIGNED NOT NULL,
+              full_area DECIMAL(8,2) NOT NULL,
+              empty_area DECIMAL(8,2) NOT NULL,
+              total_area DECIMAL(8,2) NOT NULL,
+              scheme VARCHAR(255) NOT NULL ,
+              created_at TIMESTAMP NULL DEFAULT NULL,
+              updated_at TIMESTAMP NULL DEFAULT NULL,
+              class VARCHAR(255) NULL DEFAULT NULL,
+              PRIMARY KEY  (id)
+          ) $charset_collate;";
+          require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+       dbDelta($sql);
+
     // echo $wpdb->last_error;
+  //  INDEX `tekno_kats_tekno_id_foreign` (`tekno_id`) USING BTREE,
+//	CONSTRAINT `tekno_kats_tekno_id_foreign` FOREIGN KEY (`tekno_id`) REFERENCES `summit`.`wp_stnc_map_building` (`id`) ON UPDATE RESTRICT ON DELETE CASCADE
 }
 
 register_activation_hook(__FILE__, 'stnc_wp_floor_database_install1');

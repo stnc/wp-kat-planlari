@@ -1,39 +1,9 @@
 <?php
+//get event trıgger 
+//page=map_view_stnc & st_trigger === 'map_editor' 
+  
 
-global $wpdb;
-$binaId=$_GET['binaid'];
-$katId=$_GET['kat'];
-
-    $wp_stnc_map_floors =$wpdb->prefix . 'stnc_map_floors';
-    $wp_stnc_map_building =$wpdb->prefix . 'stnc_map_building';
-   
-$map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,kat.tekno_id,kat.scheme,bina.id
- AS bina_id,kat.id AS katid  FROM ".   $wp_stnc_map_floors." AS kat INNER JOIN ".$wp_stnc_map_building."  AS bina  ON  bina.id=%d AND kat.id = %d", $binaId,$katId));
-        //    print_r( $thepost );
-        //   $door_number = isset($_POST["door_number"]) ? sanitize_text_field($_POST["door_number"]) : "0";
-         $scheme = $map->scheme;
     
-         $binaName = $map->bina;
-    
-         $kat_adi = $map->kat_adi;
-
-
-       $results = array();
-        $stncForm_tableNameMain = $wpdb->prefix . 'stnc_map_floors_locations';
-          $sql = "SELECT * FROM " . $stncForm_tableNameMain . ' WHERE building_id='.$binaId.' and  floor_id='.$katId.'';
-
-        $results = $wpdb->get_results($sql);
-        $i = 0;
-        $top = 88;
-    
-
-
-//             for ($i=0;$i<=10;$i++)
-//             {
-//                 echo $i;
-//                 echo '<br>';
-//             }
-// die;
 ?>
 <style>
 .dragAbsolute {
@@ -78,7 +48,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
     <nav class="navbar navbar-expand-md navbar-secondary fixed-top bg-secondary">
         <div class="container-fluid">
             <img class="d-block mx-auto mb-1"
-                src="<?php echo plugins_url('../assets/images/erciyes-logo.svg', __FILE__) ?>" alt="" width="100"
+                src="<?php echo plugins_url('../../assets/images/erciyes-logo.svg', __FILE__) ?>" alt="" width="100"
                 height="50">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -94,12 +64,12 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                     </li>
                     <li class="nav-item">
                         <a class="nav-link"
-                            href="/wp-admin/admin.php?page=map_editor_stnc&add=ok&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">yeni
+                            href="/wp-admin/admin.php?page=map_editor_stnc&st_trigger=new&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">yeni
                             ekle</a>
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/wp-admin/admin.php?page=map_view_stnc&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">sabit harita</a>
+                        <a class="nav-link" href="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">sabit harita</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
@@ -141,7 +111,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
 
 
                     <div id="ex-040-wall1"><img class="img-fluid-"
-                            src="<?php echo plugin_dir_url(__FILE__) . '../assets/teknokat/'.   $scheme  ?>" alt=""></div>
+                            src="<?php echo plugin_dir_url(__FILE__) . '../../assets/teknokat/'.   $scheme  ?>" alt=""></div>
 
 
                     <?php
@@ -184,7 +154,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                                         <th scope="row"><?php echo  $key?></th>
                                         <td><?php echo $result->company_name; ?></td>
                                         <td><?php echo $result->door_number; ?></td>
-                                        <td><a href="/wp-admin/admin.php?page=map_editor_stnc&show=ok&edit=<?php echo $result->id; ?>">duzenle</a></td>
+     <td><a  href="/wp-admin/admin.php?page=map_editor_stnc&st_trigger=show&binaid=<?php echo $binaId?>&kat=<?php echo $katId?>&id=<?php echo $result->id; ?>">duzenle</a></td>
                                         </tr>
                             
 
@@ -304,8 +274,7 @@ var editId = 0;
 jQuery(document).ready(function($) {
     $('.draggable').on('contextmenu', function(e) {
         $("#context-menu a.edit").attr("href",
-            "/wp-admin/admin.php?page=map_editor_stnc&show=ok&edit=" + $(
-                this).data('id'))
+            "/wp-admin/admin.php?page=map_editor_stnc&binaid=<?php echo $binaId?>&kat=<?php echo $katId?>&st_trigger=show&id=" + $( this).data('id'))
         var top = e.pageY - 1;
         var left = e.pageX - 90;
         $("#context-menu").css({

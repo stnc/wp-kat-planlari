@@ -1,9 +1,36 @@
+<?php
+$binaId=$_GET['binaid'];
+$katId=$_GET['kat'];
+
+    $wp_stnc_map_floors =$wpdb->prefix . 'stnc_map_floors';
+    $wp_stnc_map_building =$wpdb->prefix . 'stnc_map_building';
+   
+$map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,kat.tekno_id,kat.scheme,bina.id
+ AS bina_id,kat.id AS katid  FROM ".   $wp_stnc_map_floors." AS kat INNER JOIN ".$wp_stnc_map_building."  AS bina  ON  bina.id=%d AND kat.id = %d", $binaId,$katId));
+        //    print_r( $thepost );
+        //   $door_number = isset($_POST["door_number"]) ? sanitize_text_field($_POST["door_number"]) : "0";
+         $scheme = $map->scheme;
+    
+         $binaName = $map->bina;
+    
+         $kat_adi = $map->kat_adi;
+
+         $title ="Ekleme";
+         $form = '<form action="/wp-admin/admin.php?page=map_editor_stnc&st_trigger=add_save&binaid='. $_GET['binaid'] .'&kat='. $_GET['kat'] .'" method="post">';
+
+         if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) {
+            $title ="Düzenleme";
+            $form = '<form action="/wp-admin/admin.php?page=map_editor_stnc&st_trigger=update&binaid='. $_GET['binaid'] .'&kat='. $_GET['kat'] .'&id='. $_GET['id'] .'" method="post">';
+         }
+
+?>
+
 <header>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-secondary fixed-top bg-secondary">
         <div class="container-fluid">
             <img class="d-block mx-auto mb-1"
-                src="<?php echo plugins_url('assets/images/erciyes-logo.svg', __FILE__) ?>" alt="" width="100"
+                src="<?php echo plugins_url('../../assets/images/erciyes-logo.svg', __FILE__) ?>" alt="" width="100"
                 height="50">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,26 +42,9 @@
                         <a class="nav-link active" aria-current="page" href="/wp-admin">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/wp-admin/admin.php?page=map_homepage_stnc">Tümünü göster</a>
+                        <a class="nav-link" href="/wp-admin/admin.php?page=map_homepage_stnc">Genel harita</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link"
-                            href="/wp-admin/admin.php?page=map_editor_stnc&add=ok&teknoId=<?php echo $_GET['binaid']?>">yeni
-                            ekle</a>
-
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/wp-admin/admin.php?page=map_view_stnc">sabit harita</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
-                            aria-expanded="false">Settings</a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
+                    
                 </ul>
 
                 <div class="text-center">
@@ -55,15 +65,11 @@
     <div class="container-fluid">
 
 
-      
-        <?php 
-                        //   $form='<form action="/wp-admin/admin.php?page=map_editor_stnc" method="post"> ';
-                         if ((isset($_GET['add']))  ) : 
-                            $title=' <h5 class="card-title">Firma Ekleme</h5>';
-                            endif ?>
+    <span style="color:red"><?php echo $binaName ?> / <?php echo $kat_adi ?> </span> için firma <?php  echo $title?> işlemi
 
-                  <form action="/wp-admin/admin.php?page=map_editor_stnc&kaydet=yeniKaydet&binaid=<?php echo $_GET['binaid'] ?>&kat=<?php echo $_GET['kat'] ?>" method="post">
-                         
+
+    
+     <?php echo $form  ?>
 
         <div class="row">
 
@@ -72,7 +78,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <?php    echo $title  ?>
+                    <h5 class="card-title">Firma <?php  echo $title?></h5>
 
 
                         <div class="form-group">
@@ -169,8 +175,7 @@
 
 
                     
-                                
-                        <input type="hidden" name="kaydet" value="yeniKaydet" />
+                    
                     
 
 
@@ -181,7 +186,7 @@
 
         </div>
         
-     </form>
+        <?php echo   '</form>' ?>
     
 
 
