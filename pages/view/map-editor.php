@@ -117,7 +117,7 @@
                             ?>
                     <div id="ex-<?php echo $result->id; ?>-draggable" data-id="<?php echo $result->id; ?>"
                         class="draggable">
-                        <?php echo $result->company_name; ?></div>
+                        <?php echo $result->company_name .' No' .$result->door_number; ?></div>
                     <?php
     endforeach
     ?>
@@ -132,9 +132,9 @@
                 <table class="table table-striped">
                 <thead>
                     <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Firma</th>
                     <th scope="col">Kapı No</th>
+                    <th scope="col">Firma</th>
+                  
                     <th scope="col">Olay</th>
                     </tr>
                 </thead>
@@ -148,9 +148,10 @@
                             ?>
 
                                     <tr>
-                                        <th scope="row"><?php echo  $key?></th>
-                                        <td><?php echo $result->company_name; ?></td>
+                                        <!-- <th scope="row"><?php echo  $key?></th> -->
                                         <td><?php echo $result->door_number; ?></td>
+                                        <td><?php echo $result->company_name; ?></td>
+                                    
      <td><a  href="/wp-admin/admin.php?page=map_editor_stnc&st_trigger=show&binaid=<?php echo $binaId?>&kat=<?php echo $katId?>&id=<?php echo $result->id; ?>">Düzenle</a></td>
                                         </tr>
                             

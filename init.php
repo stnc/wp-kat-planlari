@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name:  Teknopark Kat Planları 
+Plugin Name:  Teknopark Binalar
 Plugin URI:	https://github.com/stnc/wp-kat-planlari		
 Description: Erciyes Teknopark Kat Planları
 Version: 2.0.0

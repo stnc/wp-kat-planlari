@@ -96,7 +96,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                         <div class="form-group">
                             <label for="door_number">Kapi Numarasi</label>
                             <input type="number" name="door_number" value="<?php echo $door_number ?>"
-                                class="form-control" id="door_number" min="1" max="50">
+                                class="form-control" id="door_number" min="1" max="100">
                             <small id="kat_numarasiHelp" class="form-text text-muted">kat numarasi sayisal
                                 olmalidir</small>
                         </div>

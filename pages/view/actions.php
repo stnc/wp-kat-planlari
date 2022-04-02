@@ -24,7 +24,7 @@
 
        $results = array();
         $stncForm_tableNameMain = $wpdb->prefix . 'stnc_map_floors_locations';
-          $sql = "SELECT * FROM " . $stncForm_tableNameMain . ' WHERE building_id='.$binaId.' and  floor_id='.$katId.'';
+          $sql = "SELECT * FROM " . $stncForm_tableNameMain . ' WHERE building_id='.$binaId.' and  floor_id='.$katId.' order by door_number';
 
         $results = $wpdb->get_results($sql);
         $i = 0;
@@ -32,12 +32,12 @@
 
         
         if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) {
-            include ('map_view.php');
+            include ('map-show.php');
         }
     
         if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'map_editor')) {
           
-            include ('map_draggrable-map-editor.php');
+            include ('map-editor.php');
         }
     }
 
