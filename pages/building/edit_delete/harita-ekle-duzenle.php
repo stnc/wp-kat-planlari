@@ -86,7 +86,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".   $wp_stnc_map_floors." 
 
             <div class="col-md-4">
             <div class="form-group">
-                    <input type="hidden" value="<?php echo $scheme_media_id ?>" name="scheme_media_id" id="scheme_media_id">
+                    <input type="hidden" value="<?php echo $scheme_media_id ?>" name="scheme_media_id" id="media_id">
 
                 </br>
                 </br>
@@ -100,9 +100,9 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".   $wp_stnc_map_floors." 
                     <br>
                     <br>
                    <?php  if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) :  ?>
-                    <div class="background_attachment_metabox_container2">  <img src=" <?php echo $scheme_media_id[0]; ?> " alt="">  </div>
+                    <div class="background_attachment_metabox_container">  <img src=" <?php echo $scheme_media_id[0]; ?> " alt="">  </div>
                     <?php else : ?>
-                    <div class="background_attachment_metabox_container2">  </div>
+                    <div class="background_attachment_metabox_container">  </div>
                     <?php endif ; ?>
                 </div>
                 <div class="card">

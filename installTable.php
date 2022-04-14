@@ -56,7 +56,7 @@ function stnc_wp_floor_database_install1()
               empty_area DECIMAL(8,2) NOT NULL,
               total_area DECIMAL(8,2) NOT NULL,
               scheme VARCHAR(255) NOT NULL ,
-              scheme_media_id tinyint DEFAULT NULL,
+              scheme_media_id int(10) DEFAULT NULL,
               created_at TIMESTAMP NULL DEFAULT NULL,
               updated_at TIMESTAMP NULL DEFAULT NULL,
               class VARCHAR(255) NULL DEFAULT NULL,

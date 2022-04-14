@@ -106,7 +106,7 @@
         <div class="row">
 
             <h3><?php echo $binaName ?> / <?php echo $kat_adi ?></h3>
-
+<a href="/wp-admin/admin.php?page=building_map_editor_stnc&st_trigger=show&katid=<?php echo $_GET['kat']?>">düzenle</a>
 
 
             <div class="col-lg-9">
