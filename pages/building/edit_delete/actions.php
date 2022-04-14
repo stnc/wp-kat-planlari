@@ -31,7 +31,7 @@ function stnc_wp_floor_adminMenu_map_editor_stnc()
       
         $name = isset($_POST["name"]) ? sanitize_text_field($_POST["name"]) : "------";
 
-        $scheme_media_id = isset($_POST["media_id"]) ? sanitize_text_field($_POST["media_id"]) : 0;
+        $scheme_media_id = isset($_POST["scheme_media_id"]) ? sanitize_text_field($_POST["scheme_media_id"]) : 0;
       echo  $success =   $wpdb->update(
             $stncForm_tableNameMain,
             array(
@@ -41,7 +41,7 @@ function stnc_wp_floor_adminMenu_map_editor_stnc()
      
 
             ),
-            array('id' => $_GET['id'])
+            array('id' => $_POST['id'])
         );
 
 
