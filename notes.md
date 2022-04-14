@@ -1,6 +1,9 @@
 resım ekleyebilme 
 geçmiş kiracılar 
   
+https://yourstory.com/companies   
+
+
   https://www.yazilimbilisim.net/javascript/jquery/jquery-datepicker-turkce-tarih-secme/
 haritahtml ye gecince teknokats olunca harita yuklenmeli 
 https://www.jquery-az.com/bootstrap-tooltip-simple-and-customized-tooltips-demos/

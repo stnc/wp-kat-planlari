@@ -1,4 +1,5 @@
 <?php
+//map_view_stnc&st_trigger=show&binaid=2&kat=9
 
     //allow redirection, even if my theme starts to send output to the browser
 

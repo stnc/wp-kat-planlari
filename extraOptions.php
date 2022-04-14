@@ -23,6 +23,9 @@ if (isset( $_GET['page'] ) && 'map_homepage_stnc' === $_GET['page']){
 } else if (isset( $_GET['page'] ) && 'map_editor_stnc' === $_GET['page']){
   $onboarding_class ='stnc-header-page'; 
 }
+else if (isset( $_GET['page'] ) && 'building_map_editor_stnc' === $_GET['page']){
+  $onboarding_class ='stnc-header-page'; 
+}
 
   $classes .= ' ' . $onboarding_class . ' ';;
     return $classes ;

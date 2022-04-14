@@ -40,8 +40,11 @@ include ('stnc-kiosk-ajax.php');//ajax
 
 include ('01-home.php');
 
-include ('pages/edit_delete/actions.php');
-include ('pages/view/actions.php');
+include ('pages/business/edit_delete/actions.php');
+include ('pages/business/view/actions.php');
+
+include ('pages/building/edit_delete/actions.php');
+
 
 require_once "helper.php";
 require_once "list_table.php";
