@@ -2,7 +2,8 @@ resım ekleyebilme
 geçmiş kiracılar 
   
 https://yourstory.com/companies   
-
+https://www.rtp.org/directory-map/
+https://en.yellowpages.com.tr/restaurants-c
 
   https://www.yazilimbilisim.net/javascript/jquery/jquery-datepicker-turkce-tarih-secme/
 haritahtml ye gecince teknokats olunca harita yuklenmeli 
