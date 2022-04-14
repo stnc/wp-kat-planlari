@@ -14,7 +14,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".   $wp_stnc_map_floors." 
          $id  = $map->id;
          $scheme_media_id  = $map->scheme_media_id;
     
-  
+         $scheme_media_id = wp_get_attachment_image_src(    $scheme_media_id  ,'full' );
     
       
          $title ="Ekleme";
