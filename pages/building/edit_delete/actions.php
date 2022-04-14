@@ -16,7 +16,7 @@ function stnc_wp_floor_adminMenu_map_editor_stnc()
     $date = date('Y-m-d h:i:s');
 
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) {
-        $thepost = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tableNameMain . "  WHERE id = %d", $_GET['katid']));
+        $thepost = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tableNameMain . "  WHERE id = %d", $_GET['id']));
         $name = $thepost->name;
         $scheme_media_id = $thepost->scheme_media_id;
 
@@ -28,37 +28,18 @@ function stnc_wp_floor_adminMenu_map_editor_stnc()
 
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'update')) {
         session_start();
-        $door_number = isset($_POST["door_number"]) ? sanitize_text_field($_POST["door_number"]) : "0";
-        $company_name = isset($_POST["company_name"]) ? sanitize_text_field($_POST["company_name"]) : " isim eklenmemiş";
-        $square_meters = isset($_POST["square_meters"]) ? sanitize_text_field($_POST["square_meters"]) : 0;
-        $email = isset($_POST["email"]) ? sanitize_text_field($_POST["email"]) : " ";
-        $phone = isset($_POST["phone"]) ? sanitize_text_field($_POST["phone"]) : " ";
-        $mobile_phone = isset($_POST["mobile_phone"]) ? sanitize_text_field($_POST["mobile_phone"]) : " ";
-        $web_site = isset($_POST["web_site"]) ? sanitize_text_field($_POST["web_site"]) : " ";
-        $company_description = isset($_POST["company_description"]) ? sanitize_text_field($_POST["company_description"]) : " ";
-        $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
-        $media_id = isset($_POST["media_id"]) ? sanitize_text_field($_POST["media_id"]) : " ";
-        $building_id = isset($_GET["binaid"]) ? sanitize_text_field($_GET["binaid"]) : " ";
-        $floor_id = isset($_GET["kat"]) ? sanitize_text_field($_GET["kat"]) : " ";
-        $media_id = isset($_POST["media_id"]) ? sanitize_text_field($_POST["media_id"]) : 0;
-        $success =   $wpdb->update(
+      
+        $name = isset($_POST["name"]) ? sanitize_text_field($_POST["name"]) : "------";
+
+        $scheme_media_id = isset($_POST["media_id"]) ? sanitize_text_field($_POST["media_id"]) : 0;
+      echo  $success =   $wpdb->update(
             $stncForm_tableNameMain,
             array(
-                'building_id' =>  $building_id,
-                'floor_id' =>  $floor_id,
-                'door_number' =>   $door_number,
-                'company_name' => $company_name,
-                'square_meters' => $square_meters,
-                'email' =>   $email,
-                'phone' =>   $phone,
-                'mobile_phone' => $mobile_phone,
+                'scheme_media_id' =>  $scheme_media_id,
+        
+                'name' =>   $name,
+     
 
-                'web_site' =>   $web_site,
-
-                'company_description' =>   $company_description,
-                'address' =>   $address,
-                'media_id' =>    $media_id,
-                'add_date' =>   $date,
             ),
             array('id' => $_GET['id'])
         );
@@ -66,7 +47,7 @@ function stnc_wp_floor_adminMenu_map_editor_stnc()
 
         if ($success) {
             $_SESSION['stnc_map_flash_msg'] = 'Kayıt Güncellendi';
-            wp_redirect('/wp-admin/admin.php?page=map_editor_stnc&binaid='.$building_id.'&kat='. $floor_id.'&st_trigger=show&id='.$_GET['id'], 302);
+            wp_redirect('/wp-admin/admin.php?page=building_map_editor_stnc&binaid='.$building_id.'&kat='. $floor_id.'&st_trigger=show&id='.$_GET['id'], 302);
             die;
         }
         // include ('harita-ekle-duzenle.php');
