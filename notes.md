@@ -6,12 +6,16 @@ https://www.rtp.org/directory-map/
 https://en.yellowpages.com.tr/restaurants-c
 
   https://www.yazilimbilisim.net/javascript/jquery/jquery-datepicker-turkce-tarih-secme/
-haritahtml ye gecince teknokats olunca harita yuklenmeli 
+
+---- haritahtml ye gecince teknokats olunca harita yuklenmeli 
+
 https://www.jquery-az.com/bootstrap-tooltip-simple-and-customized-tooltips-demos/
 
 aynı kapı numarasında fırma var mı yok mu 
 yenı eklerken kapı numarası na bakılmalı belkı update ıcınde 
 
+css hover olayı 
+https://codepen.io/simicigor/pen/ZEpJEBY
 
 
 https://chandranrahul.wordpress.com/2018/01/03/session-based-flash-messages-in-wordpress/

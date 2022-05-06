@@ -4,7 +4,7 @@
     
 function stnc_wp_floor_adminMenu_map_editor()
 {
-    //  map_view_stnc
+    //  map_editor_stnc
 
 
 
@@ -61,9 +61,7 @@ function stnc_wp_floor_adminMenu_map_editor()
                 'email' =>   $email,
                 'phone' =>   $phone,
                 'mobile_phone' => $mobile_phone,
-
                 'web_site' =>   $web_site,
-
                 'company_description' =>   $company_description,
                 'address' =>   $address,
                 'media_id' =>    $media_id,

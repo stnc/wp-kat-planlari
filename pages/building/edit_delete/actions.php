@@ -1,11 +1,11 @@
 <?php
 
-////map_view_stnc&st_trigger=show&binaid=2&kat=9
-    
+    //  map_view_stnc
+
 //?page=building_map_editor_stnc&st_trigger=show&binaid=2
 function stnc_wp_floor_adminMenu_map_editor_stnc()
 {
-    //  map_view_stnc
+
 
 //http://summit.test/wp-admin/admin.php?page=building_map_editor_stnc&st_trigger=show&katid=2
 
@@ -32,7 +32,7 @@ function stnc_wp_floor_adminMenu_map_editor_stnc()
         $name = isset($_POST["name"]) ? sanitize_text_field($_POST["name"]) : "------";
 
         $scheme_media_id = isset($_POST["scheme_media_id"]) ? sanitize_text_field($_POST["scheme_media_id"]) : 0;
-      echo  $success =   $wpdb->update(
+        $success =   $wpdb->update(
             $stncForm_tableNameMain,
             array(
                 'scheme_media_id' =>  $scheme_media_id,

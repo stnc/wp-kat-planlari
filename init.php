@@ -51,8 +51,6 @@ require_once "list_table.php";
 require_once "stncForm-adminMenu-About.php";
 
 
-
-
 /*
 // load css into the login page
 function mytheme_enqueue_login_style() {
@@ -69,17 +67,3 @@ add_action( 'login_enqueue_scripts', 'mytheme_enqueue_login_style' );
 
 // load_textdomain('CHfw-staff', WP_LANG_DIR . 'CHfw-staff/CHfw-staff-' . $locale . '.mo');
 // load_plugin_textdomain('CHfw-staff', false, plugin_basename(dirname(__FILE__)) . '/languages');
-
-
-
-
-
-
-
-
-
-
-
-
-
-

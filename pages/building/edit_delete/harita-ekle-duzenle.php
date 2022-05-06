@@ -16,7 +16,6 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".   $wp_stnc_map_floors." 
     
          $scheme_media_id = wp_get_attachment_image_src(    $scheme_media_id  ,'full' );
     
-      
          $title ="Ekleme";
          $form = '<form action="/wp-admin/admin.php?page=building_map_editor_stnc&st_trigger=add_save&&id='. $_GET['id'] .'" method="post">';
 
@@ -89,25 +88,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".   $wp_stnc_map_floors." 
             <div class="form-group">
                     <input type="hidden" value="<?php echo $scheme_media_id ?>" name="scheme_media_id" id="media_id">
                     <input type="hidden" value="<?php echo $id ?>" name="id" id="id">
-
-                </br>
-                </br>
-                </br>
-                </br>
-
-
-                    <input id="stnc_wp_kiosk_Metabox_video_extra"
-                        class="page_upload_trigger_element button button-primary button-large"
-                        name="stnc_wp_kiosk_Metabox_video_extra" type="button" value="Harita Yükle / Seç" style="">
-                    <br>
-                    <br>
-                   <?php  if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) :  ?>
-                    <div class="background_attachment_metabox_container">  <img src=" <?php echo $scheme_media_id[0]; ?> " alt="">  </div>
-                    <?php else : ?>
-                    <div class="background_attachment_metabox_container">  </div>
-                    <?php endif ; ?>
-                </div>
-                <div class="card">
+                    <div class="card">
                     <div class="card-body">
 
                         <h5 class="card-title">Firma <?php  echo $title?></h5>
@@ -129,16 +110,6 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".   $wp_stnc_map_floors." 
 
                     </div>
                 </div>
-
-            </div>
-
-
-
-
-            <div class="col-md-4">
-            <br>    <br>    <br>
- 
-                <br>
                     <div class="form-group">
                      <button type="submit" value="Kaydet" class="btn btn-primary">Kaydet</button>
                     </div>
@@ -153,6 +124,28 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".   $wp_stnc_map_floors." 
                 href="/wp-admin/admin.php?page=building_map_editor_stnc&st_trigger=map_editor&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">Bina
                 Harita Editörü</a>
             </div>
+
+
+                    <input id="stnc_wp_kiosk_Metabox_video_extra"
+                        class="page_upload_trigger_element button button-primary button-large"
+                        name="stnc_wp_kiosk_Metabox_video_extra" type="button" value="Harita Yükle / Seç" style="">
+                    <br>
+                    <br>
+                   <?php  if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) :  ?>
+                    <div class="background_attachment_metabox_container">  <img src=" <?php echo $scheme_media_id[0]; ?> " alt="">  </div>
+                    <?php else : ?>
+                    <div class="background_attachment_metabox_container">  </div>
+                    <?php endif ; ?>
+                </div>
+             
+
+            </div>
+
+
+
+
+       
+          
         </div>
 
         <?php echo   '</form>' ?>

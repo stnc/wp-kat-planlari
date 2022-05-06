@@ -21,13 +21,10 @@ function stnc_wp_floor_script_in_admin($hook) {
     wp_enqueue_script('stnc-bootstrap');   
     
 
+    wp_register_script( 'stnc-my',plugin_dir_url( __FILE__ ) . 'assets/js/my.js', array('jquery') );
+    wp_enqueue_script('stnc-my');
 
-
-
-        wp_register_script( 'stnc-my',plugin_dir_url( __FILE__ ) . 'assets/js/my.js', array('jquery') );
-        wp_enqueue_script('stnc-my');
-
-        wp_enqueue_media();
+    wp_enqueue_media();
 
 }
 
