@@ -1,6 +1,6 @@
 <?php
 
-    //  map_view_stnc
+ 
 
 //?page=building_map_editor_stnc&st_trigger=show&binaid=2
 function stnc_wp_floor_adminMenu_map_editor_stnc()
