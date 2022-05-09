@@ -2,7 +2,8 @@ resım ekleyebilme
 geçmiş kiracılar 
 bekleyen firma listesi 
 anasayfada firmalar listesi 
-  
+binalar ansayfasında toplam metrekare ve kac ofıs ve hangı renklerde olacak gibi şeye bak 
+
 
 https://yourstory.com/companies   
 https://www.rtp.org/directory-map/
