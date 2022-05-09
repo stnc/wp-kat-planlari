@@ -113,3 +113,9 @@ width: 74.609375px; */
 #ex-040-wall2 path {
     fill: #fff;
 }
+
+
+.bg-black{
+    background-color:#000;
+    color:#fff;
+}

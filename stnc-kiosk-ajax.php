@@ -1,9 +1,5 @@
 <?php
-
-
 function stnc_wp_floor_stncStatus_ajax_request() {
-
-
 
     $nonce = $_POST['nonce'];
     if ( ! wp_verify_nonce( $nonce, 'stnc-kiosk-ajax-script' ) ) {
@@ -13,18 +9,15 @@ function stnc_wp_floor_stncStatus_ajax_request() {
    global $wpdb;
    $id = $_POST['id'];
 
- $jsonText =$_POST['location'];
+  $jsonText =$_POST['location'];
 
- $stncForm_tableNameMain = $wpdb->prefix . 'stnc_map_floors_locations';
+  $stncForm_tableNameMain = $wpdb->prefix . 'stnc_map_floors_locations';
 
-   $wpdb->update( $stncForm_tableNameMain, array('map_location'=>$jsonText), array('id'=>$id));
-
-
+  $wpdb->update( $stncForm_tableNameMain, array('map_location'=>$jsonText), array('id'=>$id));
 
    die;
 }
 
 add_action( 'wp_ajax_stnc_wp_floor_stncStatus_ajax_request', 'stnc_wp_floor_stncStatus_ajax_request' );
- 
 // If you wanted to also use the function for non-logged in users (in a theme for example)
 add_action( 'wp_ajax_nopriv_stnc_wp_floor_stncStatus_ajax_request', 'stnc_wp_floor_stncStatus_ajax_request' );

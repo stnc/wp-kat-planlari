@@ -1,6 +1,9 @@
 resım ekleyebilme 
 geçmiş kiracılar 
+bekleyen firma listesi 
+anasayfada firmalar listesi 
   
+
 https://yourstory.com/companies   
 https://www.rtp.org/directory-map/
 https://en.yellowpages.com.tr/restaurants-c

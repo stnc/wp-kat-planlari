@@ -27,22 +27,20 @@ function do_output_buffer() {
         ob_start();
 }
 
+include ('register_Pages.php');//mvc gibi düşün 
 
 include ('register_css_js.php');
+
 include ('installTable.php');
 
 require("extraOptions.php");
 
-include ('register_Pages.php');//ek 1
 include ('stnc-kiosk-ajax.php');//ajax
-
-
 
 include ('01-home.php');
 
 include ('pages/business/edit_delete/actions.php');
 include ('pages/business/view/actions.php');
-
 include ('pages/building/edit_delete/actions.php');
 
 
