@@ -3,7 +3,8 @@ geçmiş kiracılar
 bekleyen firma listesi 
 anasayfada firmalar listesi 
 binalar ansayfasında toplam metrekare ve kac ofıs ve hangı renklerde olacak gibi şeye bak 
-
+aynı kapı numarasında fırma var mı yok mu 
+yenı eklerken kapı numarası na bakılmalı belkı update ıcınde 
 
 https://yourstory.com/companies   
 https://www.rtp.org/directory-map/
@@ -15,8 +16,7 @@ https://en.yellowpages.com.tr/restaurants-c
 
 https://www.jquery-az.com/bootstrap-tooltip-simple-and-customized-tooltips-demos/
 
-aynı kapı numarasında fırma var mı yok mu 
-yenı eklerken kapı numarası na bakılmalı belkı update ıcınde 
+
 
 css hover olayı 
 https://codepen.io/simicigor/pen/ZEpJEBY
