@@ -1,4 +1,18 @@
 <?php
+
+
+//onyuze ekleme yapacak 
+add_action( 'wp_enqueue_scripts', 'my_plugin_assets' );
+function my_plugin_assets() {
+    wp_enqueue_style( 'custom-gallery', plugins_url( '/assets/css/stnc-building-front.css' , __FILE__ ) );
+    // wp_enqueue_script( 'custom-gallery', plugins_url( '/js/gallery.js' , __FILE__ ) );
+    wp_register_style( 'Font_Awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0/css/all.min.css' );
+    wp_enqueue_style('Font_Awesome');
+}
+
+
+
+
 // load css into the website's front-end
 function stnc_wp_floor_MainMenu_enqueue_style()
 {
