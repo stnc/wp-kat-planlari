@@ -22,7 +22,7 @@ function stnc_wp_floor_shortcut_page()
 {
     global $wpdb;
 
-
+//https://diveinwp.com/create-shortcode-in-wordpress-multiple-parameters/ 
 
 $wp_stnc_map_floors1 =$wpdb->prefix . 'stnc_map_building';
 $sql = "SELECT * FROM " . $wp_stnc_map_floors1 . ' ';
@@ -37,7 +37,7 @@ $sql = "SELECT * FROM " . $wp_stnc_map_floors1 . ' ';
         $buildingsList = $wpdb->get_results($sql);
             foreach ($buildingsList as $building) : ?>
                <?php echo $building->name ?>
-             <?php echo "<br>"?>
+               <?php echo "<br>"?>
              <?php endforeach ; ?>
           
     <?php endforeach ;
