@@ -45,10 +45,10 @@ include ('pages/building/edit_delete/actions.php');
 
 
 require_once "helper.php";
-require_once "pages/stncForm-list_table.php";
-require_once "pages/stncForm-adminMenu-About.php";
-require_once "pages/shortCode_Generate_Page.php";
-require_once "pages/shortcode-embed.php";
+require_once "pages/stncForm_list_table.php";
+require_once "pages/stncForm-adminMenu_About.php";
+require_once "pages/shortcode_generate_page.php";
+require_once "pages/shortcode_embed.php";
 
 
 

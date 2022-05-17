@@ -2,8 +2,8 @@
 
 
 //onyuze ekleme yapacak 
-add_action( 'wp_enqueue_scripts', 'my_plugin_assets' );
-function my_plugin_assets() {
+add_action( 'wp_enqueue_scripts', 'stnc_wp_floor_front' );
+function stnc_wp_floor_front() {
     wp_enqueue_style( 'custom-gallery', plugins_url( '/assets/css/stnc-building-front.css' , __FILE__ ) );
     // wp_enqueue_script( 'custom-gallery', plugins_url( '/js/gallery.js' , __FILE__ ) );
     wp_register_style( 'Font_Awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0/css/all.min.css' );
@@ -19,7 +19,7 @@ function stnc_wp_floor_MainMenu_enqueue_style()
 //    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     wp_enqueue_style('stnc-style-boot', plugins_url('assets/css/bootstrap.min.css', __FILE__));
-    wp_enqueue_style('stnc-style-style2', plugins_url('assets/css/stnc.css', __FILE__));
+    wp_enqueue_style('stnc-style-style2', plugins_url('assets/css/stnc-admin.css', __FILE__));
 
 
 }

@@ -145,8 +145,8 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 				$result = $mysqldate;
 				break;
 
-			case 'namelastname':
-				$result = $item['namelastname'];
+			case 'company_name':
+				$result = $item['company_name'];
 				break;
 
 			case 'company_name':
@@ -170,7 +170,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 	{
 		return array(
 			'cb'     => '<input type="checkbox"/>',
-			'namelastname'  => __('Name', 'admin-table-tut'),
+			'company_name'  => __('Name', 'admin-table-tut'),
 			'company_name'   => __('Company', 'admin-table-tut'),
 			'phone' => __('Phone', 'admin-table-tut'),
 			'add_date'   => __('Date', 'admin-table-tut'),
@@ -272,7 +272,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 
 			$search = trim($search);
 
-			$sql = "SELECT * FROM {$wpdb->prefix}stnc_teknoparkform WHERE namelastname LIKE '%$search%' ";
+			$sql = "SELECT * FROM {$wpdb->prefix}stnc_map_floors_locations WHERE company_name LIKE '%$search%' ";
 			if (!empty($_REQUEST['orderby'])) {
 				$sql .= ' ORDER BY ' . esc_sql($_REQUEST['orderby']);
 				$sql .= !empty($_REQUEST['order']) ? ' ' . esc_sql($_REQUEST['order']) : ' ASC';
@@ -282,7 +282,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 			$sql .= ' OFFSET ' . ($page_number - 1) * $per_page;
 			$result = $wpdb->get_results($sql, 'ARRAY_A');
 		} else {
-			$sql = "SELECT * FROM {$wpdb->prefix}stnc_teknoparkform";
+			$sql = "SELECT * FROM {$wpdb->prefix}stnc_map_floors_locations";
 			if (!empty($_REQUEST['orderby'])) {
 				$sql .= ' ORDER BY ' . esc_sql($_REQUEST['orderby']);
 				$sql .= !empty($_REQUEST['order']) ? ' ' . esc_sql($_REQUEST['order']) : ' ASC';
@@ -310,7 +310,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 	{
 		global $wpdb;
 
-		$sql = "SELECT COUNT(*) FROM {$wpdb->prefix}stnc_teknoparkform";
+		$sql = "SELECT COUNT(*) FROM {$wpdb->prefix}stnc_map_floors_locations";
 
 		return $wpdb->get_var($sql);
 	}
@@ -361,7 +361,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 			// In our file that handles the request, verify the nonce.
 			$nonce = esc_attr($_REQUEST['_wpnonce']);
 			 $id = filter_input(INPUT_GET, 'customer', FILTER_DEFAULT);
-			$data = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}stnc_teknoparkform WHERE id = $id");
+			$data = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}stnc_map_floors_locations WHERE id = $id");
 			// print_r(	$data );
 
 
@@ -450,7 +450,7 @@ if ($data -> media_id!=0){
 		global $wpdb;
 
 		$wpdb->delete(
-			"{$wpdb->prefix}stnc_teknoparkform",
+			"{$wpdb->prefix}stnc_map_floors_locations",
 			['ID' => $id],
 			['%d']
 		);
