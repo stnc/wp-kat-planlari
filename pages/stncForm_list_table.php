@@ -175,6 +175,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 			'company_name'   => __('Company', 'admin-table-tut'),
 			'phone' => __('Phone', 'admin-table-tut'),
 			'add_date'   => __('Date', 'admin-table-tut'),
+			'edit'   => __('edit', 'admin-table-tut'),
 		);
 	}
 
@@ -194,7 +195,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 	 * @param array $item A singular item (one full row's worth of data)
 	 * @return string Text to be placed inside the column <td> (movie title only)
 	 **************************************************************************/
-	function column_namelastname($item)
+	function column_company_name($item)
 	{
 		$delete_nonce = wp_create_nonce('sp_delete_stncMapFloors');
 
