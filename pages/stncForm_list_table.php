@@ -1,4 +1,5 @@
 <?php
+//FIXME: checkbox sıl 
 //FIXME: veri butunlugu ıcın sql_esc_ input filter gib seyler kullanıyorlar onlara bak 
 //// '<span title="' . $t_time . '">' . apply_filters('post_date_column_time', $h_time, $item['id'], 'date', 'list') . '</span>'; //TODO: bu fıltre hatırlanabılır 
 //https://wordpress.stackexchange.com/questions/56805/saving-frontend-form-data-in-wordpress
@@ -70,8 +71,8 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 
 		parent::__construct(
 			array(
-				'singular' => __('Customer', 'sp'), //singular name of the listed records
-				'plural'   => __('Customers', 'sp'), //plural name of the listed records
+				'singular' => __('stncMapFloors', 'sp'), //singular name of the listed records
+				'plural'   => __('stncMapFloorss', 'sp'), //plural name of the listed records
 				'ajax'     => false //does this table support ajax?
 			)
 		);
@@ -145,8 +146,8 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 				$result = $mysqldate;
 				break;
 
-			case 'company_name':
-				$result = $item['company_name'];
+			case 'email':
+				$result = $item['email'];
 				break;
 
 			case 'company_name':
@@ -170,7 +171,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 	{
 		return array(
 			'cb'     => '<input type="checkbox"/>',
-			'company_name'  => __('Name', 'admin-table-tut'),
+			'email'  => __('E mail', 'admin-table-tut'),
 			'company_name'   => __('Company', 'admin-table-tut'),
 			'phone' => __('Phone', 'admin-table-tut'),
 			'add_date'   => __('Date', 'admin-table-tut'),
@@ -195,19 +196,19 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 	 **************************************************************************/
 	function column_namelastname($item)
 	{
-		$delete_nonce = wp_create_nonce('sp_delete_customer');
+		$delete_nonce = wp_create_nonce('sp_delete_stncMapFloors');
 
-		$title = '<strong>' . $item['namelastname'] . '</strong>';
+		$title = '<strong>' . $item['company_name'] . '</strong>';
 
 		$actions = [
-			'view' => sprintf('<a href="?page=%s&action=%s&customer=%s&_wpnonce=%s">view</a>', esc_attr($_REQUEST['page']), 'view', absint($item['id']), $delete_nonce),
-			'delete' => sprintf('<a href="?page=%s&action=%s&customer=%s&_wpnonce=%s">Delete</a>', esc_attr($_REQUEST['page']), 'delete', absint($item['id']), $delete_nonce)
+			'view' => sprintf('<a href="?page=%s&action=%s&stncMapFloors=%s&_wpnonce=%s">view</a>', esc_attr($_REQUEST['page']), 'view', absint($item['id']), $delete_nonce),
+			'delete' => sprintf('<a href="?page=%s&action=%s&stncMapFloors=%s&_wpnonce=%s">Delete</a>', esc_attr($_REQUEST['page']), 'delete', absint($item['id']), $delete_nonce)
 		];
 
 		return $title . $this->row_actions($actions);
 	}
 
-	//http://summit.test/wp-admin/admin.php?page=wp_list_table_class&action=delete&customer=16&_wpnonce=243e56ab02
+	//http://summit.test/wp-admin/admin.php?page=wp_list_table_class&action=delete&stncMapFloors=16&_wpnonce=243e56ab02
 
 	/**
 	 * Column cb.
@@ -240,7 +241,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 
 		$this->process_bulk_action();
 
-		$per_page     = $this->get_items_per_page('customers_per_page', 15);
+		$per_page     = $this->get_items_per_page('stncMapFloorss_per_page', 15);
 		$current_page = $this->get_pagenum();
 		$total_items  = self::record_count();
 
@@ -250,18 +251,18 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 		]);
 
 
-		$this->items = self::get_customers($per_page, $current_page);
+		$this->items = self::get_stncMapFloorss($per_page, $current_page);
 	}
 
 	/**
-	 * Retrieve customers data from the database
+	 * Retrieve stncMapFloorss data from the database
 	 *
 	 * @param int $per_page
 	 * @param int $page_number
 	 *
 	 * @return mixed
 	 */
-	public static function get_customers($per_page = 5, $page_number = 1)
+	public static function get_stncMapFloorss($per_page = 5, $page_number = 1)
 	{
 
 		global $wpdb;
@@ -343,10 +344,10 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 			// In our file that handles the request, verify the nonce.
 			$nonce = esc_attr($_REQUEST['_wpnonce']);
 
-			if (!wp_verify_nonce($nonce, 'sp_delete_customer')) {
+			if (!wp_verify_nonce($nonce, 'sp_delete_stncMapFloors')) {
 				die('Go get a life script kiddies');
 			} else {
-				self::delete_customer(absint($_GET['customer']));
+				self::delete_stncMapFloors(absint($_GET['stncMapFloors']));
 
 				// esc_url_raw() is used to prevent converting ampersand in url to "#038;"
 				// add_query_arg() return the current url
@@ -360,7 +361,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 			global $wpdb;
 			// In our file that handles the request, verify the nonce.
 			$nonce = esc_attr($_REQUEST['_wpnonce']);
-			 $id = filter_input(INPUT_GET, 'customer', FILTER_DEFAULT);
+			 $id = filter_input(INPUT_GET, 'stncMapFloors', FILTER_DEFAULT);
 			$data = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}stnc_map_floors_locations WHERE id = $id");
 			// print_r(	$data );
 
@@ -415,14 +416,14 @@ if ($data -> media_id!=0){
 			|| (isset($_POST['action2']) && $_POST['action2'] == 'bulk-delete')
 		) {
 
-			$post_ids = filter_input(INPUT_POST, 'customer_id', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
+			$post_ids = filter_input(INPUT_POST, 'stncMapFloors_id', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
 
 
 			if (is_array($post_ids)) {
 
 				$post_ids = array_map('intval', $post_ids);
 				foreach ($post_ids as $id) {
-					self::delete_customer($id);
+					self::delete_stncMapFloors($id);
 				}
 				// if ( count( $post_ids ) ) {
 				// 	array_map( 'wp_trash_post', $post_ids );
@@ -441,11 +442,11 @@ if ($data -> media_id!=0){
 
 
 	/**
-	 * Delete a customer record.
+	 * Delete a stncMapFloors record.
 	 *
-	 * @param int $id customer ID
+	 * @param int $id stncMapFloors ID
 	 */
-	public static function delete_customer($id)
+	public static function delete_stncMapFloors($id)
 	{
 		global $wpdb;
 
@@ -559,7 +560,7 @@ if ($data -> media_id!=0){
 	{
 
 		return array(
-			'namelastname'  => array('namelastname', false),
+			'email'  => array('email', false),
 			'company_name'   => array('company_name', false),
 			'phone'   => array('phone', false),
 			'add_date' => array('add_date', false),
