@@ -1,6 +1,6 @@
 <?php
 //get event trıgger 
-//page=map_view_stnc & st_trigger === 'show' 
+//page=stnc_map_view & st_trigger === 'show' 
 
     
 ?>
@@ -135,7 +135,7 @@
                             <td><?php echo $result->company_name; ?></td>
                            
                             <td><a
-                                    href="/wp-admin/admin.php?page=map_editor_stnc&st_trigger=show&binaid=<?php echo $binaId?>&kat=<?php echo $katId?>&id=<?php echo $result->id; ?>">Düzenle</a>
+                                    href="/wp-admin/admin.php?page=stnc_map_editor_stnc&st_trigger=show&binaid=<?php echo $binaId?>&kat=<?php echo $katId?>&id=<?php echo $result->id; ?>">Düzenle</a>
                             </td>
                         </tr>
 

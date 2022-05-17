@@ -2,12 +2,12 @@
 
  
 
-//?page=building_map_editor_stnc&st_trigger=show&binaid=2
-function stnc_wp_floor_adminMenu_map_editor_stnc()
+//?page=stnc_map_editor_building&st_trigger=show&binaid=2
+function stnc_wp_floor_adminMenu_stnc_map_editor_stnc()
 {
 
 
-//http://summit.test/wp-admin/admin.php?page=building_map_editor_stnc&st_trigger=show&katid=2
+//http://summit.test/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=show&katid=2
 
     global $wpdb;
     $stncForm_tableNameMain =$wpdb->prefix .'stnc_map_floors' ;
@@ -47,7 +47,7 @@ function stnc_wp_floor_adminMenu_map_editor_stnc()
 
         if ($success) {
             $_SESSION['stnc_map_flash_msg'] = 'Kayıt Güncellendi';
-            wp_redirect('/wp-admin/admin.php?page=building_map_editor_stnc&binaid='.$building_id.'&kat='. $floor_id.'&st_trigger=show&id='.$_GET['id'], 302);
+            wp_redirect('/wp-admin/admin.php?page=stnc_map_building_stnc_map_editor&binaid='.$building_id.'&kat='. $floor_id.'&st_trigger=show&id='.$_GET['id'], 302);
             die;
         }
         // include ('harita-ekle-duzenle.php');
@@ -114,7 +114,7 @@ function stnc_wp_floor_adminMenu_map_editor_stnc()
         if ($success) {
             $_SESSION['stnc_map_flash_msg'] = 'Kayıt Yapıldı';
             $lastid = $wpdb->insert_id;
-            wp_redirect('/wp-admin/admin.php?page=map_editor_stnc&binaid='.$building_id.'&kat='. $floor_id.'&st_trigger=show&id='. $lastid, 302);
+            wp_redirect('/wp-admin/admin.php?page=stnc_map_editor_stnc&binaid='.$building_id.'&kat='. $floor_id.'&st_trigger=show&id='. $lastid, 302);
             die;
         }
 

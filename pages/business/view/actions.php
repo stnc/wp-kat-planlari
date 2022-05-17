@@ -1,9 +1,9 @@
 <?php
-//map_view_stnc&st_trigger=show&binaid=2&kat=9
+//stnc_map_view&st_trigger=show&binaid=2&kat=9
 
     //allow redirection, even if my theme starts to send output to the browser
 
-    function stnc_wp_floor_adminMenu_map_view_stnc()
+    function stnc_wp_floor_adminMenu_stnc_map_view()
     {
 
         global $wpdb;
@@ -44,7 +44,7 @@
             include ('map-show.php');
         }
     
-        if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'map_editor')) {
+        if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'stnc_map_editor')) {
       
             include ('map-editor.php');
         }

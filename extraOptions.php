@@ -4,26 +4,26 @@ add_filter('manage_staff_posts_custom_column', 'CHfw_manage_img_column', 10, 2);
 
 
 
-if (isset( $_GET['page'] ) && 'map_homepage_stnc' === $_GET['page'] ){
+if (isset( $_GET['page'] ) && 'stnc_map_homepage' === $_GET['page'] ){
   stnc_wp_floor_admin_notices();
-} else if (isset( $_GET['page'] ) && 'map_view_stnc' === $_GET['page']){
+} else if (isset( $_GET['page'] ) && 'stnc_map_view' === $_GET['page']){
   stnc_wp_floor_admin_notices();
-}else if (isset( $_GET['page'] ) && 'map_editor_stnc' === $_GET['page']){
+}else if (isset( $_GET['page'] ) && 'stnc_map_editor_stnc' === $_GET['page']){
   stnc_wp_floor_admin_notices();
 }
 
 function stnc_wp_floor_plans_admin_body_class( $classes = '' ) {
-    // $onboarding_class = isset( $_GET['page'] ) && 'map_homepage_stnc' === $_GET['page'] ? 'stnc-header-page' : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+    // $onboarding_class = isset( $_GET['page'] ) && 'stnc_map_homepage' === $_GET['page'] ? 'stnc-header-page' : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
     // $classes .= ' ' . $onboarding_class . ' ';
     $onboarding_class='';
-if (isset( $_GET['page'] ) && 'map_homepage_stnc' === $_GET['page']){
+if (isset( $_GET['page'] ) && 'stnc_map_homepage' === $_GET['page']){
   $onboarding_class ='stnc-header-page'; 
-} else if (isset( $_GET['page'] ) && 'map_view_stnc' === $_GET['page']){
+} else if (isset( $_GET['page'] ) && 'stnc_map_view' === $_GET['page']){
   $onboarding_class ='stnc-header-page'; 
-} else if (isset( $_GET['page'] ) && 'map_editor_stnc' === $_GET['page']){
+} else if (isset( $_GET['page'] ) && 'stnc_map_editor_stnc' === $_GET['page']){
   $onboarding_class ='stnc-header-page'; 
 }
-else if (isset( $_GET['page'] ) && 'building_map_editor_stnc' === $_GET['page']){
+else if (isset( $_GET['page'] ) && 'stnc_map_editor_building' === $_GET['page']){
   $onboarding_class ='stnc-header-page'; 
 }
 

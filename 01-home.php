@@ -1,5 +1,5 @@
 <?php
-function stnc_wp_floor_adminMenu_map_homepage_stnc()
+function stnc_wp_floor_adminMenu_stnc_map_homepage()
 {
 ?> <style>
   .stnc-header-page #adminmenumain,
@@ -40,7 +40,7 @@ function stnc_wp_floor_adminMenu_map_homepage_stnc()
       <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="/wp-admin/admin.php?page=map_homepage_stnc">Bina Listesi</a>
+            <a class="nav-link" href="/wp-admin/admin.php?page=stnc_map_homepage">Bina Listesi</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/wp-admin">Wordpess Panel</a>
@@ -82,12 +82,12 @@ function stnc_wp_floor_adminMenu_map_homepage_stnc()
             <br>
             <select class="form-select form-select-sm mx-auto" style="width: 130px;" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
               <option value="">Kat Seçiniz</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=1&kat=1">Bodrum kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=1&kat=2">Zemin kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=1&kat=4">1. kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=1&kat=5">2. kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=1&kat=6">3. kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=1&kat=8">4. kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=1&kat=1">Bodrum kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=1&kat=2">Zemin kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=1&kat=4">1. kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=1&kat=5">2. kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=1&kat=6">3. kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=1&kat=8">4. kat</option>
             </select>
           </div>
         </div>
@@ -118,8 +118,8 @@ function stnc_wp_floor_adminMenu_map_homepage_stnc()
             <br>
             <select class="form-select form-select-sm mx-auto" style="width: 130px;" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
               <option value="">Kat Seçiniz</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=2&kat=9">Zemin kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=2&kat=10">1 kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=2&kat=9">Zemin kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=2&kat=10">1 kat</option>
             </select>
           </div>
         </div>
@@ -150,11 +150,11 @@ function stnc_wp_floor_adminMenu_map_homepage_stnc()
             <br>
             <select class="form-select form-select-sm mx-auto" style="width: 130px;" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
               <option value="">Kat Seçiniz</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=3&kat=11">Bodrum kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=3&kat=12">Zemin kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=3&kat=13">1. kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=3&kat=14">2. kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=3&kat=15">3. kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=3&kat=11">Bodrum kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=3&kat=12">Zemin kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=3&kat=13">1. kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=3&kat=14">2. kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=3&kat=15">3. kat</option>
             </select>
           </div>
         </div>
@@ -185,11 +185,11 @@ function stnc_wp_floor_adminMenu_map_homepage_stnc()
             <br>
             <select class="form-select form-select-sm mx-auto" style="width: 130px;" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
               <option value="">Kat Seçiniz</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=4&kat=16">Bodrum kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=4&kat=17">Zemin kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=4&kat=18">1. kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=4&kat=19">2. kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=4&kat=20">3. kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=4&kat=16">Bodrum kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=4&kat=17">Zemin kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=4&kat=18">1. kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=4&kat=19">2. kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=4&kat=20">3. kat</option>
             </select>
           </div>
         </div>
@@ -220,11 +220,11 @@ function stnc_wp_floor_adminMenu_map_homepage_stnc()
             <br>
             <select class="form-select form-select-sm mx-auto" style="width: 130px;" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
               <option value="">Kat Seçiniz</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=5&kat=21">Bodrum kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=5&kat=22">Zemin kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=5&kat=23">1. kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=5&kat=24">2. kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=5&kat=25">3. kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=5&kat=21">Bodrum kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=5&kat=22">Zemin kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=5&kat=23">1. kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=5&kat=24">2. kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=5&kat=25">3. kat</option>
             </select>
           </div>
         </div>
@@ -255,11 +255,11 @@ function stnc_wp_floor_adminMenu_map_homepage_stnc()
             <br>
             <select class="form-select form-select-sm mx-auto" style="width: 130px;" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
               <option value="">Kat Seçiniz</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=5&kat=21">Bodrum kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=5&kat=22">Zemin kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=5&kat=23">1. kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=5&kat=24">2. kat</option>
-              <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=5&kat=25">3. kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=5&kat=21">Bodrum kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=5&kat=22">Zemin kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=5&kat=23">1. kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=5&kat=24">2. kat</option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=5&kat=25">3. kat</option>
             </select>
           </div>
         </div>

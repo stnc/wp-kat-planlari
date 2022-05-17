@@ -18,11 +18,11 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
 
       
          $title ="Ekleme";
-         $form = '<form action="/wp-admin/admin.php?page=map_editor_stnc&st_trigger=add_save&binaid='. $_GET['binaid'] .'&kat='. $_GET['kat'] .'" method="post">';
+         $form = '<form action="/wp-admin/admin.php?page=stnc_map_editor_stnc&st_trigger=add_save&binaid='. $_GET['binaid'] .'&kat='. $_GET['kat'] .'" method="post">';
 
          if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) {
             $title ="Düzenleme";
-            $form = '<form action="/wp-admin/admin.php?page=map_editor_stnc&st_trigger=update&binaid='. $_GET['binaid'] .'&kat='. $_GET['kat'] .'&id='. $_GET['id'] .'" method="post">';
+            $form = '<form action="/wp-admin/admin.php?page=stnc_map_editor_stnc&st_trigger=update&binaid='. $_GET['binaid'] .'&kat='. $_GET['kat'] .'&id='. $_GET['id'] .'" method="post">';
          }
 
 ?>
@@ -44,7 +44,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                         <a class="nav-link active" aria-current="page" href="/wp-admin">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/wp-admin/admin.php?page=map_homepage_stnc">Genel harita</a>
+                        <a class="nav-link" href="/wp-admin/admin.php?page=stnc_map_homepage">Genel harita</a>
                     </li>
 
                 </ul>
@@ -207,13 +207,13 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                     </div>
                     <br>    <br>
                     <a style="color:orange"
-                href="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">Bina
+                href="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">Bina
                 Haritası</a>
                 <br>
                 <br>
               
             <a style="color:blue"
-                href="/wp-admin/admin.php?page=map_view_stnc&st_trigger=map_editor&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">Bina
+                href="/wp-admin/admin.php?page=stnc_map_view&st_trigger=stnc_map_editor&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">Bina
                 Harita Editörü</a>
             </div>
         </div>

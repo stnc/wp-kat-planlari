@@ -1,6 +1,6 @@
 <?php
 //get event trıgger 
-//page=map_view_stnc & st_trigger === 'map_editor' 
+//page=stnc_map_view & st_trigger === 'stnc_map_editor' 
 ?>
 <style>
 .dragAbsolute {
@@ -114,7 +114,7 @@
                                         <td><?php echo $result->door_number; ?></td>
                                         <td><?php echo $result->company_name; ?></td>
                                     
-     <td><a  href="/wp-admin/admin.php?page=map_editor_stnc&st_trigger=show&binaid=<?php echo $binaId?>&kat=<?php echo $katId?>&id=<?php echo $result->id; ?>">Düzenle</a></td>
+     <td><a  href="/wp-admin/admin.php?page=stnc_map_editor_stnc&st_trigger=show&binaid=<?php echo $binaId?>&kat=<?php echo $katId?>&id=<?php echo $result->id; ?>">Düzenle</a></td>
                                         </tr>
                             
 
@@ -234,7 +234,7 @@ var editId = 0;
 jQuery(document).ready(function($) {
     $('.draggable').on('contextmenu', function(e) {
         $("#context-menu a.edit").attr("href",
-            "/wp-admin/admin.php?page=map_editor_stnc&binaid=<?php echo $binaId?>&kat=<?php echo $katId?>&st_trigger=show&id=" + $( this).data('id'))
+            "/wp-admin/admin.php?page=stnc_map_editor_stnc&binaid=<?php echo $binaId?>&kat=<?php echo $katId?>&st_trigger=show&id=" + $( this).data('id'))
         var top = e.pageY - 1;
         var left = e.pageX - 90;
         $("#context-menu").css({

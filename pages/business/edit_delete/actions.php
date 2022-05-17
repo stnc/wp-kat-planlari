@@ -2,9 +2,9 @@
 
 
     
-function stnc_wp_floor_adminMenu_map_editor()
+function stnc_wp_floor_adminMenu_stnc_map_editor()
 {
-    //  map_editor_stnc
+    //  stnc_map_editor_stnc
 
 
 
@@ -73,7 +73,7 @@ function stnc_wp_floor_adminMenu_map_editor()
 
         if ($success) {
             $_SESSION['stnc_map_flash_msg'] = 'Kayıt Güncellendi';
-            wp_redirect('/wp-admin/admin.php?page=map_editor_stnc&binaid='.$building_id.'&kat='. $floor_id.'&st_trigger=show&id='.$_GET['id'], 302);
+            wp_redirect('/wp-admin/admin.php?page=stnc_map_editor_stnc&binaid='.$building_id.'&kat='. $floor_id.'&st_trigger=show&id='.$_GET['id'], 302);
             die;
         }
         // include ('harita-ekle-duzenle.php');
@@ -140,7 +140,7 @@ function stnc_wp_floor_adminMenu_map_editor()
         if ($success) {
             $_SESSION['stnc_map_flash_msg'] = 'Kayıt Yapıldı';
             $lastid = $wpdb->insert_id;
-            wp_redirect('/wp-admin/admin.php?page=map_editor_stnc&binaid='.$building_id.'&kat='. $floor_id.'&st_trigger=show&id='. $lastid, 302);
+            wp_redirect('/wp-admin/admin.php?page=stnc_map_editor_stnc&binaid='.$building_id.'&kat='. $floor_id.'&st_trigger=show&id='. $lastid, 302);
             die;
         }
 

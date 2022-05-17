@@ -14,7 +14,7 @@ function stncForm_enqueue_style3()
 
 }
 
-if ((isset($_GET['page'])) && ($_GET['page'] === 'map_homepage_stnc')) {
+if ((isset($_GET['page'])) && ($_GET['page'] === 'stnc_map_homepage')) {
 add_action('admin_enqueue_scripts', 'stncForm_enqueue_style3');
 add_action('admin_enqueue_scripts', 'custom_script_in_admin');
 }
@@ -35,7 +35,7 @@ function custom_script_in_admin($hook) {
 
 
  function admin_body_class( $classes = '' ) {
-    $onboarding_class = isset( $_GET['page'] ) && 'map_homepage_stnc' === $_GET['page'] ? 'stnc-header-page' : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+    $onboarding_class = isset( $_GET['page'] ) && 'stnc_map_homepage' === $_GET['page'] ? 'stnc-header-page' : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
     $classes .= ' ' . $onboarding_class . ' ';
 
     return $classes;
@@ -620,7 +620,7 @@ function CHfw_admin_menu()
     add_submenu_page("edit.php?post_type=staff", __("Locations", 'mp-timetable'), __("Locations", 'mp-timetable'), "edit_posts", "edit.php?post_type=locations");//chfw condi
     add_submenu_page("edit.php?post_type=staff", __("Add Locations", 'mp-timetable'), __("Add Locations", 'mp-timetable'), "edit_posts", "post-new.php?post_type=locations");//chfw add treatmens
 
-      add_submenu_page( "edit.php?post_type=staff", 'Ayarlar', 'Ayarlar', 'manage_options', 'map_homepage_stnc', 'stncForm_adminMenu_About_contentsTest' ); ////burası alt kısım onun altında olacak olan bolum için 
+      add_submenu_page( "edit.php?post_type=staff", 'Ayarlar', 'Ayarlar', 'manage_options', 'stnc_map_homepage', 'stncForm_adminMenu_About_contentsTest' ); ////burası alt kısım onun altında olacak olan bolum için 
 
 
 
@@ -634,7 +634,7 @@ add_filter('manage_staff_posts_custom_column', 'CHfw_manage_img_column', 10, 2);
 
 
 
-if (isset( $_GET['page'] ) && 'map_homepage_stnc' === $_GET['page'] ){
+if (isset( $_GET['page'] ) && 'stnc_map_homepage' === $_GET['page'] ){
 
     add_action('admin_notices', function () {
       echo 'My notice';
