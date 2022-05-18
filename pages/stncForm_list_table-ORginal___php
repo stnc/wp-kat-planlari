@@ -139,12 +139,12 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 	{
 		$result = '';
 		switch ($column_name) {
-			// case 'add_date':
-			// 	$phpdate = strtotime($item['add_date']);
-			// 	$mysqldate = date('d-m-Y H:i', $phpdate);
+			case 'add_date':
+				$phpdate = strtotime($item['add_date']);
+				$mysqldate = date('d-m-Y H:i', $phpdate);
 
-			// 	$result = $mysqldate;
-			// 	break;
+				$result = $mysqldate;
+				break;
 
 			case 'email':
 				$result = $item['email'];
@@ -162,10 +162,6 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 				$result = $item['phone'];
 				break;
 
-				case 'bina':
-					$result = $item['bina'];
-					break;
-
 				case 'company_description':
 					$result = $item['company_description'];
 					break;
@@ -182,17 +178,15 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 	public function get_columns()
 	{
 		return array(
-			// 'cb'     => '<input type="checkbox"/>',
+			'cb'     => '<input type="checkbox"/>',
 		
-			'company_name'   => __('Şirket', 'admin-table-tut'),
-			'company_description'   => __('Şirket Detay', 'admin-table-tut'),
-			'email'  => __('Email', 'admin-table-tut'),
+			'company_name'   => __('Company', 'admin-table-tut'),
+			'email'  => __('E mail', 'admin-table-tut'),
 			'phone' => __('Phone', 'admin-table-tut'),
 		
 			'web_site'   => __('Web Sitesi', 'admin-table-tut'),
-			
-			'bina'   => __('Bina', 'admin-table-tut'),
-		
+			'company_description'   => __('Date', 'admin-table-tut'),
+			'add_date'   => __('Date', 'admin-table-tut'),
 		);
 	}
 
@@ -220,7 +214,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 
 		$actions = [
 			'view' => sprintf('<a href="?page=%s&action=%s&stncMapFloors=%s&_wpnonce=%s">view</a>', esc_attr($_REQUEST['page']), 'view', absint($item['id']), $delete_nonce),
-			'edit' => sprintf('<a href="?page=%s&action=%s&stncMapFloors=%s&_wpnonce=%s">Edit</a>', esc_attr($_REQUEST['page']), 'edit', absint($item['id']), $delete_nonce)
+			'delete' => sprintf('<a href="?page=%s&action=%s&stncMapFloors=%s&_wpnonce=%s">Delete</a>', esc_attr($_REQUEST['page']), 'delete', absint($item['id']), $delete_nonce)
 		];
 
 		return $title . $this->row_actions($actions);
@@ -291,11 +285,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 
 			$search = trim($search);
 
-			$sql = "SELECT loc.*,build.name AS build_name,floors.name AS floors_name,CONCAT(build.name , ' - ',  floors.name) as bina  
-			FROM {$wpdb->prefix}stnc_map_floors_locations AS loc 
-			INNER JOIN {$wpdb->prefix}stnc_map_building AS build  ON  loc.building_id=build.id 
-			INNER JOIN  {$wpdb->prefix}stnc_map_floors AS floors  ON  loc.floor_id=floors.id  
-			WHERE company_name LIKE '%$search%' OR company_description LIKE '%$search%' ";
+			$sql = "SELECT * FROM {$wpdb->prefix}stnc_map_floors_locations WHERE company_name LIKE '%$search%' ";
 			if (!empty($_REQUEST['orderby'])) {
 				$sql .= ' ORDER BY ' . esc_sql($_REQUEST['orderby']);
 				$sql .= !empty($_REQUEST['order']) ? ' ' . esc_sql($_REQUEST['order']) : ' ASC';
@@ -305,16 +295,12 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 			$sql .= ' OFFSET ' . ($page_number - 1) * $per_page;
 			$result = $wpdb->get_results($sql, 'ARRAY_A');
 		} else {
-			 $sql = "SELECT loc.*,build.name AS build_name,floors.name AS floors_name,CONCAT(build.name , '- ',  floors.name) as bina  
-			 FROM {$wpdb->prefix}stnc_map_floors_locations AS loc 
-			 INNER JOIN {$wpdb->prefix}stnc_map_building AS build  ON  loc.building_id=build.id 
-			 INNER JOIN  {$wpdb->prefix}stnc_map_floors AS floors  ON  loc.floor_id=floors.id ";
-	
+			$sql = "SELECT * FROM {$wpdb->prefix}stnc_map_floors_locations";
 			if (!empty($_REQUEST['orderby'])) {
 				$sql .= ' ORDER BY ' . esc_sql($_REQUEST['orderby']);
 				$sql .= !empty($_REQUEST['order']) ? ' ' . esc_sql($_REQUEST['order']) : ' ASC';
 			} else {
-				$sql .= ' ORDER BY loc.id ASC';
+				$sql .= ' ORDER BY id  desc';
 			}
 
 			$sql .= " LIMIT $per_page";
@@ -409,11 +395,11 @@ if ($data -> media_id!=0){
 <div id="advanced" class="postbox ">
     <div class="inside">
         <div class="card shadow1" style="max-width:100%!important">
-            <h2> <strong><?php echo $data ->company_description;?></strong> --  Bilgileri</h2>
+            <h2>Erciyes Teknopark firma bilgisi</h2>
 
-            <div><mark class="dont">Firma:</mark> <?php echo $data ->company_description;?></div>
+            <div><mark class="dont">Adı Soyadı:</mark> <?php echo $data ->company_description;?></div>
             <hr>
-            <div><mark class="dont">Detaylı Bilgi:</mark> <?php echo $data->company_name;?></div>
+            <div><mark class="dont">Şirket:</mark> <?php echo $data->company_name;?></div>
             <hr>
             <div><mark class="dont">Telefon:</mark> <?php echo $data->phone;?></div>
             <hr>
@@ -421,12 +407,9 @@ if ($data -> media_id!=0){
             <hr>
             <div><mark class="dont">web site:</mark> <?php echo $data->web_site;?></div>
             <hr>
-            <div><mark class="dont">Adres:</mark> <?php echo $data->address;?></div>
-            <hr>  
-			
-			<div><mark class="dont"></mark> <a href="/wp-admin/admin.php?page=stnc_map_editor_stnc&st_trigger=show&binaid=<?php echo $data->building_id;?>&kat=<?php echo $data->floor_id;?>&id=<?php echo $data->id;?>">Düzenle</a>   </div>
+            <div><mark class="dont">Seyahat Engeli:</mark> <?php echo $data->address;?></div>
             <hr>
-            <!-- <div><mark class="dont">Eklenen Dosya:</mark><?php echo $oynat?></div> -->
+            <div><mark class="dont">Eklenen Dosya:</mark><?php echo $oynat?></div>
         </div>
     </div>
 </div>
@@ -470,7 +453,21 @@ if ($data -> media_id!=0){
 	}
 
 
+	/**
+	 * Delete a stncMapFloors record.
+	 *
+	 * @param int $id stncMapFloors ID
+	 */
+	public static function delete_stncMapFloors($id)
+	{
+		global $wpdb;
 
+		$wpdb->delete(
+			"{$wpdb->prefix}stnc_map_floors_locations",
+			['ID' => $id],
+			['%d']
+		);
+	}
 
 
 	/**
@@ -487,11 +484,11 @@ if ($data -> media_id!=0){
 
     <?php if ($this->has_items()) : ?>
     <div class="alignleft actions bulkactions">
-        <?php //$this->bulk_actions($which); ?>
+        <?php $this->bulk_actions($which); ?>
     </div>
     <?php
 			endif;
-			// $this->extra_tablenav($which);
+			$this->extra_tablenav($which);
 			$this->pagination($which);
 			?>
 
@@ -620,11 +617,13 @@ function stnc_wp_floor_render_list_page()
 <div class="wrap">
 
     <div id="icon-users" class="icon32"><br /></div>
-    <h2>Erciyes Teknopark Firmalar Listesi</h2>
+    <h2>Erciyes Teknopark Video Gönderileri</h2>
 
     <div
         style="background:#ECECEC;border:1px solid #CCC;padding:0 10px;margin-top:5px;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;">
-        <p>Kat planlarındaki Firmalar Listesi</p>
+        <p>Bu eklenti Erciyes Teknopark İçin Selman TUNÇ tarafından yapılmıştır, <br>
+            Eklentiyi bu <a href="https://github.com/stnc/wp-form" target="_blank"
+                style="text-decoration:none;">linkten</a> indirebilirsiniz </p>
 
     </div>
 
@@ -635,7 +634,7 @@ function stnc_wp_floor_render_list_page()
         <!-- Now we can render the completed list table -->
         <?php
 
-			$testListTable->search_box('Ara', 'search_id');
+			$testListTable->search_box('search', 'search_id');
 			$testListTable->display() ?>
     </form>
 
