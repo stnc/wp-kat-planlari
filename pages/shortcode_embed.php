@@ -24,6 +24,13 @@ add_shortcode( 'stnc_building', 'stnc_map_building_shortcode' );
     return 'Missing parameter';
     }
 
+    if (isset( $_GET['firma'] ) ){
+      echo "sdds";
+     
+    } else {
+
+      
+    }
 
   $wp_stnc_map_floors1 =$wpdb->prefix . 'stnc_map_floors_locations WHERE floor_id='.$args['id'].'';
    $sql = "SELECT * FROM " . $wp_stnc_map_floors1 . ' ';
