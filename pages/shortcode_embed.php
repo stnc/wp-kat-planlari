@@ -13,7 +13,7 @@ add_shortcode( 'stnc_building', 'stnc_map_building_shortcode' );
 	 * @param      array  $atts   User defined attributes in shortcode tag
 	 */
 	function stnc_map_building_shortcode( $attr ) {
-
+die("burada kaldım");
     global $wpdb;
     $args = shortcode_atts( array(
       'title' => '#',
@@ -29,7 +29,7 @@ add_shortcode( 'stnc_building', 'stnc_map_building_shortcode' );
      
     } else {
 
-      
+
     }
 
   $wp_stnc_map_floors1 =$wpdb->prefix . 'stnc_map_floors_locations WHERE floor_id='.$args['id'].'';
