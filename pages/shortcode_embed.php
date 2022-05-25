@@ -13,7 +13,7 @@ add_shortcode( 'stnc_building', 'stnc_map_building_shortcode' );
 	 * @param      array  $atts   User defined attributes in shortcode tag
 	 */
 	function stnc_map_building_shortcode( $attr ) {
-die("burada kaldım");
+
     global $wpdb;
     $args = shortcode_atts( array(
       'title' => '#',
@@ -24,13 +24,13 @@ die("burada kaldım");
     return 'Missing parameter';
     }
 
-    if (isset( $_GET['firma'] ) ){
-      echo "sdds";
+    // if (isset( $_GET['firma'] ) ){
+    //   echo "sdds";
      
-    } else {
+    // } else {
 
 
-    }
+    // }
 
   $wp_stnc_map_floors1 =$wpdb->prefix . 'stnc_map_floors_locations WHERE floor_id='.$args['id'].'';
    $sql = "SELECT * FROM " . $wp_stnc_map_floors1 . ' ';
@@ -42,7 +42,7 @@ die("burada kaldım");
 <div class="business-container">
 <?php
 foreach ($buildingsList as $building) : 
-    $image = wp_get_attachment_image_src(   $building -> media_id ,'thumbnail' );
+    $image = wp_get_attachment_image_src(   $building -> media_id ,'full' );
  ?>
   <div class="grid-display">
 

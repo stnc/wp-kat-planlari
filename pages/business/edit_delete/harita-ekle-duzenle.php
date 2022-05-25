@@ -31,9 +31,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-secondary fixed-top bg-secondary">
         <div class="container-fluid">
-            <img class="d-block mx-auto mb-1"
-                src="<?php echo plugins_url('../../assets/images/erciyes-logo.svg', __FILE__) ?>" alt="" width="100"
-                height="50">
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

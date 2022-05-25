@@ -187,7 +187,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 			'company_name'   => __('Şirket', 'admin-table-tut'),
 			'company_description'   => __('Şirket Detay', 'admin-table-tut'),
 			'email'  => __('Email', 'admin-table-tut'),
-			'phone' => __('Phone', 'admin-table-tut'),
+			'phone' => __('Telefon', 'admin-table-tut'),
 		
 			'web_site'   => __('Web Sitesi', 'admin-table-tut'),
 			
@@ -219,8 +219,8 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 		$title = '<strong>' . $item['company_name'] . '</strong>';
 
 		$actions = [
-			'view' => sprintf('<a href="?page=%s&action=%s&stncMapFloors=%s&_wpnonce=%s">view</a>', esc_attr($_REQUEST['page']), 'view', absint($item['id']), $delete_nonce),
-			'edit' => sprintf('<a href="?page=%s&action=%s&stncMapFloors=%s&_wpnonce=%s">Edit</a>', esc_attr($_REQUEST['page']), 'edit', absint($item['id']), $delete_nonce)
+			'view' => sprintf('<a href="?page=%s&action=%s&stncMapFloors=%s&_wpnonce=%s">Göster</a>', esc_attr($_REQUEST['page']), 'view', absint($item['id']), $delete_nonce),
+			'edit' => sprintf('<a href="?page=stnc_map_editor_stnc&st_trigger=show&binaid=%s&kat=%s&id=%s">Düzenle</a>',absint($item['building_id']),absint($item['floor_id']),  absint($item['id']), $delete_nonce)
 		];
 
 		return $title . $this->row_actions($actions);
@@ -581,6 +581,7 @@ if ($data -> media_id!=0){
 			'company_description'   => array('company_description', false),
 			// 'add_date' => array('add_date', false),
 			'web_site' => array('web_site', false),
+			'bina' => array('bina', false),
 		);
 	}
 }
@@ -624,7 +625,7 @@ function stnc_wp_floor_render_list_page()
 
     <div
         style="background:#ECECEC;border:1px solid #CCC;padding:0 10px;margin-top:5px;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;">
-        <p>Kat planlarındaki Firmalar Listesi</p>
+        <p>Kat Planlarındaki Firmalar Listesi</p>
 
     </div>
 

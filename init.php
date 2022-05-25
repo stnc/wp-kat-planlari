@@ -35,7 +35,7 @@ include ('installTable.php');
 
 require("extraOptions.php");
 
-include ('stnc-kiosk-ajax.php');//ajax
+
 
 include ('01-home.php');
 

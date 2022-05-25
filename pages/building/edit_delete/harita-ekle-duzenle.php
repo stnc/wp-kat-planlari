@@ -1,31 +1,4 @@
-<?php
-session_start();
-
-$katId=$_GET['id'];
-
-    $wp_stnc_map_floors =$wpdb->prefix . 'stnc_map_floors';
-
-   
-$map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".   $wp_stnc_map_floors." AS kat where id=%d",$katId));
-
-         $scheme = $map->scheme;
-         $katadi  = $map->name;
-         $tekno_id  = $map->tekno_id;
-         $id  = $map->id;
-         $scheme_media_id  = $map->scheme_media_id;
-    
-         $scheme_media_id = wp_get_attachment_image_src(    $scheme_media_id  ,'full' );
-    
-         $title ="Ekleme";
-         $form = '<form action="/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=add_save&&id='. $_GET['id'] .'" method="post">';
-
-         if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) {
-            $title ="Düzenleme";
-            $form = '
-	<form action="/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=update&id='. $_GET['id'] .'" method="post">';
-         }
-
-?> <header>
+ <header>
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-secondary fixed-top bg-secondary">
     <div class="container-fluid">

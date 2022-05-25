@@ -16,13 +16,41 @@ function stnc_wp_floor_adminMenu_stnc_map_editor_stnc()
     $date = date('Y-m-d h:i:s');
 
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) {
-        $thepost = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tableNameMain . "  WHERE id = %d", $_GET['id']));
-        $name = $thepost->name;
-        $scheme_media_id = $thepost->scheme_media_id;
+       
+        // $thepost = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".$stncForm_tableNameMain . "  WHERE id = %d", $_GET['kat']));
+        // $name = $thepost->name;
+        // $scheme_media_id = $thepost->scheme_media_id;
 
     
-        $image = wp_get_attachment_image_src($scheme_media_id  ,'thumbnail' );
+        // $image = wp_get_attachment_image_src($scheme_media_id  ,'thumbnail' );
     
+
+        session_start();
+
+$katId=$_GET['kat'];
+
+
+   
+$map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".   $stncForm_tableNameMain." AS kat where id=%d",$katId));
+
+         $scheme = $map->scheme;
+         $katadi  = $map->name;
+         $tekno_id  = $map->tekno_id;
+         $id  = $map->id;
+         $scheme_media_id  = $map->scheme_media_id;
+    
+         $scheme_media_id = wp_get_attachment_image_src(    $scheme_media_id  ,'full' );
+    
+         $title ="Ekleme";
+         $form = '<form action="/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=add_save&&id='. $_GET['id'] .'" method="post">';
+
+         if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) {
+            $title ="Düzenleme";
+            $form = '
+	<form action="/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=update&id='. $_GET['id'] .'" method="post">';
+         }
+
+
         include ('harita-ekle-duzenle.php');
     }
 
@@ -33,7 +61,7 @@ function stnc_wp_floor_adminMenu_stnc_map_editor_stnc()
 
         $scheme_media_id = isset($_POST["scheme_media_id"]) ? sanitize_text_field($_POST["scheme_media_id"]) : 0;
         $success =   $wpdb->update(
-            $stncForm_tableNameMain,
+            $wpdb->prefix .'stnc_map_floors',
             array(
                 'scheme_media_id' =>  $scheme_media_id,
         
@@ -41,16 +69,17 @@ function stnc_wp_floor_adminMenu_stnc_map_editor_stnc()
      
 
             ),
-            array('id' => $_POST['id'])
+            array('id' => $_GET['id'])
         );
-
-
+// print_r($success);
+// die("dd");
         if ($success) {
             $_SESSION['stnc_map_flash_msg'] = 'Kayıt Güncellendi';
-            wp_redirect('/wp-admin/admin.php?page=stnc_map_building_stnc_map_editor&binaid='.$building_id.'&kat='. $floor_id.'&st_trigger=show&id='.$_GET['id'], 302);
+            // ?page=stnc_map_editor_building&st_trigger=show&id=5&kat=23
+            wp_redirect('/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=show&binaid='.$building_id.'&kat='. $floor_id.'&id='.$_GET['kat'], 302);
             die;
         }
-        // include ('harita-ekle-duzenle.php');
+       include ('harita-ekle-duzenle.php');
     }
 
 

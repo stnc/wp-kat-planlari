@@ -18,7 +18,17 @@ function copyData(containerid) {
 }
 
 </script>
-
+<div class="inside">
+            <div class="card shadow1" style="max-width:100%!important">
+                <h2>Erciyes Teknopark Firma Listeleri Shortcode Listesi</h2>
+                <p>Shortcode ; köşeli parantezler arasına yazılan anahtar kelimelerdir</p>
+                <a href="https://www.kemalkefeli.com.tr/wordpresse-shortcode-ekleme.html">Ayrıntılı Bilgi</a>
+                <strong>Örnek Kod </strong>
+                <pre>[stnc_building title="TEKNO-1 - BODRUM KAT" id="1"]</pre>
+                <p><mark class="dont">Ekleme:</mark>&nbsp; üstteki kodu sayfa içine içine ekleyiniz</p>
+                <a href="/tekno-1-bodrum-kat-firmalari/">Örnek Sayfa</a>
+            </div>
+        </div>
 
 <?php 
 

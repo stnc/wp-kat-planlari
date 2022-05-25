@@ -52,13 +52,7 @@
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-secondary fixed-top bg-black">
         <div class="container-fluid">
-            <img class="d-block mx-auto mb-1"
-                src="<?php
-                
-                $plugins_url = plugin_dir_url( __FILE__ ) ;
-    
-                echo $plugins_url ?>" alt="" width="100"
-                height="50">
+         
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
