@@ -1,5 +1,5 @@
 <?php
-
+   session_start();
  
 
 //?page=stnc_map_editor_building&st_trigger=show&binaid=2
@@ -15,6 +15,10 @@ function stnc_wp_floor_adminMenu_stnc_map_editor_stnc()
     date_default_timezone_set('Europe/Istanbul');
     $date = date('Y-m-d h:i:s');
 
+    $title ="Ekleme";
+    $form = '<form action="/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=add_save&&id='. $_GET['id'] .'" method="post">';
+
+
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) {
        
         // $thepost = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".$stncForm_tableNameMain . "  WHERE id = %d", $_GET['kat']));
@@ -25,13 +29,14 @@ function stnc_wp_floor_adminMenu_stnc_map_editor_stnc()
         // $image = wp_get_attachment_image_src($scheme_media_id  ,'thumbnail' );
     
 
-        session_start();
+     
 
-$katId=$_GET['kat'];
+        $katId=$_GET['kat'];
 
-
+        $title ="Düzenleme";
+        $form = '<form action="/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=update&id='. $_GET['id'] .'" method="post">';
    
-$map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".   $stncForm_tableNameMain." AS kat where id=%d",$katId));
+        $map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".   $stncForm_tableNameMain." AS kat where id=%d",$katId));
 
          $scheme = $map->scheme;
          $katadi  = $map->name;
@@ -41,15 +46,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".   $stncForm_tableNameMai
     
          $scheme_media_id = wp_get_attachment_image_src(    $scheme_media_id  ,'full' );
     
-         $title ="Ekleme";
-         $form = '<form action="/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=add_save&&id='. $_GET['id'] .'" method="post">';
-
-         if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) {
-            $title ="Düzenleme";
-            $form = '
-	<form action="/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=update&id='. $_GET['id'] .'" method="post">';
-         }
-
+ 
 
         include ('harita-ekle-duzenle.php');
     }
@@ -143,7 +140,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".   $stncForm_tableNameMai
         if ($success) {
             $_SESSION['stnc_map_flash_msg'] = 'Kayıt Yapıldı';
             $lastid = $wpdb->insert_id;
-            wp_redirect('/wp-admin/admin.php?page=stnc_map_editor_stnc&binaid='.$building_id.'&kat='. $floor_id.'&st_trigger=show&id='. $lastid, 302);
+            wp_redirect('/wp-admin/admin.php?page=stnc_map_company&binaid='.$building_id.'&kat='. $floor_id.'&st_trigger=show&id='. $lastid, 302);
             die;
         }
 

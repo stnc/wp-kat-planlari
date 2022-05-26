@@ -18,11 +18,11 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
 
       
          $title ="Ekleme";
-         $form = '<form action="/wp-admin/admin.php?page=stnc_map_editor_stnc&st_trigger=add_save&binaid='. $_GET['binaid'] .'&kat='. $_GET['kat'] .'" method="post">';
+         $form = '<form action="/wp-admin/admin.php?page=stnc_map_company&st_trigger=add_save&binaid='. $_GET['binaid'] .'&kat='. $_GET['kat'] .'" method="post">';
 
          if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) {
             $title ="Düzenleme";
-            $form = '<form action="/wp-admin/admin.php?page=stnc_map_editor_stnc&st_trigger=update&binaid='. $_GET['binaid'] .'&kat='. $_GET['kat'] .'&id='. $_GET['id'] .'" method="post">';
+            $form = '<form action="/wp-admin/admin.php?page=stnc_map_company&st_trigger=update&binaid='. $_GET['binaid'] .'&kat='. $_GET['kat'] .'&id='. $_GET['id'] .'" method="post">';
          }
 
 ?>
@@ -211,7 +211,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                 <br>
               
             <a style="color:blue"
-                href="/wp-admin/admin.php?page=stnc_map_view&st_trigger=stnc_map_editor&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">Bina
+                href="/wp-admin/admin.php?page=stnc_map_view&st_trigger=editor&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">Bina
                 Harita Editörü</a>
             </div>
         </div>

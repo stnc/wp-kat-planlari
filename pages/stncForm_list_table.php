@@ -220,7 +220,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 
 		$actions = [
 			'view' => sprintf('<a href="?page=%s&action=%s&stncMapFloors=%s&_wpnonce=%s">Göster</a>', esc_attr($_REQUEST['page']), 'view', absint($item['id']), $delete_nonce),
-			'edit' => sprintf('<a href="?page=stnc_map_editor_stnc&st_trigger=show&binaid=%s&kat=%s&id=%s">Düzenle</a>',absint($item['building_id']),absint($item['floor_id']),  absint($item['id']), $delete_nonce)
+			'edit' => sprintf('<a href="?page=stnc_map_company&st_trigger=show&binaid=%s&kat=%s&id=%s">Düzenle</a>',absint($item['building_id']),absint($item['floor_id']),  absint($item['id']), $delete_nonce)
 		];
 
 		return $title . $this->row_actions($actions);
@@ -424,7 +424,7 @@ if ($data -> media_id!=0){
             <div><mark class="dont">Adres:</mark> <?php echo $data->address;?></div>
             <hr>  
 			
-			<div><mark class="dont"></mark> <a href="/wp-admin/admin.php?page=stnc_map_editor_stnc&st_trigger=show&binaid=<?php echo $data->building_id;?>&kat=<?php echo $data->floor_id;?>&id=<?php echo $data->id;?>">Düzenle</a>   </div>
+			<div><mark class="dont"></mark> <a href="/wp-admin/admin.php?page=stnc_map_company&st_trigger=show&binaid=<?php echo $data->building_id;?>&kat=<?php echo $data->floor_id;?>&id=<?php echo $data->id;?>">Düzenle</a>   </div>
             <hr>
             <!-- <div><mark class="dont">Eklenen Dosya:</mark><?php echo $oynat?></div> -->
         </div>

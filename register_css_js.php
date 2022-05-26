@@ -56,7 +56,7 @@ if ((isset($_GET['page'])) && ($_GET['page'] === 'stnc_map_homepage')) {
     stnc_wp_floor_all_scritps();
 }
 
-if ((isset($_GET['page'])) && ($_GET['page'] === 'stnc_map_editor_stnc')) {
+if ((isset($_GET['page'])) && ($_GET['page'] === 'stnc_map_company')) {
 
     stnc_wp_floor_all_scritps();
     add_action('admin_enqueue_scripts', 'stnc_wp_floor_map_script_in_admin');

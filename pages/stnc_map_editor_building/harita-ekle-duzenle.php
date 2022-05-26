@@ -55,7 +55,7 @@
 															<?php echo $_GET['kat']?>">Bina Haritası </a>
           <br>
           <br>
-          <a style="color:blue" href="/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=stnc_map_editor&binaid=
+          <a style="color:blue" href="/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=editor&binaid=
 																	<?php echo $_GET['binaid']?>&kat=
 																	<?php echo $_GET['kat']?>">Bina Harita Editörü </a>
         </div>

@@ -8,7 +8,7 @@ if (isset( $_GET['page'] ) && 'stnc_map_homepage' === $_GET['page'] ){
   stnc_wp_floor_admin_notices();
 } else if (isset( $_GET['page'] ) && 'stnc_map_view' === $_GET['page']){
   stnc_wp_floor_admin_notices();
-}else if (isset( $_GET['page'] ) && 'stnc_map_editor_stnc' === $_GET['page']){
+}else if (isset( $_GET['page'] ) && 'stnc_map_company' === $_GET['page']){
   stnc_wp_floor_admin_notices();
 }
 
@@ -20,7 +20,7 @@ if (isset( $_GET['page'] ) && 'stnc_map_homepage' === $_GET['page']){
   $onboarding_class ='stnc-header-page'; 
 } else if (isset( $_GET['page'] ) && 'stnc_map_view' === $_GET['page']){
   $onboarding_class ='stnc-header-page'; 
-} else if (isset( $_GET['page'] ) && 'stnc_map_editor_stnc' === $_GET['page']){
+} else if (isset( $_GET['page'] ) && 'stnc_map_company' === $_GET['page']){
   $onboarding_class ='stnc-header-page'; 
 }
 else if (isset( $_GET['page'] ) && 'stnc_map_editor_building' === $_GET['page']){

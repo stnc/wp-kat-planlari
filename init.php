@@ -39,9 +39,9 @@ require("extraOptions.php");
 
 include ('01-home.php');
 
-include ('pages/business/edit_delete/actions.php');
-include ('pages/business/view/actions.php');
-include ('pages/building/edit_delete/actions.php');
+include ('pages/stnc_map_company/actions.php');
+include ('pages/stnc_map_editor_building/actions.php');
+include ('pages/stnc_map_view/actions.php');
 
 
 require_once "helper.php";

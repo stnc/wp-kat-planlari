@@ -1,51 +1,7 @@
 <?php
 //get event trıgger 
-//page=stnc_map_view & st_trigger === 'show' 
-
-    
+//page=stnc_map_view & st_trigger === 'show'  
 ?>
-<style>
-.dragAbsolute {
-    padding: 3px 7px;
-    font-weight: bold;
-    color: white;
-    position: absolute;
-    height: 26px;
-    width: 84px;
-    text-align: center;
-}
-.fer {
-    color:#fff;
-}
-.dragAbsoluteSpan1 {
-    border-radius: 78px;
-    /* padding: 1px; */
-    color: blanchedalmond;
-    background-color: blue;
-    display: inline-block;
-    width: 26px;
-    float: left;
-    margin: 0;
-    padding: 0;
-}
-
-.dragAbsoluteSpan2 {
-    border-radius: 78px;
-    padding: 1px;
-    color: #212529;
-
-    display: block;
-    width: 90px;
-
-    margin: 0;
-    padding: 0;
-}
-.bg-black{
-    background-color:#000;
-    color:#fff;
-}
-</style>
-
 
 <?php include("header-show.php") ?>
 
@@ -135,7 +91,7 @@
                             <td><?php echo $result->company_name; ?></td>
                            
                             <td><a
-                                    href="/wp-admin/admin.php?page=stnc_map_editor_stnc&st_trigger=show&binaid=<?php echo $binaId?>&kat=<?php echo $katId?>&id=<?php echo $result->id; ?>">Düzenle</a>
+                                    href="/wp-admin/admin.php?page=stnc_map_company&st_trigger=show&binaid=<?php echo $binaId?>&kat=<?php echo $katId?>&id=<?php echo $result->id; ?>">Düzenle</a>
                             </td>
                         </tr>
 

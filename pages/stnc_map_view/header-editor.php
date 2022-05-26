@@ -72,7 +72,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" st_trigger=new
-                            href="/wp-admin/admin.php?page=stnc_map_editor_stnc&st_trigger=new&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">Yeni Firma Ekle</a>
+                            href="/wp-admin/admin.php?page=stnc_map_company&st_trigger=new&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">Yeni Firma Ekle</a>
 
                     </li>
 
@@ -94,7 +94,7 @@
                          <?php 
                     
                          foreach ($buildingsList as $building) : ?>
-                            <li><a class="dropdown-item" href="/wp-admin/admin.php?page=stnc_map_view&st_trigger=stnc_map_editor&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $building->id ?>"><?php echo $building->name ?></a></li>
+                            <li><a class="dropdown-item" href="/wp-admin/admin.php?page=stnc_map_view&st_trigger=editor&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $building->id ?>"><?php echo $building->name ?></a></li>
                         <?php endforeach ?>
                         </ul>
                     </li>
