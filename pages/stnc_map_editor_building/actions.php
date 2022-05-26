@@ -24,31 +24,24 @@ function stnc_wp_floor_adminMenu_stnc_map_editor_stnc()
         // $thepost = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".$stncForm_tableNameMain . "  WHERE id = %d", $_GET['kat']));
         // $name = $thepost->name;
         // $scheme_media_id = $thepost->scheme_media_id;
-
-    
         // $image = wp_get_attachment_image_src($scheme_media_id  ,'thumbnail' );
-    
 
-     
-
-        $katId=$_GET['kat'];
+        $id=$_GET['id'];
 
         $title ="Düzenleme";
         $form = '<form action="/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=update&id='. $_GET['id'] .'" method="post">';
-   
-        $map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".   $stncForm_tableNameMain." AS kat where id=%d",$katId));
+//    echo "SELECT *  FROM ".   $stncForm_tableNameMain." AS kat where id=".$id;
+//    die;
+        $map = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".   $stncForm_tableNameMain." AS kat where id=%d",$id));
 
          $scheme = $map->scheme;
          $katadi  = $map->name;
          $tekno_id  = $map->tekno_id;
-         $id  = $map->id;
+    
          $scheme_media_id  = $map->scheme_media_id;
-    
          $scheme_media_id = wp_get_attachment_image_src(    $scheme_media_id  ,'full' );
-    
- 
 
-        include ('harita-ekle-duzenle.php');
+        include ('add_edit.php');
     }
 
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'update')) {
@@ -76,7 +69,7 @@ function stnc_wp_floor_adminMenu_stnc_map_editor_stnc()
             wp_redirect('/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=show&binaid='.$building_id.'&kat='. $floor_id.'&id='.$_GET['kat'], 302);
             die;
         }
-       include ('harita-ekle-duzenle.php');
+       include ('add_edit.php');
     }
 
 
@@ -92,7 +85,7 @@ function stnc_wp_floor_adminMenu_stnc_map_editor_stnc()
         $company_description = isset($_POST["company_description"]) ? sanitize_text_field($_POST["company_description"]) : " ";
         $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
         $media_id = isset($_POST["media_id"]) ? sanitize_text_field($_POST["media_id"]) : " ";
-        include ('harita-ekle-duzenle.php');
+        include ('add_edit.php');
     }
 
 

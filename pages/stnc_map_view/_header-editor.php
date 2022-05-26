@@ -83,7 +83,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link"
-                            href="/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=show&id=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">Harita Değiştir</a>
+                        href="/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=show&teknoid=<?php echo $_GET['binaid']?>&id=<?php echo $_GET['kat']?>">Harita Yükle</a>
                     </li>
 
 
