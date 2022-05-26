@@ -5,7 +5,7 @@
 
 
 
-<?php include("header-editor.php") ?>
+<?php include("_header-editor.php") ?>
 
 
 <main class="flex-shrink-0" style="margin-top:88px">

@@ -3,7 +3,7 @@
 //page=stnc_map_view & st_trigger === 'show'  
 ?>
 
-<?php include("header-show.php") ?>
+<?php include("_header-show.php") ?>
 
 <main class="flex-shrink-0" style="margin-top:88px">
 

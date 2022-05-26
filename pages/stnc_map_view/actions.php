@@ -36,13 +36,13 @@ function stnc_wp_floor_adminMenu_stnc_map_view()
 
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show'))
     {
-        include ('map-show.php');
+        include ('show.php');
     }
 
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'editor'))
     {
 
-        include ('map-editor.php');
+        include ('editor.php');
     }
 }
 
