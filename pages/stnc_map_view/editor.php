@@ -14,7 +14,7 @@
     <div class="container-fluid">
 
         <div class="row">
-
+        <h6 style="color:red"> Kırmızı kutucukları sürükle bırak ile bina haritasında konumu değiştirebilirsiniz.</h6>
             <h3><?php echo $binaName ?> / <?php echo $kat_adi ?></h3>
 
 

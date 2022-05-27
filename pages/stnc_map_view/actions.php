@@ -18,6 +18,7 @@ function stnc_wp_floor_adminMenu_stnc_map_view()
 
     // echo '<br>';
     $binaName = $map->bina;
+    $name = $map->bina;
     // echo '<br>';
     $kat_adi = $map->kat_adi;
 

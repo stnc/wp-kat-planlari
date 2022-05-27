@@ -23,6 +23,17 @@
                     </li>
 
               
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
+                            aria-expanded="false">Diğer Katlar</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                         <?php 
+                    
+                         foreach ($buildingsList as $building) : ?>
+                            <li><a class="dropdown-item" href="/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=show&teknoid=<?php echo $building->tekno_id ?>&id=<?php echo $building->id ?>"><?php echo $building->name ?></a></li>
+                        <?php endforeach ?>
+                        </ul>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/wp-admin">Wordpess Panel</a>

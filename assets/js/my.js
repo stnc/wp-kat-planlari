@@ -42,10 +42,10 @@ jQuery.noConflict();
                     var filename = attachment.url;
                     var file_extension = filename.split('.').pop();//find extension
                     if (file_extension == "jpg" || file_extension == "jpeg" || file_extension == "png" || file_extension == "gif") {
-                        jQuery('.background_attachment_metabox_container').html('<div class="images-containerBG"><div class="single-imageBG"><span class="delete">X</span>  <img data-targetid="wow_pageSetting_backgroundImage" class="attachment-100x100 wp-post-image" witdh="100" height="100" src="' + attachment.url + '"></div></div>');
+                        jQuery('.background_attachment_metabox_container').html('<div class="images-containerBG"><div class="single-imageBG"><span class="delete">X</span>  <img data-targetid="wow_pageSetting_backgroundImage" class="img-fluid" src="' + attachment.url + '"></div></div>');
                     } else {
                         jQuery('.background_attachment_metabox_container').html('<div class="images-containerBG">' +
-                            '<div style="width: 53px; height: 53px;" class="single-imageBG"><span data-targetid="wow_pageSetting_backgroundImage"  class="delete_media">X</span> ' +
+                            '<div  class="single-imageBG"><span data-targetid="wow_pageSetting_backgroundImage"  class="delete_media">X</span> ' +
                             '<span style="font-size: 46px" class="info dashicons dashicons-admin-media"></span> </div></div>');
                     }
                     /* important notes jQuery("#" + id + '_li .background_attachment_metabox_container').html('<div class="images-containerBG">' +
