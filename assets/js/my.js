@@ -133,4 +133,24 @@ jQuery.noConflict();
     wkMedia.open();
   });
 
-    });
+$('#savebtn-stncMap,#savebtn-stncMap2').click(function(e) {
+ e.preventDefault();
+        var eventsholded = [];
+
+
+        var event = new Object();
+        event.door_number_permission =    $('#door_number_permission').is(':checked');          
+        event.square_meters_permission =    $('#square_meters_permission').is(':checked');          
+        event.email_permission =    $('#email_permission').is(':checked');          
+        event.phone_permission =    $('#phone_permission').is(':checked');          
+        event.mobile_phone_permission =    $('#mobile_phone_permission').is(':checked');          
+        event.web_site_permission =    $('#web_site_permission').is(':checked');          
+        event.company_description_permission =    $('#company_description_permission').is(':checked');          
+        event.address_permission =    $('#address_permission').is(':checked');          
+
+        eventsholded.push(event);
+             console.log(JSON.stringify(eventsholded))
+            $('#web_permission').val(JSON.stringify(eventsholded));     
+        });
+
+ });

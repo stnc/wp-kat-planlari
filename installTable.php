@@ -60,6 +60,7 @@ function stnc_wp_floor_database_install1()
               created_at TIMESTAMP NULL DEFAULT NULL,
               updated_at TIMESTAMP NULL DEFAULT NULL,
               class VARCHAR(255) NULL DEFAULT NULL,
+              web_permission TEXT DEFAULT NULL,
               PRIMARY KEY  (id)
           ) $charset_collate;";
           require_once(ABSPATH . 'wp-admin/includes/upgrade.php');

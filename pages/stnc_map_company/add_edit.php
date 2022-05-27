@@ -1,15 +1,17 @@
 <?php
-session_start();
+
 $binaId=$_GET['binaid'];
 $katId=$_GET['kat'];
 
     $wp_stnc_map_floors =$wpdb->prefix . 'stnc_map_floors';
     $wp_stnc_map_building =$wpdb->prefix . 'stnc_map_building';
-   
+
+//    echo "SELECT bina.name AS bina,kat.name kat_adi,kat.tekno_id,kat.scheme,bina.id
+//    AS bina_id,kat.id AS katid  FROM ".   $wp_stnc_map_floors." AS kat INNER JOIN ".$wp_stnc_map_building."  AS bina  ON  bina.id=1 AND kat.id = 5";
+// die;
 $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,kat.tekno_id,kat.scheme,bina.id
  AS bina_id,kat.id AS katid  FROM ".   $wp_stnc_map_floors." AS kat INNER JOIN ".$wp_stnc_map_building."  AS bina  ON  bina.id=%d AND kat.id = %d", $binaId,$katId));
-        //    print_r( $thepost );
-        //   $door_number = isset($_POST["door_number"]) ? sanitize_text_field($_POST["door_number"]) : "0";
+  
          $scheme = $map->scheme;
     
          $binaName = $map->bina;
@@ -27,37 +29,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
 
 ?>
 
-<header>
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md navbar-secondary fixed-top bg-secondary">
-        <div class="container-fluid">
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/wp-admin">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/wp-admin/admin.php?page=stnc_map_homepage">Genel harita</a>
-                    </li>
-
-                </ul>
-
-                <div class="text-center">
-                    <h1 class="stnc-title fw-bold">Erciyes Teknopark <span> Kat Planlari </span> ve <span>Doluluk
-                            Oranlari</span></h1>
-                </div>
-
-
-
-            </div>
-        </div>
-    </nav>
-</header>
 
 <main class="flex-shrink-0" style="margin-top:88px">
 
@@ -65,8 +37,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
     <div class="container-fluid">
 
 
-        <div> <span style="color:red"><?php echo $binaName ?> / <?php echo $kat_adi ?> </span> için firma
-            <?php  echo $title?> işlemi
+        <div> <span style="color:red"><?php echo $binaName ?> / <?php  echo $kat_adi ?> </span> için firma <?php  echo $title?> işlemi
 
         </div>
 
@@ -92,38 +63,39 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
 
 
                         <div class="form-group">
-                            <label for="door_number">Kapi Numarasi</label>
+                            <label for="door_number"><strong>Kapi Numarasi</strong> </label>
                             <input type="number" name="door_number" value="<?php echo $door_number ?>"
                                 class="form-control" id="door_number" min="1" max="100">
-                            <small id="kat_numarasiHelp" class="form-text text-muted">kat numarasi sayisal
-                                olmalidir</small>
+                            <small id="kat_numarasiHelp" class="form-text text-muted">kat numarasi sayisal olmalidir</small>
+                            <br>
+                            <input type="checkbox"   id="door_number_permission"> Web önyüzünde görünmesin
+
                         </div>
                         <hr>
                         <div class="form-group">
-                            <label for="company_name">Firma adi</label>
-                            <input type="text" name="company_name" value="<?php echo $company_name ?>"
-                                class="form-control" id="company_name" min="1" max="50">
+                            <label for="company_name"><strong>Firma adi</strong> </label>
+                            <input type="text" name="company_name" value="<?php echo $company_name ?>" class="form-control" id="company_name" min="1" max="50">
                         </div>
                         <hr>
 
                         <div class="form-group">
-                            <label for="square_meters">Bina metrekare</label>
-                            <input type="text" name="square_meters" value="<?php echo $square_meters ?>"
-                                class="form-control" id="square_meters" min="1" max="50">
+                            <label for="square_meters"> <strong>Bina metrekare</strong> </label>
+                            <input type="text" name="square_meters" value="<?php echo $square_meters ?>"  class="form-control" id="square_meters" min="1" max="50">
+                            <input type="checkbox"   id="square_meters_permission"> Web önyüzünde görünmesin
                         </div>
                         <hr>
 
                         <div class="form-group">
-                            <label for="email">Firma email adresi</label>
-                            <input type="text" name="email" value="<?php echo $email ?>" class="form-control"
-                                id="email">
+                            <label for="email"> <strong>Firma email adresi</strong> </label>
+                            <input type="text" name="email" value="<?php echo $email ?>" class="form-control" id="email">
+                            <input type="checkbox"   id="email_permission"> Web önyüzünde görünmesin
                         </div>
                         <hr>
 
                         <div class="form-group">
-                            <label for="phone">Firma telefon </label>
-                            <input type="text" name="phone" value="<?php echo $phone ?>" class="form-control"
-                                id="phone">
+                            <label for="phone"> <strong>Firma telefon</strong> </label>
+                            <input type="text" name="phone" value="<?php echo $phone ?>" class="form-control" id="phone">
+                            <input type="checkbox"   id="phone_permission"> Web önyüzünde görünmesin
                         </div>
 
 
@@ -142,42 +114,36 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                     <div class="card-body">
 
                         <div class="form-group">
-                            <label for="mobile_phone">Firma cep telefon </label>
+                            <label for="mobile_phone"> <strong>Firma cep telefon</strong> </label>
                             <input type="text" name="mobile_phone" value="<?php echo $mobile_phone ?>"
                                 class="form-control" id="mobile_phone">
+                                <input type="checkbox"   id="mobile_phone_permission"> Web önyüzünde görünmesin
                         </div>
 
                         <hr>
 
                         <div class="form-group">
-                            <label for="web_site">Firma WEB sitesi </label>
-                            <input type="text" name="web_site" value="<?php echo $web_site ?>" class="form-control"
-                                id="web_site">
+                            <label for="web_site"> <strong>Firma WEB sitesi</strong>  </label>
+                            <input type="text" name="web_site" value="<?php echo $web_site ?>" class="form-control" id="web_site">
+                            <input type="checkbox"   id="web_site_permission"> Web önyüzünde görünmesin
                         </div>
                         <hr>
 
                         <div class="form-group">
-                            <label for="company_description">Firma hakkında detaylı bilgi </label>
+                            <label for="company_description"> <strong>Firma hakkında detaylı bilgi</strong> </label>
                             <textarea class="form-control" name="company_description" id="company_description"
                                 rows="3"><?php echo $company_description ?></textarea>
+                                <input type="checkbox"   id="company_description_permission"> Web önyüzünde görünmesin
                         </div>
 
                         <hr>
                         <div class="form-group">
-                            <label for="address">adress</label>
+                            <label for="address"><strong>Adres</strong></label>
 
-                            <textarea class="form-control" name="address" id="address"
-                                rows="3"><?php echo $address ?></textarea>
+                            <textarea class="form-control" name="address" id="address" rows="3"><?php echo $address ?></textarea>
+                            <input type="checkbox"   id="address_permission"> Web önyüzünde görünmesin
                         </div>
                         <hr>
-
-
-
-
-
-
-
-
 
                     </div>
                 </div>
@@ -193,15 +159,22 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                         name="stnc_wp_kiosk_Metabox_video_extra" type="button" value="Resim Yükle / Seç" style="">
                     <br>
                     <br>
-                   <?php  if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) :  ?>
-                    <div class="background_attachment_metabox_container">  <img src=" <?php echo $image[0]; ?> " alt="">  </div>
+                   <?php  if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) : 
+                             $image = wp_get_attachment_image_src(    $media_id  ,'full' );
+                    
+                    ?>
+                    <div class="background_attachment_metabox_container">  <img class="img-fluid" src=" <?php echo $image[0]; ?> " alt="">  </div>
                     <?php else : ?>
                     <div class="background_attachment_metabox_container">  </div>
                     <?php endif ; ?>
                 </div>
                 <br>
+                <textarea id="web_permission" name="web_permission" style="display:none1"><?php echo $web_permission ?></textarea>
+
+
                     <div class="form-group">
-                     <button type="submit" value="Kaydet" class="btn btn-primary">Kaydet</button>
+                     <button type="submit" value="Kaydet" id="savebtn-stncMap" class="btn btn-primary">Kaydet</button>
+                     <a id="savebtn" href="#" id="savebtn-stncMap2" class="btn btn-primary">json</a>
                     </div>
                     <br>    <br>
                     <a style="color:orange"
@@ -217,16 +190,9 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
         </div>
 
         <?php echo   '</form>' ?>
-
-
-
-
-
-
-
-
-
     </div>
 
 
 </main>
+
+

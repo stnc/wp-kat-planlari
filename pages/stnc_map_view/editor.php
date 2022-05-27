@@ -17,17 +17,10 @@
         <h6 style="color:red"> Kırmızı kutucukları sürükle bırak ile bina haritasında konumu değiştirebilirsiniz.</h6>
             <h3><?php echo $binaName ?> / <?php echo $kat_adi ?></h3>
 
-
-
             <div class="col-lg-9">
-
-
                 <div id="ex-040-stage" class="stage-m stage-m-size">
-
-
                     <div id="ex-040-wall1">
-                 
-                            
+                      
                             <img  class="img-fluid-" src=" <?php
                             
                             $scheme_media_id  = $map->scheme_media_id;
