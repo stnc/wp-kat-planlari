@@ -45,10 +45,10 @@ include ('pages/stnc_map_view/actions.php');
 
 
 require_once "helper.php";
-require_once "pages/stncForm_list_table.php";
+require_once "pages/stncForm_company_list.php";
 require_once "pages/stncForm-adminMenu_About.php";
-require_once "pages/shortcode_generate_page.php";
-require_once "pages/shortcode_embed.php";
+require_once "pages/shortcut/shortcode_generate_page.php";
+require_once "pages/shortcut/shortcode_embed.php";
 
 
 

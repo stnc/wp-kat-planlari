@@ -52,8 +52,6 @@ function stnc_wp_floor_adminMenu_stnc_map_editor_stnc()
 
          $scheme_media_id = isset($_POST["media_id"]) ? $_POST["media_id"] : 0;
    
- 
-
         $success =   $wpdb->update(
             $wpdb->prefix .'stnc_map_floors',
             array(

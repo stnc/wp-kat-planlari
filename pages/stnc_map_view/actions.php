@@ -42,7 +42,6 @@ function stnc_wp_floor_adminMenu_stnc_map_view()
 
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'editor'))
     {
-
         include ('editor.php');
     }
 }

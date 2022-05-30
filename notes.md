@@ -5,10 +5,14 @@ harita yukleyici çalışmıyor ve onun header
 ana ekranın veritabanından gelmesi gerekiyor 
 firma boşaltma işlemi nasıl olacak 
 anasayfada firmalar listesi 
+<<<<<<< HEAD
 binalar ansayfasında toplam metrekare ve kac ofıs ve hangı renklerde olacak gibi şeye bak 
 aynı kapı numarasında fırma var mı yok mu 
 yenı eklerken kapı numarası na bakılmalı belkı update ıcınde 
 
+=======
+  
+>>>>>>> parent of bcd1573 (fix: ds)
 
 mail sisteminin çalışması lazım stmp mail etkinleşecek 
 sticky menu ne olacak 

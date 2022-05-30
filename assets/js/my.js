@@ -133,8 +133,8 @@ jQuery.noConflict();
     wkMedia.open();
   });
 
-$('#savebtn-stncMap,#savebtn-stncMap2').click(function(e) {
- e.preventDefault();
+$('#savebtn-stncMap2').click(function(e) {
+        e.preventDefault();
         var eventsholded = [];
 
 
@@ -149,8 +149,8 @@ $('#savebtn-stncMap,#savebtn-stncMap2').click(function(e) {
         event.address_permission =    $('#address_permission').is(':checked');          
 
         eventsholded.push(event);
-             console.log(JSON.stringify(eventsholded))
-            $('#web_permission').val(JSON.stringify(eventsholded));     
-        });
+        console.log(JSON.stringify(eventsholded));
+        $('#web_permission').val(JSON.stringify(eventsholded));    
 
+        });
  });

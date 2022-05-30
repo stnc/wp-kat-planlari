@@ -15,10 +15,11 @@ add_shortcode( 'stnc_building', 'stnc_map_building_shortcode' );
 	function stnc_map_building_shortcode( $attr ) {
 
     global $wpdb;
+    
     $args = shortcode_atts( array(
       'title' => '#',
       'id' => '1',
-  ), $attr );
+    ), $attr );
 
     if ($args['id']==""){
     return 'Missing parameter';

@@ -25,10 +25,11 @@ function stnc_wp_floor_adminMenu_stnc_map_company()
         $id =  $thepost->id;
         $media_id =  $thepost->media_id;
         $web_permission =  $thepost->web_permission;
-        $cleanData1 = json_encode($web_permission,true);
-        echo '<pre>';
-     
-  
+        $data =  str_replace([" ", '\\'], null, $web_permission);
+        $web_permission =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
+    //     echo '<pre>';
+    //   print_r(  $web_permission);
+    //   die;
         include ('add_edit.php');
     }
 /*
@@ -53,25 +54,27 @@ function stnc_wp_floor_adminMenu_stnc_map_company()
         $web_permission = isset($_POST["web_permission"]) ? $_POST["web_permission"] : '';
 
     
-        $tempData = str_replace("\\", "",  $web_permission );
-        $cleanData = json_decode($tempData);
-        echo '<pre>';
-        print_r($cleanData);
+//         $tempData = str_replace("\\", "",  $web_permission );
+//         $cleanData = json_decode($tempData);
+//         echo '<pre>';
+//         print_r($cleanData);
 
-        $cleanData1 = json_encode($tempData);
-        echo '<pre>';
-        print_r($cleanData1);
+//         $cleanData1 = json_encode($tempData);
+//         echo '<pre>';
+//         print_r($cleanData1);
+
+//         // $cleanData = json_decode( $cleanData1);
+//         // echo '<pre>';
+//         // print_r($cleanData);
+// die;
+
+//         // $web_permission = json_encode($web_permission);
+
+//         // // filtration
+//         // $web_permission = addslashes($web_permission);
 
 
-        // $cleanData = json_decode( $cleanData1);
-        // echo '<pre>';
-        // print_r($cleanData);
-die;
 
-        // $web_permission = json_encode($web_permission);
-
-        // // filtration
-        // $web_permission = addslashes($web_permission);
 
         $success =   $wpdb->update(
             $stncForm_tableNameMain,

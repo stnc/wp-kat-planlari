@@ -5,10 +5,8 @@ function stnc_wp_floor_plans_adminMenu_About_contents()
     <div id="advanced" class="postbox ">
         <div class="inside">
             <div class="card shadow1" style="max-width:100%!important">
-                <h2>Erciyes Teknopark Video Yükleyici</h2>
-                <p>Bu form erciyes teknopark video yükleme işlemi için Selman Tunç tarafından yapılmıştır</p>
-                <pre>[StncForm_videoYukle]</pre>
-                <p><mark class="dont">Ekleme:</mark>&nbsp; üstteki kodu editor içine ekleyiniz</p>
+                <h2>Erciyes Teknopark  </h2>
+   
             </div>
         </div>
     </div>
@@ -44,10 +42,8 @@ function stnc_wp_floor_plans_adminMenu_About_contents2()
     <div id="advanced" class="postbox ">
         <div class="inside">
             <div class="card shadow1" style="max-width:100%!important">
-                <h2>sssss Erciyes Teknopark Video Yükleyici</h2>
-                <p>Bu form erciyes teknopark video yükleme işlemi için Selman Tunç tarafından yapılmıştır</p>
-                <pre>[StncForm_videoYukle]</pre>
-                <p><mark class="dont">Ekleme:</mark>&nbsp; üstteki kodu editor içine ekleyiniz</p>
+                <h2>sssss Erciyes Teknopark  </h2>
+         
             </div>
         </div>
     </div>

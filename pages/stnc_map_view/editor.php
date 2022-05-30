@@ -32,16 +32,11 @@
 
                         
 
-                    <?php
-            
-                            foreach ($results as $result) :
-                            ?>
+                    <?php foreach ($results as $result) : ?>
                     <div id="ex-<?php echo $result->id; ?>-draggable" data-id="<?php echo $result->id; ?>"
                         class="draggable">
                         <?php echo $result->company_name .' No: ' .$result->door_number; ?></div>
-                    <?php
-    endforeach
-    ?>
+                    <?php endforeach    ?>
                 </div>
 
 
@@ -63,7 +58,7 @@
 
                           <?php
                               foreach ($results as $key => $result) :
-                                $key++;
+                                   $key++;
                                    $data =  str_replace([" ", '\\'], null, $result->map_location);
                                    $position =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
                             ?>

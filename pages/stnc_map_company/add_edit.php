@@ -26,10 +26,8 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
             $title ="Düzenleme";
             $form = '<form action="/wp-admin/admin.php?page=stnc_map_company&st_trigger=update&binaid='. $_GET['binaid'] .'&kat='. $_GET['kat'] .'&id='. $_GET['id'] .'" method="post">';
          }
-
+         include ("_header-show.php");
 ?>
-
-
 
 <main class="flex-shrink-0" style="margin-top:88px">
 
@@ -151,7 +149,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
 
 
             <div class="col-md-4">
-            <br>    <br>    <br>
+      
                 <div class="form-group">
                     <input type="hidden" value="<?php echo $media_id ?>" name="media_id" id="media_id">
                     <input id="stnc_wp_kiosk_Metabox_video_extra"
@@ -174,7 +172,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
 
                     <div class="form-group">
                      <button type="submit" value="Kaydet" id="savebtn-stncMap" class="btn btn-primary">Kaydet</button>
-                     <a id="savebtn" href="#" id="savebtn-stncMap2" class="btn btn-primary">json</a>
+                     <a  href="#" id="savebtn-stncMap2" class="btn btn-primary">json</a>
                     </div>
                     <br>    <br>
                     <a style="color:orange"
