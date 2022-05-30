@@ -6,6 +6,7 @@ ana ekranın veritabanından gelmesi gerekiyor
 firma boşaltma işlemi nasıl olacak 
 anasayfada firmalar listesi 
 <<<<<<< HEAD
+<<<<<<< HEAD
 binalar ansayfasında toplam metrekare ve kac ofıs ve hangı renklerde olacak gibi şeye bak 
 aynı kapı numarasında fırma var mı yok mu 
 yenı eklerken kapı numarası na bakılmalı belkı update ıcınde 
@@ -18,6 +19,9 @@ mail sisteminin çalışması lazım stmp mail etkinleşecek
 sticky menu ne olacak 
 
 yayına alınca cron ıslerı ve kıosk un yolunun degısmesı gerekıyor 
+=======
+  
+>>>>>>> parent of bcd1573 (fix: ds)
 
 https://yourstory.com/companies   
 https://www.rtp.org/directory-map/

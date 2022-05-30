@@ -73,6 +73,7 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
           </div>
         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div class="h-100 overflow-hidden rounded-5 mx-auto">
           <div class="media text-muted pt-3 mx-auto">
             <strong style="font-size:25px" class="d-block text-gray-dark mx-auto text-center ">Tekno 5- BİNASI</strong>
@@ -92,6 +93,8 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
           </div>
         </div>
 =======
+=======
+>>>>>>> parent of bcd1573 (fix: ds)
         <br>
         <select class="form-select form-select-sm mx-auto" style="width: 130px;" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
           <option value="">Kat Seçiniz</option>
@@ -102,6 +105,9 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
           <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=1&kat=6">3. kat</option>
           <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=1&kat=8">4. kat</option>
         </select>
+<<<<<<< HEAD
+>>>>>>> parent of bcd1573 (fix: ds)
+=======
 >>>>>>> parent of bcd1573 (fix: ds)
       </div>
       <!-- /.col-lg-2 -->
@@ -122,6 +128,7 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
           </div>
         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div class="h-100 overflow-hidden rounded-5 mx-auto">
           <div class="media text-muted pt-3 mx-auto">
             <strong style="font-size:25px" class="d-block text-gray-dark mx-auto text-center ">Tekno 5- BİNASI</strong>
@@ -137,12 +144,17 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
           </div>
         </div>
 =======
+=======
+>>>>>>> parent of bcd1573 (fix: ds)
         <br>
         <select class="form-select form-select-sm mx-auto" style="width: 130px;" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
           <option value="">Kat Seçiniz</option>
           <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=2&kat=9">Zemin kat</option>
           <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=2&kat=10">1 kat</option>
         </select>
+<<<<<<< HEAD
+>>>>>>> parent of bcd1573 (fix: ds)
+=======
 >>>>>>> parent of bcd1573 (fix: ds)
       </div>
       <!-- /.col-lg-2 -->
@@ -163,6 +175,7 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
           </div>
         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div class="h-100 overflow-hidden rounded-5 mx-auto">
           <div class="media text-muted pt-3 mx-auto">
             <strong style="font-size:25px" class="d-block text-gray-dark mx-auto text-center ">Tekno 5- BİNASI</strong>
@@ -181,6 +194,8 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
           </div>
         </div>
 =======
+=======
+>>>>>>> parent of bcd1573 (fix: ds)
         <br>
         <select class="form-select form-select-sm mx-auto" style="width: 130px;" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
           <option value="">Kat Seçiniz</option>
@@ -190,6 +205,9 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
           <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=3&kat=14">2. kat</option>
           <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=3&kat=15">3. kat</option>
         </select>
+<<<<<<< HEAD
+>>>>>>> parent of bcd1573 (fix: ds)
+=======
 >>>>>>> parent of bcd1573 (fix: ds)
       </div>
       <!-- /.col-lg-2 -->
@@ -210,6 +228,7 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
           </div>
         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div class="h-100 overflow-hidden rounded-5 mx-auto">
           <div class="media text-muted pt-3 mx-auto">
             <strong style="font-size:25px" class="d-block text-gray-dark mx-auto text-center ">Tekno 5- BİNASI</strong>
@@ -228,6 +247,8 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
           </div>
         </div>
 =======
+=======
+>>>>>>> parent of bcd1573 (fix: ds)
         <br>
         <select class="form-select form-select-sm mx-auto" style="width: 130px;" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
           <option value="">Kat Seçiniz</option>
@@ -237,6 +258,9 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
           <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=4&kat=19">2. kat</option>
           <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=4&kat=20">3. kat</option>
         </select>
+<<<<<<< HEAD
+>>>>>>> parent of bcd1573 (fix: ds)
+=======
 >>>>>>> parent of bcd1573 (fix: ds)
       </div>
       <!-- /.col-lg-2 -->
@@ -265,6 +289,7 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
             <br>
             <select class="form-select form-select-sm mx-auto" style="width: 130px;" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
 <<<<<<< HEAD
+<<<<<<< HEAD
               <option value="">Kat Seçiniz</option>
               <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=5&kat=21">Bodrum kat</option>
               <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=5&kat=22">Zemin kat</option>
@@ -275,6 +300,8 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
           </div>
         </div>
 =======
+=======
+>>>>>>> parent of bcd1573 (fix: ds)
           <option value="">Kat Seçiniz</option>
           <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=5&kat=21">Bodrum kat</option>
           <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=5&kat=22">Zemin kat</option>
@@ -285,6 +312,9 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
         </div></div>
 
      
+<<<<<<< HEAD
+>>>>>>> parent of bcd1573 (fix: ds)
+=======
 >>>>>>> parent of bcd1573 (fix: ds)
       </div>
       <!-- /.col-lg-2 -->
@@ -305,6 +335,7 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
           </div>
         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div class="  h-100 overflow-hidden rounded-5  mx-auto">
           <div class="media text-muted pt-3 mx-auto">
             <strong style="font-size:25px" class="d-block text-gray-dark mx-auto text-center ">Tekno 5- BİNASI</strong>
@@ -323,6 +354,8 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
           </div>
         </div>
 =======
+=======
+>>>>>>> parent of bcd1573 (fix: ds)
         <br>
         <select class="form-select form-select-sm mx-auto" style="width: 130px;" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
           <option value="">Kat Seçiniz</option>
@@ -332,6 +365,9 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
           <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=5&kat=24">2. kat</option>
           <option value="/wp-admin/admin.php?page=map_view_stnc&st_trigger=show&binaid=5&kat=25">3. kat</option>
         </select>
+<<<<<<< HEAD
+>>>>>>> parent of bcd1573 (fix: ds)
+=======
 >>>>>>> parent of bcd1573 (fix: ds)
       </div>
       <!-- /.col-lg-2 -->
