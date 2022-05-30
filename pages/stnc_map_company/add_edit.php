@@ -29,17 +29,17 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
          include ("_header-show.php");
 
 
-         $door_number_permission_check="";
-         $square_meters_permission_check="";
-         $email_permission_check="";
-         $phone_permission_check="";
-         $mobile_phone_permission_check="";
-         $web_site_permission_check="";
-         $company_description_permission_check="";
-         $address_permission_check="";
+    $door_number_permission_check="";
+    $square_meters_permission_check="";
+    $email_permission_check="";
+    $phone_permission_check="";
+    $mobile_phone_permission_check="";
+    $web_site_permission_check="";
+    $company_description_permission_check="";
+    $address_permission_check="";
 
-     if ($web_permission!=""){
-    
+    if ($web_permission!=""){
+
          if ($web_permission[0]["door_number_permission"]!="" && $web_permission[0]["door_number_permission"]){
              $door_number_permission_check="checked";
          }
@@ -48,41 +48,31 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
              $square_meters_permission_check="checked";
          }
 
-         
          if ($web_permission[0]["email_permission"]!="" && $web_permission[0]["email_permission"]){
              $email_permission_check="checked";
          }
          
-        
          if ($web_permission[0]["phone_permission"]!="" && $web_permission[0]["phone_permission"]){
              $phone_permission_check="checked";
          }
  
-
-               
-   
          if ($web_permission[0]["mobile_phone_permission"]!="" && $web_permission[0]["mobile_phone_permission"]){
              $mobile_phone_permission_check="checked";
          }
  
-        
          if ($web_permission[0]["web_site_permission"]!="" && $web_permission[0]["web_site_permission"]){
              $web_site_permission_check="checked";
          }
  
- 
-
-     
          if ($web_permission[0]["company_description_permission"]!="" && $web_permission[0]["company_description_permission"]){
              $company_description_permission_check="checked";
          }
 
-    
          if ($web_permission[0]["address_permission"]!="" && $web_permission[0]["address_permission"]){
              $address_permission_check="checked";
          }
         
-     }   
+    }
     
 
 ?>
@@ -228,7 +218,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                     <?php endif ; ?>
                 </div>
                 <br>
-                
+
                 <textarea id="web_permission" name="web_permission" style="display:none"></textarea>
 
                     <div class="form-group">
