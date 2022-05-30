@@ -1,21 +1,21 @@
 <?php
-$stncForm_tableNameMain = 'stnc_floor_building';
+
 function stnc_wp_floor_database_install1()
 {
-    global $wpdb;
-    global $stncForm_tableNameMain;
+    global $wpdb; //wp_stnc_map_floors
+    $stncForm_tableNameMain = 'stnc_map_floors_locations';
+    
     $charset_collate = $wpdb->get_charset_collate();
      $sql = "CREATE TABLE IF NOT EXISTS  " . $wpdb->prefix . $stncForm_tableNameMain . " (
             id INT NOT NULL AUTO_INCREMENT,
             building_id tinyint DEFAULT NULL,
             floor_id tinyint DEFAULT NULL,  
-            floor_no tinyint DEFAULT NULL,
+            door_number tinyint DEFAULT NULL,
             company_name varchar(255) DEFAULT NULL,
             square_meters varchar(255) DEFAULT NULL,
             email varchar(255) DEFAULT NULL,
             phone varchar(255) DEFAULT NULL,
             mobile_phone varchar(255) DEFAULT NULL,
-     
             web_site varchar(255) DEFAULT NULL,
             map_location varchar(255) DEFAULT NULL,
             company_description TEXT DEFAULT NULL,
@@ -26,7 +26,49 @@ function stnc_wp_floor_database_install1()
         ) $charset_collate;";
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
      dbDelta($sql);
+
+     $stncForm_tableNameMain = 'stnc_map_building';
+     $charset_collate = $wpdb->get_charset_collate();
+      $sql = "CREATE TABLE IF NOT EXISTS  " . $wpdb->prefix . $stncForm_tableNameMain . " (
+             id INT NOT NULL AUTO_INCREMENT,
+             name varchar(255) DEFAULT NULL,
+             global_capacity INT(10) UNSIGNED NOT NULL,
+             total_office INT(10) UNSIGNED NOT NULL,
+             created_at TIMESTAMP NULL DEFAULT NULL,
+             updated_at TIMESTAMP NULL DEFAULT NULL,
+             PRIMARY KEY  (id)
+         ) $charset_collate;";
+         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+      dbDelta($sql);
+
+
+
+      $stncForm_tableNameMain = 'stnc_map_floors';
+      $charset_collate = $wpdb->get_charset_collate();
+       $sql = "CREATE TABLE IF NOT EXISTS  " . $wpdb->prefix . $stncForm_tableNameMain . " (
+              id INT NOT NULL AUTO_INCREMENT,
+              name VARCHAR(255) NOT NULL ,
+              tekno_id INT(10) UNSIGNED NOT NULL,
+              type INT(11) NOT NULL,
+              full_office INT(10) UNSIGNED NOT NULL,
+              empty_office INT(10) UNSIGNED NOT NULL,
+              full_area DECIMAL(8,2) NOT NULL,
+              empty_area DECIMAL(8,2) NOT NULL,
+              total_area DECIMAL(8,2) NOT NULL,
+              scheme VARCHAR(255) NOT NULL ,
+              scheme_media_id int(10) DEFAULT NULL,
+              created_at TIMESTAMP NULL DEFAULT NULL,
+              updated_at TIMESTAMP NULL DEFAULT NULL,
+              class VARCHAR(255) NULL DEFAULT NULL,
+              web_permission TEXT DEFAULT NULL,
+              PRIMARY KEY  (id)
+          ) $charset_collate;";
+          require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+       dbDelta($sql);
+
     // echo $wpdb->last_error;
+  //  INDEX `tekno_kats_tekno_id_foreign` (`tekno_id`) USING BTREE,
+//	CONSTRAINT `tekno_kats_tekno_id_foreign` FOREIGN KEY (`tekno_id`) REFERENCES `summit`.`wp_stnc_map_building` (`id`) ON UPDATE RESTRICT ON DELETE CASCADE
 }
 
 register_activation_hook(__FILE__, 'stnc_wp_floor_database_install1');

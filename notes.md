@@ -1,6 +1,37 @@
 resım ekleyebilme 
 geçmiş kiracılar 
-  
+bekleyen firma listesi 
+harita yukleyici çalışmıyor ve onun header 
+ana ekranın veritabanından gelmesi gerekiyor 
+firma boşaltma işlemi nasıl olacak 
+anasayfada firmalar listesi 
+binalar ansayfasında toplam metrekare ve kac ofıs ve hangı renklerde olacak gibi şeye bak 
+aynı kapı numarasında fırma var mı yok mu 
+yenı eklerken kapı numarası na bakılmalı belkı update ıcınde 
+
+
+mail sisteminin çalışması lazım stmp mail etkinleşecek 
+sticky menu ne olacak 
+
+yayına alınca cron ıslerı ve kıosk un yolunun degısmesı gerekıyor 
+
+https://yourstory.com/companies   
+https://www.rtp.org/directory-map/
+https://en.yellowpages.com.tr/restaurants-c
+
+  https://www.yazilimbilisim.net/javascript/jquery/jquery-datepicker-turkce-tarih-secme/
+
+---- haritahtml ye gecince teknokats olunca harita yuklenmeli 
+
+https://www.jquery-az.com/bootstrap-tooltip-simple-and-customized-tooltips-demos/
+
+
+
+css hover olayı 
+https://codepen.io/simicigor/pen/ZEpJEBY
+
+
+https://chandranrahul.wordpress.com/2018/01/03/session-based-flash-messages-in-wordpress/
 
 
     
@@ -9,13 +40,13 @@ geçmiş kiracılar
 
   
   
-  https://www.pngtosvg.com/ -->
-  https://code-boxx.com/drag-drop-sortable-list-javascript/#sec-download -->
-  https://github.com/eyeofchaos/eocjsNewsticker -->
- https://www.freecodecamp.org/news/use-svg-images-in-css-html/ -->
+  https://www.pngtosvg.com/ 
+  https://code-boxx.com/drag-drop-sortable-list-javascript/#sec-download 
+  https://github.com/eyeofchaos/eocjsNewsticker 
+ https://www.freecodecamp.org/news/use-svg-images-in-css-html/ 
 
- https://xd.adobe.com/view/8af0288c-7757-49d4-9de4-0439f021d723-dfa3/ -->
-https://stackoverflow.com/questions/29991284/php-get-svg-tag-from-svg-file-and-show-it-in-html-in-div -->
+ https://xd.adobe.com/view/8af0288c-7757-49d4-9de4-0439f021d723-dfa3/
+https://stackoverflow.com/questions/29991284/php-get-svg-tag-from-svg-file-and-show-it-in-html-in-div 
 
 
 https://wordpress.stackexchange.com/questions/186315/how-to-use-update-and-delete-query-in-wordpress
