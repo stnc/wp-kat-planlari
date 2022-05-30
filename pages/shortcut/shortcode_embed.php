@@ -34,12 +34,12 @@ add_shortcode( 'stnc_building', 'stnc_map_building_shortcode' );
     // }
 
    $wp_stnc_map_floors1 =$wpdb->prefix . 'stnc_map_floors_locations WHERE floor_id='.$args['id'].'';
-   $sql = "SELECT * FROM " . $wp_stnc_map_floors1 . ' ';
+   echo $sql = "SELECT * FROM " . $wp_stnc_map_floors1 . ' ';
 
 
     $buildingsList = $wpdb->get_results($sql);
 
-    $web_permission= $building -> web_permission;
+
 
     $door_number_permission_check=false;
     $square_meters_permission_check=false;
@@ -52,45 +52,50 @@ add_shortcode( 'stnc_building', 'stnc_map_building_shortcode' );
 
   
 
-    if ($web_permission!=""){
 
-         if ($web_permission[0]["door_number_permission"]!="" && $web_permission[0]["door_number_permission"]){
-             $door_number_permission_check=true;
-         }
-
-         if ($web_permission[0]["square_meters_permission"]!="" && $web_permission[0]["square_meters_permission"]){
-             $square_meters_permission_check=true;
-         }
-
-         if ($web_permission[0]["email_permission"]!="" && $web_permission[0]["email_permission"]){
-             $email_permission_check=true;
-         }
-         
-         if ($web_permission[0]["phone_permission"]!="" && $web_permission[0]["phone_permission"]){
-             $phone_permission_check=true;
-         }
- 
-         if ($web_permission[0]["mobile_phone_permission"]!="" && $web_permission[0]["mobile_phone_permission"]){
-             $mobile_phone_permission_check=true;
-         }
- 
-         if ($web_permission[0]["web_site_permission"]!="" && $web_permission[0]["web_site_permission"]){
-             $web_site_permission_check=true;
-         }
- 
-         if ($web_permission[0]["company_description_permission"]!="" && $web_permission[0]["company_description_permission"]){
-             $company_description_permission_check=true;
-         }
-
-         if ($web_permission[0]["address_permission"]!="" && $web_permission[0]["address_permission"]){
-             $address_permission_check=true;
-         }
-    }
 ?>
    
 <div class="business-container">
 <?php
 foreach ($buildingsList as $building) : 
+
+  $web_permission= $building -> web_permission;
+  
+  if ($web_permission!=""){
+
+    if ($web_permission[0]["door_number_permission"]!="" && $web_permission[0]["door_number_permission"]){
+        $door_number_permission_check=true;
+    }
+
+    if ($web_permission[0]["square_meters_permission"]!="" && $web_permission[0]["square_meters_permission"]){
+        $square_meters_permission_check=true;
+    }
+
+    if ($web_permission[0]["email_permission"]!="" && $web_permission[0]["email_permission"]){
+        $email_permission_check=true;
+    }
+    
+    if ($web_permission[0]["phone_permission"]!="" && $web_permission[0]["phone_permission"]){
+        $phone_permission_check=true;
+    }
+
+    if ($web_permission[0]["mobile_phone_permission"]!="" && $web_permission[0]["mobile_phone_permission"]){
+        $mobile_phone_permission_check=true;
+    }
+
+    if ($web_permission[0]["web_site_permission"]!="" && $web_permission[0]["web_site_permission"]){
+        $web_site_permission_check=true;
+    }
+
+    if ($web_permission[0]["company_description_permission"]!="" && $web_permission[0]["company_description_permission"]){
+        $company_description_permission_check=true;
+    }
+
+    if ($web_permission[0]["address_permission"]!="" && $web_permission[0]["address_permission"]){
+        $address_permission_check=true;
+    }
+}
+
     $image = wp_get_attachment_image_src(   $building -> media_id ,'full' );
  ?>
   <div class="grid-display">
