@@ -27,7 +27,9 @@ function stnc_wp_floor_adminMenu_stnc_map_company()
         $web_permission =  $thepost->web_permission;
         $data =  str_replace([" ", '\\'], null, $web_permission);
         $web_permission =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
-    //     echo '<pre>';
+
+
+    //   echo '<pre>';
     //   print_r(  $web_permission);
     //   die;
         include ('add_edit.php');
@@ -91,7 +93,7 @@ function stnc_wp_floor_adminMenu_stnc_map_company()
                 'company_description' =>   $company_description,
                 'address' =>   $address,
                 'media_id' =>    $media_id,
-                'web_permission' =>    $cleanData1,
+                'web_permission' =>    $web_permission,
                 'add_date' =>   $date,
             ),
             array('id' => $_GET['id'])

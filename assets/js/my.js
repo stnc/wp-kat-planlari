@@ -133,8 +133,8 @@ jQuery.noConflict();
     wkMedia.open();
   });
 
-$('#savebtn-stncMap2').click(function(e) {
-        e.preventDefault();
+$('#savebtn-stncMap,#savebtn-stncMap2').click(function(e) {
+     //   e.preventDefault();
         var eventsholded = [];
 
 

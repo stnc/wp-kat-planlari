@@ -27,6 +27,64 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
             $form = '<form action="/wp-admin/admin.php?page=stnc_map_company&st_trigger=update&binaid='. $_GET['binaid'] .'&kat='. $_GET['kat'] .'&id='. $_GET['id'] .'" method="post">';
          }
          include ("_header-show.php");
+
+
+         $door_number_permission_check="";
+         $square_meters_permission_check="";
+         $email_permission_check="";
+         $phone_permission_check="";
+         $mobile_phone_permission_check="";
+         $web_site_permission_check="";
+         $company_description_permission_check="";
+         $address_permission_check="";
+
+     if ($web_permission!=""){
+    
+         if ($web_permission[0]["door_number_permission"]!="" && $web_permission[0]["door_number_permission"]){
+             $door_number_permission_check="checked";
+         }
+
+         if ($web_permission[0]["square_meters_permission"]!="" && $web_permission[0]["square_meters_permission"]){
+             $square_meters_permission_check="checked";
+         }
+
+         
+         if ($web_permission[0]["email_permission"]!="" && $web_permission[0]["email_permission"]){
+             $email_permission_check="checked";
+         }
+         
+        
+         if ($web_permission[0]["phone_permission"]!="" && $web_permission[0]["phone_permission"]){
+             $phone_permission_check="checked";
+         }
+ 
+
+               
+   
+         if ($web_permission[0]["mobile_phone_permission"]!="" && $web_permission[0]["mobile_phone_permission"]){
+             $mobile_phone_permission_check="checked";
+         }
+ 
+        
+         if ($web_permission[0]["web_site_permission"]!="" && $web_permission[0]["web_site_permission"]){
+             $web_site_permission_check="checked";
+         }
+ 
+ 
+
+     
+         if ($web_permission[0]["company_description_permission"]!="" && $web_permission[0]["company_description_permission"]){
+             $company_description_permission_check="checked";
+         }
+
+    
+         if ($web_permission[0]["address_permission"]!="" && $web_permission[0]["address_permission"]){
+             $address_permission_check="checked";
+         }
+        
+     }   
+    
+
 ?>
 
 <main class="flex-shrink-0" style="margin-top:88px">
@@ -66,8 +124,8 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                                 class="form-control" id="door_number" min="1" max="100">
                             <small id="kat_numarasiHelp" class="form-text text-muted">kat numarasi sayisal olmalidir</small>
                             <br>
-                            <input type="checkbox"   id="door_number_permission"> Web önyüzünde görünmesin
-
+                         <input type="checkbox"  <?php  echo  $door_number_permission_check?>  id="door_number_permission"> Web önyüzünde görünmesin
+ 
                         </div>
                         <hr>
                         <div class="form-group">
@@ -79,21 +137,22 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                         <div class="form-group">
                             <label for="square_meters"> <strong>Bina metrekare</strong> </label>
                             <input type="text" name="square_meters" value="<?php echo $square_meters ?>"  class="form-control" id="square_meters" min="1" max="50">
-                            <input type="checkbox"   id="square_meters_permission"> Web önyüzünde görünmesin
+                         
+                            <input type="checkbox"  <?php  echo  $square_meters_permission_check?>  id="square_meters_permission"> Web önyüzünde görünmesin
                         </div>
                         <hr>
 
                         <div class="form-group">
                             <label for="email"> <strong>Firma email adresi</strong> </label>
                             <input type="text" name="email" value="<?php echo $email ?>" class="form-control" id="email">
-                            <input type="checkbox"   id="email_permission"> Web önyüzünde görünmesin
+                            <input type="checkbox"   <?php  echo  $email_permission_check?>  id="email_permission"> Web önyüzünde görünmesin
                         </div>
                         <hr>
 
                         <div class="form-group">
                             <label for="phone"> <strong>Firma telefon</strong> </label>
                             <input type="text" name="phone" value="<?php echo $phone ?>" class="form-control" id="phone">
-                            <input type="checkbox"   id="phone_permission"> Web önyüzünde görünmesin
+                            <input type="checkbox"  <?php  echo  $phone_permission_check?>   id="phone_permission"> Web önyüzünde görünmesin
                         </div>
 
 
@@ -115,7 +174,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                             <label for="mobile_phone"> <strong>Firma cep telefon</strong> </label>
                             <input type="text" name="mobile_phone" value="<?php echo $mobile_phone ?>"
                                 class="form-control" id="mobile_phone">
-                                <input type="checkbox"   id="mobile_phone_permission"> Web önyüzünde görünmesin
+                                <input type="checkbox" <?php  echo  $mobile_phone_permission_check?>   id="mobile_phone_permission"> Web önyüzünde görünmesin
                         </div>
 
                         <hr>
@@ -123,7 +182,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                         <div class="form-group">
                             <label for="web_site"> <strong>Firma WEB sitesi</strong>  </label>
                             <input type="text" name="web_site" value="<?php echo $web_site ?>" class="form-control" id="web_site">
-                            <input type="checkbox"   id="web_site_permission"> Web önyüzünde görünmesin
+                            <input type="checkbox"  <?php  echo  $web_site_permission_check?>   id="web_site_permission"> Web önyüzünde görünmesin
                         </div>
                         <hr>
 
@@ -131,7 +190,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                             <label for="company_description"> <strong>Firma hakkında detaylı bilgi</strong> </label>
                             <textarea class="form-control" name="company_description" id="company_description"
                                 rows="3"><?php echo $company_description ?></textarea>
-                                <input type="checkbox"   id="company_description_permission"> Web önyüzünde görünmesin
+                                <input type="checkbox"  <?php  echo  $company_description_permission_check?>   id="company_description_permission"> Web önyüzünde görünmesin
                         </div>
 
                         <hr>
@@ -139,7 +198,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                             <label for="address"><strong>Adres</strong></label>
 
                             <textarea class="form-control" name="address" id="address" rows="3"><?php echo $address ?></textarea>
-                            <input type="checkbox"   id="address_permission"> Web önyüzünde görünmesin
+                            <input type="checkbox"  <?php  echo  $address_permission_check?>   id="address_permission"> Web önyüzünde görünmesin
                         </div>
                         <hr>
 
@@ -150,13 +209,15 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
 
             <div class="col-md-4">
       
+            <br>
+                    <br>
+
                 <div class="form-group">
                     <input type="hidden" value="<?php echo $media_id ?>" name="media_id" id="media_id">
                     <input id="stnc_wp_kiosk_Metabox_video_extra"
-                        class="page_upload_trigger_element button button-primary button-large"
+                        class="page_upload_trigger_element button btn btn-warning"
                         name="stnc_wp_kiosk_Metabox_video_extra" type="button" value="Resim Yükle / Seç" style="">
-                    <br>
-                    <br>
+                  
                    <?php  if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) : 
                              $image = wp_get_attachment_image_src(    $media_id  ,'full' );
                     
@@ -167,23 +228,18 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                     <?php endif ; ?>
                 </div>
                 <br>
-                <textarea id="web_permission" name="web_permission" style="display:none1"><?php echo $web_permission ?></textarea>
-
+                
+                <textarea id="web_permission" name="web_permission" style="display:none"></textarea>
 
                     <div class="form-group">
-                     <button type="submit" value="Kaydet" id="savebtn-stncMap" class="btn btn-primary">Kaydet</button>
-                     <a  href="#" id="savebtn-stncMap2" class="btn btn-primary">json</a>
+                     <button type="submit" value="Kaydet" id="savebtn-stncMap" class="btn btn-success">Kaydet</button>
+                     <!-- <a  href="#" id="savebtn-stncMap2" class="btn btn-primary">json</a> -->
                     </div>
-                    <br>    <br>
-                    <a style="color:orange"
-                href="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">Bina
-                Haritası</a>
-                <br>
-                <br>
-              
-            <a style="color:blue"
-                href="/wp-admin/admin.php?page=stnc_map_view&st_trigger=editor&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>">Bina
-                Harita Editörü</a>
+
+
+           
+
+
             </div>
         </div>
 
