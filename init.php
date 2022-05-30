@@ -42,11 +42,8 @@ include ('01-home.php');
 include ('pages/stnc_map_company/actions.php');
 include ('pages/stnc_map_editor_building/actions.php');
 include ('pages/stnc_map_view/actions.php');
-<<<<<<< HEAD
-include ('pages/stnc_map_view/ajax.php');
-=======
->>>>>>> 1980e93c9fd880dbb4b6a284676117b93502790e
 
+include ('pages/stnc_map_view/ajax.php');
 
 require_once "helper.php";
 require_once "pages/stncForm_company_list.php";

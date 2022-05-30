@@ -23,23 +23,7 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-secondary fixed-top bg-black">
     <div class="container-fluid">
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-      <img class="d-block mx-auto mb-1" src="
-				<?php
-                
-                $plugins_url = plugin_dir_url( __FILE__ ) ;
-    
-                echo $plugins_url ?>" alt="" width="100" height="50">
->>>>>>> parent of bcd1573 (fix: ds)
->>>>>>> 1980e93c9fd880dbb4b6a284676117b93502790e
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
