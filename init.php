@@ -37,7 +37,7 @@ require("extraOptions.php");
 
 
 
-include ('01-home.php');
+include ('pages/kat-planlari-home.php');
 
 include ('pages/stnc_map_company/actions.php');
 include ('pages/stnc_map_editor_building/actions.php');
