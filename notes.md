@@ -5,15 +5,32 @@ harita yukleyici çalışmıyor ve onun header
 ana ekranın veritabanından gelmesi gerekiyor 
 firma boşaltma işlemi nasıl olacak 
 anasayfada firmalar listesi 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 1980e93c9fd880dbb4b6a284676117b93502790e
 binalar ansayfasında toplam metrekare ve kac ofıs ve hangı renklerde olacak gibi şeye bak 
 aynı kapı numarasında fırma var mı yok mu 
 yenı eklerken kapı numarası na bakılmalı belkı update ıcınde 
 
+<<<<<<< HEAD
+=======
+=======
+  
+>>>>>>> parent of bcd1573 (fix: ds)
+>>>>>>> 1980e93c9fd880dbb4b6a284676117b93502790e
 
 mail sisteminin çalışması lazım stmp mail etkinleşecek 
 sticky menu ne olacak 
 
 yayına alınca cron ıslerı ve kıosk un yolunun degısmesı gerekıyor 
+<<<<<<< HEAD
+=======
+=======
+  
+>>>>>>> parent of bcd1573 (fix: ds)
+>>>>>>> 1980e93c9fd880dbb4b6a284676117b93502790e
 
 https://yourstory.com/companies   
 https://www.rtp.org/directory-map/
