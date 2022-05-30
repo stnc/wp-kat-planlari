@@ -41,55 +41,51 @@ add_shortcode( 'stnc_building', 'stnc_map_building_shortcode' );
 
     $web_permission= $building -> web_permission;
 
-    $door_number_permission_check="";
-    $square_meters_permission_check="";
-    $email_permission_check="";
-    $phone_permission_check="";
-    $mobile_phone_permission_check="";
-    $web_site_permission_check="";
-    $company_description_permission_check="";
-    $address_permission_check="";
+    $door_number_permission_check=false;
+    $square_meters_permission_check=false;
+    $email_permission_check=false;
+    $phone_permission_check=false;
+    $mobile_phone_permission_check=false;
+    $web_site_permission_check=false;
+    $company_description_permission_check=false;
+    $address_permission_check=false;
 
   
 
     if ($web_permission!=""){
 
          if ($web_permission[0]["door_number_permission"]!="" && $web_permission[0]["door_number_permission"]){
-             $door_number_permission_check="checked";
+             $door_number_permission_check=true;
          }
 
          if ($web_permission[0]["square_meters_permission"]!="" && $web_permission[0]["square_meters_permission"]){
-             $square_meters_permission_check="checked";
+             $square_meters_permission_check=true;
          }
 
          if ($web_permission[0]["email_permission"]!="" && $web_permission[0]["email_permission"]){
-             $email_permission_check="checked";
+             $email_permission_check=true;
          }
          
          if ($web_permission[0]["phone_permission"]!="" && $web_permission[0]["phone_permission"]){
-             $phone_permission_check="checked";
+             $phone_permission_check=true;
          }
  
          if ($web_permission[0]["mobile_phone_permission"]!="" && $web_permission[0]["mobile_phone_permission"]){
-             $mobile_phone_permission_check="checked";
+             $mobile_phone_permission_check=true;
          }
  
          if ($web_permission[0]["web_site_permission"]!="" && $web_permission[0]["web_site_permission"]){
-             $web_site_permission_check="checked";
+             $web_site_permission_check=true;
          }
  
          if ($web_permission[0]["company_description_permission"]!="" && $web_permission[0]["company_description_permission"]){
-             $company_description_permission_check="checked";
+             $company_description_permission_check=true;
          }
 
          if ($web_permission[0]["address_permission"]!="" && $web_permission[0]["address_permission"]){
-             $address_permission_check="checked";
+             $address_permission_check=true;
          }
-        
     }
-
-
-
 ?>
    
 <div class="business-container">
@@ -115,14 +111,23 @@ foreach ($buildingsList as $building) :
               <a  target="_blank" title="<?php echo $building->company_name ?>" href="<?php echo $building->web_site ?>"><?php echo $building->company_name ?></a>
             </span>
 
-          <?php if  ($building->company_description!="") : ?>
-          <div class="short-bio">
-            <p><?php echo $building->company_description ?></p>
-          </div>
+
+
+  
+
+
+
+          <?php if  ($company_description_permission_check) : ?>
+            <?php if  ($building->company_description!="") : ?>
+            <div class="short-bio">
+              <p><?php echo $building->company_description ?></p>
+            </div>
+            <?php endif; ?>
           <?php endif; ?>
 
           <div class="contact-info">
             <ul>
+            <?php if  ($email_permission_check) : ?>  
             <?php if ($building->email!="") : ?>
               <li>
                 <i class="far fa-envelope"></i>
@@ -131,14 +136,18 @@ foreach ($buildingsList as $building) :
                 </a>
               </li>
             <?php endif; ?>
+            <?php endif; ?>
 
+            <?php if  ($phone_permission_check) : ?>  
               <?php if ($building->phone!="") : ?>
               <li>
                 <i class="fa fa-phone"></i>
                 <a href="tel:<?php echo $building->phone ?>" class="tlp-phone"><?php echo $building->phone ?></a>
               </li>
               <?php endif; ?>
+              <?php endif; ?>
 
+              <?php if  ($mobile_phone_permission_check) : ?>  
               <?php if ($building->mobile_phone!="") : ?>
               <li class="tlp-fax">
                 <i class="fa fa-fax"></i>
@@ -147,14 +156,18 @@ foreach ($buildingsList as $building) :
                 </a>
               </li>
               <?php endif; ?>
+              <?php endif; ?>
               
+              <?php if  ($address_permission_check) : ?>  
               <?php if ($building->address!="") : ?>
               <li>
                 <i class="fa fa-map-marker"></i>
                 <span class="tlp-location"><?php echo $building->address ?></span>
               </li>
               <?php endif; ?>
+              <?php endif; ?>
 
+              <?php if  ($web_site_permission_check) : ?>  
               <?php if ($building->web_site!="") : ?>
               <li>
                 <a target="_blank" href="<?php echo $building->web_site ?>">
@@ -162,6 +175,7 @@ foreach ($buildingsList as $building) :
                   <span class="tlp-url"><?php echo $building->web_site ?></span>
                 </a>
               </li>
+              <?php endif; ?>
               <?php endif; ?>
             </ul>
 
