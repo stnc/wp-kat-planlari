@@ -34,65 +34,74 @@ add_shortcode( 'stnc_building', 'stnc_map_building_shortcode' );
     // }
 
    $wp_stnc_map_floors1 =$wpdb->prefix . 'stnc_map_floors_locations WHERE floor_id='.$args['id'].'';
-   echo $sql = "SELECT * FROM " . $wp_stnc_map_floors1 . ' ';
+  //  $wp_stnc_map_floors1 =$wpdb->prefix . 'stnc_map_floors_locations';
+    $sql = "SELECT * FROM " . $wp_stnc_map_floors1 . ' ';
 
 
-    $buildingsList = $wpdb->get_results($sql);
+$buildingsList = $wpdb->get_results($sql);
 
 
+// foreach ($buildingsList as $building) : 
 
-    $door_number_permission_check=false;
-    $square_meters_permission_check=false;
-    $email_permission_check=false;
-    $phone_permission_check=false;
-    $mobile_phone_permission_check=false;
-    $web_site_permission_check=false;
-    $company_description_permission_check=false;
-    $address_permission_check=false;
+// $c= '[{\"door_number_permission\":false,\"square_meters_permission\":false,\"email_permission\":false,\"phone_permission\":false,\"mobile_phone_permission\":false,\"web_site_permission\":false,\"company_description_permission\":false,\"address_permission\":false}]';
 
-  
-
+// $success =   $wpdb->update(
+//   $wpdb->prefix . 'stnc_map_floors_locations',
+//   array(
+//       'web_permission' =>$c,
+//   ),
+//   array('id' =>  $building -> id)
+// );
+// endforeach;
+// die;
 
 ?>
-   
 <div class="business-container">
 <?php
 foreach ($buildingsList as $building) : 
+  $door_number_permission_check=true;
+  $square_meters_permission_check=true;
+  $email_permission_check=true;
+  $phone_permission_check=true;
+  $mobile_phone_permission_check=true;
+  $web_site_permission_check=true;
+  $company_description_permission_check=true;
+  $address_permission_check=true;
+  $data = str_replace([" ", '\\'], null, $building -> web_permission);
+  $web_permission = json_decode($data, true, JSON_UNESCAPED_SLASHES);
 
-  $web_permission= $building -> web_permission;
-  
   if ($web_permission!=""){
 
     if ($web_permission[0]["door_number_permission"]!="" && $web_permission[0]["door_number_permission"]){
-        $door_number_permission_check=true;
+        $door_number_permission_check=false;
     }
 
     if ($web_permission[0]["square_meters_permission"]!="" && $web_permission[0]["square_meters_permission"]){
-        $square_meters_permission_check=true;
+        $square_meters_permission_check=false;
     }
 
     if ($web_permission[0]["email_permission"]!="" && $web_permission[0]["email_permission"]){
-        $email_permission_check=true;
+        $email_permission_check=false;
     }
     
     if ($web_permission[0]["phone_permission"]!="" && $web_permission[0]["phone_permission"]){
-        $phone_permission_check=true;
+        $phone_permission_check=false;
     }
 
     if ($web_permission[0]["mobile_phone_permission"]!="" && $web_permission[0]["mobile_phone_permission"]){
-        $mobile_phone_permission_check=true;
+        $mobile_phone_permission_check=false;
     }
 
     if ($web_permission[0]["web_site_permission"]!="" && $web_permission[0]["web_site_permission"]){
-        $web_site_permission_check=true;
+        $web_site_permission_check=false;
     }
 
     if ($web_permission[0]["company_description_permission"]!="" && $web_permission[0]["company_description_permission"]){
-        $company_description_permission_check=true;
+        $company_description_permission_check=false;
     }
 
     if ($web_permission[0]["address_permission"]!="" && $web_permission[0]["address_permission"]){
-        $address_permission_check=true;
+        $address_permission_check=false;
     }
 }
 
@@ -115,12 +124,6 @@ foreach ($buildingsList as $building) :
             <span class="team-name">
               <a  target="_blank" title="<?php echo $building->company_name ?>" href="<?php echo $building->web_site ?>"><?php echo $building->company_name ?></a>
             </span>
-
-
-
-  
-
-
 
           <?php if  ($company_description_permission_check) : ?>
             <?php if  ($building->company_description!="") : ?>
@@ -184,6 +187,9 @@ foreach ($buildingsList as $building) :
               <?php endif; ?>
             </ul>
 
+    <?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
+        <a href="http://summit.test/wp-admin/admin.php?page=stnc_map_company&binaid=1&kat=<?php echo $building->floor_id ?>&st_trigger=show&id=<?php echo $building->id ?>">düzenle</a>
+       <?php } ?>
 
           </div>
 

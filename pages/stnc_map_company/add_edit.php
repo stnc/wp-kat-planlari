@@ -128,7 +128,6 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                             <label for="square_meters"> <strong>Bina metrekare</strong> </label>
                             <input type="text" name="square_meters" value="<?php echo $square_meters ?>"  class="form-control" id="square_meters" min="1" max="50">
                          
-                            <input type="checkbox"  <?php  echo  $square_meters_permission_check?>  id="square_meters_permission"> Web önyüzünde görünmesin
                         </div>
                         <hr>
 
