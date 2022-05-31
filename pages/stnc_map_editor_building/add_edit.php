@@ -32,7 +32,7 @@
       <input type="hidden" value="<?php echo $scheme_media_id ?>" name="media_id" id="media_id">
         <?php  if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) :  ?> 
         <div class="background_attachment_metabox_container">
-          <img  class="img-fluid" src="<?php echo $scheme_media_id[0]; ?> " alt="">
+          <img  class="img-fluid" src="<?php echo $scheme_media_data[0]; ?> " alt="">
         </div> 
         <?php else : ?> 
           <div class="background_attachment_metabox_container"></div> <?php endif ; ?> </div>
