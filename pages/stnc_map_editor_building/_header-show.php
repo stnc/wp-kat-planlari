@@ -28,7 +28,11 @@
                             aria-expanded="false">Diğer Katlar</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown01">
                          <?php 
-                    
+                         
+                        $stncForm_tableNameMain =$wpdb->prefix .'stnc_map_floors' ;
+                         $sql = "SELECT * FROM " .   $stncForm_tableNameMain . ' WHERE tekno_id=' . $_GET['teknoid'] . ' ';
+                        $buildingsList = $wpdb->get_results($sql);
+
                          foreach ($buildingsList as $building) : ?>
                             <li><a class="dropdown-item" href="/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=show&teknoid=<?php echo $building->tekno_id ?>&id=<?php echo $building->id ?>"><?php echo $building->name ?></a></li>
                         <?php endforeach ?>

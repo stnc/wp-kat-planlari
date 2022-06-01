@@ -10,14 +10,13 @@ function stnc_wp_floor_adminMenu_stnc_map_editor_stnc()
 //http://summit.test/wp-admin/admin.php?page=stnc_map_editor_building&st_trigger=show&katid=2
 
     global $wpdb;
-    $stncForm_tableNameMain =$wpdb->prefix .'stnc_map_floors' ;
 
     date_default_timezone_set('Europe/Istanbul');
     $date = date('Y-m-d h:i:s');
 
-    $sql = "SELECT * FROM " .   $stncForm_tableNameMain . ' WHERE tekno_id=' . $_GET['teknoid'] . ' ';
 
-    $buildingsList = $wpdb->get_results($sql);
+
+
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) {
  
         // $thepost = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".$stncForm_tableNameMain . "  WHERE id = %d", $_GET['kat']));
@@ -58,11 +57,20 @@ function stnc_wp_floor_adminMenu_stnc_map_editor_stnc()
          $name = isset($_POST["name"]) ? sanitize_text_field($_POST["name"]) : "-----";
 
          $scheme_media_id = isset($_POST["media_id"]) ? $_POST["media_id"] : 0;
-   
+
+         $full_area  = isset($_POST["full_area"]) ? $_POST["full_area"] : 0;
+      
+         $empty_area  = isset($_POST["empty_area"]) ? $_POST["empty_area"] : 0;
+      
+         $total_area  = isset($_POST["total_area"]) ? $_POST["total_area"] : 0;
+
         $success =   $wpdb->update(
             $wpdb->prefix .'stnc_map_floors',
             array(
                 'scheme_media_id' =>  $scheme_media_id,
+                'full_area' =>  $full_area,
+                'empty_area' =>  $empty_area,
+                'total_area' =>  $total_area,
                 'name' =>   $name,
             ),
             array('id' => $_GET['id'])

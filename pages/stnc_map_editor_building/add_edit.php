@@ -1,6 +1,8 @@
 <?php include("_header-show.php") ?>
 <main class="flex-shrink-0" style="margin-top:88px">
-  <div class="container-fluid"> <?php if (isset($_SESSION['stnc_map_flash_msg'] )) { ?> <p class="alert alert-danger"> <?php echo $_SESSION['stnc_map_flash_msg']; ?> </p> <?php unset($_SESSION['stnc_map_flash_msg']); ?> <?php } ?> <div>
+  <div class="container-fluid"> 
+    <?php if (isset($_SESSION['stnc_map_flash_msg'] )) { ?> <p class="alert alert-success"> <?php echo $_SESSION['stnc_map_flash_msg']; ?> 
+    </p> <?php unset($_SESSION['stnc_map_flash_msg']); ?> <?php } ?> <div>
       <span style="color:red"> <?php echo $tekno_id ?>. Bina / <?php echo $katadi ?> </span> için firma <?php  echo $title?> işlemi
     </div> <?php echo $form  ?> <div class="row">
       <div class="col-md-4">
@@ -18,19 +20,19 @@
 
               <div class="form-group">
                 <label for="company_name">Toplam Alan</label>
-                <input type="text" name="name" value="<?php echo $total_area ?>" class="form-control" id="name" min="1" max="50">
+                <input type="text" name="total_area" value="<?php echo $total_area ?>" class="form-control" id="total_area" min="1" max="50">
               </div>
 
 
               <div class="form-group">
                 <label for="company_name">Dolu  Alan</label>
-                <input type="text" name="name" value="<?php echo $full_area ?>" class="form-control" id="name" min="1" max="50">
+                <input type="text" name="full_area" value="<?php echo $full_area ?>" class="form-control" id="full_area" min="1" max="50">
               </div>
 
 
               <div class="form-group">
                 <label for="company_name">Boş Alan</label>
-                <input type="text" name="name" value="<?php echo $empty_area ?>" class="form-control" id="name" min="1" max="50">
+                <input type="text" name="empty_area" value="<?php echo $empty_area ?>" class="form-control" id="empty_area" min="1" max="50">
               </div>
 
 

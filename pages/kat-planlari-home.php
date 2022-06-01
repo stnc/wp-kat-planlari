@@ -47,6 +47,22 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
 <main class="flex-shrink-0" style="margin-top:88px">
   <div class="container-fluid">
     <div class="row">
+      <?php 
+         global $wpdb;
+    $stncForm_tableNameMain =$wpdb->prefix .'stnc_map_floors' ;
+
+    $sql = "SELECT * FROM " .   $stncForm_tableNameMain ;
+    $buildingsList = $wpdb->get_results($sql);
+
+     
+
+
+foreach ($buildingsList as $building) : ?>
+                      
+                      
+
+
+
       <div class="col-lg-2">
         <div class=" card-cover overflow-hidden rounded-5 shadow-lg stnc-card mx-auto" style="background-color: #7066D1;">
           <div class="d-flex flex-column   text-white text-center text-shadow-1">
@@ -65,7 +81,7 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
         </div>
         <div class="h-100 overflow-hidden rounded-5 mx-auto">
           <div class="media text-muted pt-3 mx-auto">
-            <strong style="font-size:25px" class="d-block text-gray-dark mx-auto text-center ">Tekno 5- BİNASI</strong>
+            <strong style="font-size:25px" class="d-block text-gray-dark mx-auto text-center "><?php echo $building->name ?></strong>
             <span style="font-size:20px" class="d-block text-gray-dark  mx-auto text-center">Toplam: 85 ofis <br>
               <span>250 Metrekare</span>
             </span>
@@ -219,8 +235,9 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
           </div>
         </div>
       </div>
+
       <!-- /.col-lg-2 -->
-      <div class="col-lg-2">
+      <!-- <div class="col-lg-2">
         <div class=" card-cover overflow-hidden rounded-5 shadow-lg stnc-card mx-auto" style="background-color: #bb53b1;">
           <div class="d-flex flex-column  text-white text-center text-shadow-1">
             <h2 class="pt-5  display-6 lh-1 fw-bold text-center " style="color:#9d4194  ;  font-size: 100px;">6. </h2>
@@ -231,7 +248,6 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
                 <text x="10%" y="40%" fill="#bb53b1" dy=".3em" font-size="3.5em" font-weight="bold">25</text>
                 <text x="60%" y="45%" fill="#bb53b1" dy=".3em " font-size="1.5em"> ofis</text>
                 <text x="25%" y="75%" fill="#bb53b1" dy=".3em" font-size="2em" font-weight="bold">BOS</text>
-                <!-- <text x="20%" y="55%" fill="#7066D1" dy=".3em" font-size="2em" font-weight="bold">DOLU</text> -->
               </svg>
             </div>
           </div>
@@ -253,8 +269,11 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
             </select>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- /.col-lg-2 -->
+
+      <?php endforeach ?>
+
     </div>
   </div>
 </main>

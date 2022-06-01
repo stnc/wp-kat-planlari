@@ -14,7 +14,8 @@ function stnc_wp_floor_adminMenu_stnc_map_view()
     $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,kat.tekno_id,kat.scheme,bina.id
       AS bina_id,kat.id AS katid ,kat.scheme_media_id  FROM " . $wp_stnc_map_floors . " AS kat INNER JOIN " . $wp_stnc_map_building . " 
        AS bina  ON  bina.id=%d AND kat.id = %d", $binaId, $katId));
-
+        // echo $wpdb->last_query;
+        //  die;
     $scheme = $map->scheme;
 
     // echo '<br>';
