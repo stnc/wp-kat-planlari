@@ -49,7 +49,7 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
     <div class="row">
       <?php 
          global $wpdb;
-    $stncForm_tableNameMain =$wpdb->prefix .'stnc_map_floors' ;
+    $stncForm_tableNameMain =$wpdb->prefix .'stnc_map_building' ;
 
     $sql = "SELECT * FROM " .   $stncForm_tableNameMain ;
     $buildingsList = $wpdb->get_results($sql);
@@ -59,9 +59,9 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
 
     foreach ($buildingsList as $building) : ?>         
       <div class="col-lg-2">
-        <div class=" card-cover overflow-hidden rounded-5 shadow-lg stnc-card mx-auto" style="background-color: <?php echo $building->color ?> ;">
+        <div class=" card-cover overflow-hidden rounded-5 shadow-lg stnc-card mx-auto" style="background-color:<?php echo $building->color ?>;">
           <div class="d-flex flex-column   text-white text-center text-shadow-1">
-            <h2 class="pt-5  display-6 lh-1 fw-bold text-center " style="color:<?php echo $building->text_color ?>  ;  font-size: 100px;">1. </h2>
+            <h2 class="pt-5  display-6 lh-1 fw-bold text-center " style="color:#4A3EA5  ;  font-size: 100px;"><?php echo $building->short_name ?>. </h2>
             <h3 class="pt-3 mt-3 lh-1 fw-bold text-center ">Bina </h3>
             <div class="d-flex list-unstyled mt-auto ">
               <svg class="bd-placeholder-img rounded-circle mt-auto" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
