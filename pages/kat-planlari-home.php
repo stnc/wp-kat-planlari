@@ -49,7 +49,7 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
     <div class="row">
       <?php 
          global $wpdb;
-    $stncForm_tableNameMain =$wpdb->prefix .'stnc_map_floors' ;
+    $stncForm_tableNameMain =$wpdb->prefix .'stnc_map_building' ;
 
     $sql = "SELECT * FROM " .   $stncForm_tableNameMain ;
     $buildingsList = $wpdb->get_results($sql);
