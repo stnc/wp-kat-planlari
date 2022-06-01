@@ -48,26 +48,25 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
   <div class="container-fluid">
     <div class="row">
       <?php 
-         global $wpdb;
-    $stncForm_tableNameMain =$wpdb->prefix .'stnc_map_building' ;
 
+    global $wpdb;
+    $stncForm_tableNameMain =$wpdb->prefix .'stnc_map_building' ;
     $sql = "SELECT * FROM " .   $stncForm_tableNameMain ;
     $buildingsList = $wpdb->get_results($sql);
 
-     
-
-
     foreach ($buildingsList as $building) :
-      $stncForm_tableNameMain =$wpdb->prefix .'stnc_map_floors_locations' ;
-      $toplamOfis = $wpdb->get_var('SELECT COUNT(*) FROM ' . $stncForm_tableNameMain . ' WHERE building_id=' . $building->id  );
-   
-       $toplamBosOfis = $wpdb->get_var('SELECT COUNT(*) FROM ' . $stncForm_tableNameMain . ' WHERE  is_empty=1 and building_id=' . $building->id );
 
-      $toplamOfis=((int)$toplamOfis);
-   
-      $toplamBosOfis=((int)$toplamBosOfis);
+        $stncForm_tableNameMain =$wpdb->prefix .'stnc_map_floors_locations' ;
+        
+        $toplamOfis = $wpdb->get_var('SELECT COUNT(*) FROM ' . $stncForm_tableNameMain . ' WHERE building_id=' . $building->id  );
     
-      $toplamDoluOfis= $toplamOfis- $toplamBosOfis;
+        $toplamBosOfis = $wpdb->get_var('SELECT COUNT(*) FROM ' . $stncForm_tableNameMain . ' WHERE  is_empty=1 and building_id=' . $building->id );
+
+        $toplamOfis=((int)$toplamOfis);
+    
+        $toplamBosOfis=((int)$toplamBosOfis);
+      
+        $toplamDoluOfis= $toplamOfis- $toplamBosOfis;
     
     ?>         
       <div class="col-lg-2">
@@ -96,12 +95,14 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
             <br>
             <select class="form-select form-select-sm mx-auto" style="width: 130px;" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
               <option value="">Kat Seçiniz</option>
-              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=1&kat=1">Bodrum kat</option>
-              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=1&kat=2">Zemin kat</option>
-              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=1&kat=4">1. kat</option>
-              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=1&kat=5">2. kat</option>
-              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=1&kat=6">3. kat</option>
-              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=1&kat=8">4. kat</option>
+              <?php 
+                  $stncForm_tableNameMain =$wpdb->prefix .'stnc_map_floors WHERE tekno_id='.$building->id ;
+                  $sql = "SELECT * FROM " .   $stncForm_tableNameMain ;
+                  $floorsList = $wpdb->get_results($sql);
+                  foreach ($floorsList as $floors) :
+                  ?>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=<?php echo $floors->tekno_id ?>&kat=<?php echo $floors->id ?>"><?php echo $floors->name ?></option>
+              <?php endforeach ?>
             </select>
           </div>
         </div>
