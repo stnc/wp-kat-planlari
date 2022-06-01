@@ -48,8 +48,8 @@
             <div class="card flex-md-row mb-4 box-shadow h-md-250">
                 <div class="d-flex flex-column align-items-start">
                 <strong class="d-inline-block mb-2 text-primary"> <strong><?php echo $toplamOfis?></strong> Toplam  Ofis</strong>
-                <strong class="d-inline-block mb-2 text-success"> <strong><?php echo $toplamDoluBina?></strong> Dolu Ofis</strong>
-                <strong class="d-inline-block mb-2 text-warning"><strong><?php echo $toplamBosBina?></strong> Boş Ofis</strong>
+                <strong class="d-inline-block mb-2 text-success"> <strong><?php echo $toplamDoluOfis?></strong> Dolu Ofis</strong>
+                <strong class="d-inline-block mb-2 text-warning"><strong><?php echo $toplamBosOfis?></strong> Boş Ofis</strong>
                 <!-- <strong class="d-inline-block mb-2 text-primary"><strong>487.69</strong> M2</strong> -->
 
                 </div>

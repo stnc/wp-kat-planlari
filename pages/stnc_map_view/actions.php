@@ -37,13 +37,13 @@ function stnc_wp_floor_adminMenu_stnc_map_view()
 
 
      $toplamOfis = $wpdb->get_var('SELECT COUNT(*) FROM ' . $stncForm_tableNameMain . ' WHERE building_id=' . $binaId . ' and  floor_id=' . $katId  );
-     $toplamBosBina = $wpdb->get_var('SELECT COUNT(*) FROM ' . $stncForm_tableNameMain . ' WHERE  is_empty=1 and building_id=' . $binaId . ' and  floor_id=' . $katId  );
+     $toplamBosOfis = $wpdb->get_var('SELECT COUNT(*) FROM ' . $stncForm_tableNameMain . ' WHERE  is_empty=1 and building_id=' . $binaId . ' and  floor_id=' . $katId  );
 
      $toplamOfis=((int)$toplamOfis);
   
-     $toplamBosBina=((int)$toplamBosBina);
+     $toplamBosOfis=((int)$toplamBosOfis);
    
-     $toplamDoluBina= $toplamOfis- $toplamBosBina;
+     $toplamDoluOfis= $toplamOfis- $toplamBosOfis;
   
 
 

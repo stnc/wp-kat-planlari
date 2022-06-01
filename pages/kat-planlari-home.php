@@ -57,7 +57,19 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
      
 
 
-    foreach ($buildingsList as $building) : ?>         
+    foreach ($buildingsList as $building) :
+      $stncForm_tableNameMain =$wpdb->prefix .'stnc_map_floors_locations' ;
+      $toplamOfis = $wpdb->get_var('SELECT COUNT(*) FROM ' . $stncForm_tableNameMain . ' WHERE building_id=' . $building->id  );
+   
+       $toplamBosOfis = $wpdb->get_var('SELECT COUNT(*) FROM ' . $stncForm_tableNameMain . ' WHERE  is_empty=1 and building_id=' . $building->id );
+
+      $toplamOfis=((int)$toplamOfis);
+   
+      $toplamBosOfis=((int)$toplamBosOfis);
+    
+      $toplamDoluOfis= $toplamOfis- $toplamBosOfis;
+    
+    ?>         
       <div class="col-lg-2">
         <div class=" card-cover overflow-hidden rounded-5 shadow-lg stnc-card mx-auto" style="background-color: <?php echo $building->color ?> ;">
           <div class="d-flex flex-column   text-white text-center text-shadow-1">
@@ -67,9 +79,9 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
               <svg class="bd-placeholder-img rounded-circle mt-auto" width="140" height="140" xmlns="http://www.w3.org/2000/svg" 
               role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
                 <rect width="100%" height="100%" fill="#fff"></rect>
-                <text x="10%" y="40%" fill="<?php echo $building->text_color ?>" dy=".3em" font-size="3.5em" font-weight="bold">25</text>
+                <text x="10%" y="40%" fill="<?php echo $building->text_color ?>" dy=".3em" font-size="3.5em" font-weight="bold"><?php echo $toplamBosOfis?></text>
                 <text x="60%" y="45%" fill="<?php echo $building->text_color ?>" dy=".3em " font-size="1.5em"> ofis</text>
-                <text x="25%" y="75%" fill="<?php echo $building->text_color ?>" dy=".3em" font-size="2em" font-weight="bold">BOS</text>
+                <text x="25%" y="75%" fill="<?php echo $building->text_color ?>" dy=".3em" font-size="2em" font-weight="bold">BOŞ</text>
                 <!-- <text x="20%" y="55%" fill="#7066D1" dy=".3em" font-size="2em" font-weight="bold">DOLU</text> -->
               </svg>
             </div>
@@ -78,8 +90,8 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
         <div class="h-100 overflow-hidden rounded-5 mx-auto">
           <div class="media text-muted pt-3 mx-auto">
             <strong style="font-size:25px;color:<?php echo $building->text_color ?> " class="d-block text-gray-dark mx-auto text-center "><?php echo $building->name ?></strong>
-            <span style="font-size:20px" class="d-block text-gray-dark  mx-auto text-center">Toplam: 85 ofis <br>
-              <!-- <span>250 Metrekare</span> -->
+            <span style="font-size:20px" class="d-block text-gray-dark  mx-auto text-center">Toplam: <?php echo $toplamOfis?> ofis <br>
+              <span><?php echo $toplamDoluOfis?> Dolu Ofis</span> 
             </span>
             <br>
             <select class="form-select form-select-sm mx-auto" style="width: 130px;" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
