@@ -14,7 +14,6 @@
     <div class="container-fluid">
 
         <div class="row">
-        <h6 style="color:red"> Kırmızı kutucukları sürükle bırak ile bina haritasında konumu değiştirebilirsiniz.</h6>
             <h3><?php echo $binaName ?> / <?php echo $kat_adi ?></h3>
 
             <div class="col-lg-9">
@@ -43,6 +42,20 @@
             </div><!-- /.col-lg-9 -->
 
             <div class="col-lg-3">
+            <h6 style="color:red"> Kırmızı kutucukları sürükle bırak ile yer değiştirerek harita da yerini değiştirebilirsiniz.</h6>
+
+            <div class="col-md-12">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <div class="d-flex flex-column align-items-start">
+                <strong class="d-inline-block mb-2 text-primary"> <strong><?php echo $toplamOfis?></strong> Toplam  Ofis</strong>
+                <strong class="d-inline-block mb-2 text-success"> <strong><?php echo $toplamDoluBina?></strong> Dolu Ofis</strong>
+                <strong class="d-inline-block mb-2 text-warning"><strong><?php echo $toplamBosBina?></strong> Boş Ofis</strong>
+                <!-- <strong class="d-inline-block mb-2 text-primary"><strong>487.69</strong> M2</strong> -->
+
+                </div>
+            </div>
+            </div>
+
                 <span class="badge bg-secondary">Firma Listesi</span>
 
                 <table class="table table-striped">
@@ -63,9 +76,10 @@
                                    $position =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
                             ?>
 
-                                    <tr>
-                                        <!-- <th scope="row"><?php echo  $key?></th> -->
-                                        <td><?php echo $result->door_number; ?></td>
+                          <tr  <?php if  ($result->is_empty === "1") :   ?> class="table-danger"    <?php endif ; ?>>
+                         
+                          <td><?php echo $result->door_number; ?></td>
+                         <td>  <?php if  ($result->is_empty === "1") :   ?>   BOŞ OFİS <?php else : ?> <?php echo $result->company_name; ?> <?php endif ; ?></td>
                                         <td><?php echo $result->company_name; ?></td>
                                     
      <td><a  href="/wp-admin/admin.php?page=stnc_map_company&st_trigger=show&binaid=<?php echo $binaId?>&kat=<?php echo $katId?>&id=<?php echo $result->id; ?>">Düzenle</a></td>

@@ -82,15 +82,18 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
 
     <div class="container-fluid">
 
-
-        <div> <span style="color:red"><?php echo $binaName ?> / <?php  echo $kat_adi ?> </span> için firma <?php  echo $title?> işlemi
-
+        <div> 
+        <span style="color:red"><?php echo $binaName ?> / <?php  echo $kat_adi ?> </span> için firma <?php  echo $title?> işlemi
         </div>
+
+        <?php if  ($is_empty === "1") :   ?>
+           <div style="font-size:20px" class="text-center alert alert-danger" role="alert"> BU OFİS BOŞ DURUMDADIR </div>
+         <?php endif ; ?>
 
         <?php
                 if (isset($_SESSION['stnc_map_flash_msg'] )) {
                 ?>
-        <p class="alert alert-danger">
+        <p class="alert alert-success">
             <?php echo $_SESSION['stnc_map_flash_msg']; ?>
         </p>
         <?php unset($_SESSION['stnc_map_flash_msg']); ?>
@@ -203,6 +206,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
 
                 <div class="form-group">
                     <input type="hidden" value="<?php echo $media_id ?>" name="media_id" id="media_id">
+                    <input type="hidden" value="<?php echo $floors_locations_id ?>" name="floors_locations_id" id="floors_locations_id">
                     <input id="stnc_wp_kiosk_Metabox_video_extra"
                         class="page_upload_trigger_element button btn btn-warning"
                         name="stnc_wp_kiosk_Metabox_video_extra" type="button" value="Resim Yükle / Seç" style="">
@@ -217,6 +221,15 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                     <?php endif ; ?>
                 </div>
                 <br>
+
+
+                <?php  if ($is_empty === "0") :   ?>
+                <a href="/wp-admin/admin.php?page=stnc_map_company&st_trigger=office_empty&binaid=1&kat=1&id=<?php echo $_GET['id']?>" class="btn btn-warning"> Ofisi Boşalt</a>
+                <br>
+                 <br>
+                <?php endif ; ?>
+
+       
 
                 <textarea id="web_permission" name="web_permission" style="display:none"></textarea>
 

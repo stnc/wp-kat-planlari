@@ -1,15 +1,15 @@
 <?php
 
 
-//onyuze ekleme yapacak 
-add_action( 'wp_enqueue_scripts', 'stnc_wp_floor_front' );
+
 function stnc_wp_floor_front() {
     wp_enqueue_style( 'custom-gallery', plugins_url( '/assets/css/stnc-building-front.css' , __FILE__ ) );
     // wp_enqueue_script( 'custom-gallery', plugins_url( '/js/gallery.js' , __FILE__ ) );
-    wp_register_style( 'Font_Awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0/css/all.min.css' );
-    wp_enqueue_style('Font_Awesome');
-}
+    wp_enqueue_style( 'load-fa', 'https://use.fontawesome.com/releases/v5.5.0/css/all.css' );
 
+}
+//onyuze ekleme yapacak 
+add_action( 'wp_enqueue_scripts', 'stnc_wp_floor_front' );
 
 
 
@@ -64,7 +64,7 @@ if ((isset($_GET['page'])) && ($_GET['page'] === 'stnc_map_company')) {
 }
 
 if ((isset($_GET['page'])) && ($_GET['page'] === 'stnc_map_view')) {  
-
+    // stnc_wp_floor_front() ;
     stnc_wp_floor_all_scritps();
     add_action('admin_enqueue_scripts', 'stnc_wp_floor_map_script_in_admin');
 

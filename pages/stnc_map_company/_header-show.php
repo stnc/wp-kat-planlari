@@ -18,7 +18,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link"
-                            href="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=<?php echo $_GET['teknoid']?>&kat=<?php echo $_GET['id']?>">Bu binanın firma listesini göster</a>
+                            href="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['id']?>">Bu binanın firma listesini göster</a>
                      </a>
                     </li>
 

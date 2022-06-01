@@ -15,6 +15,26 @@
                 <label for="company_name">name</label>
                 <input type="text" name="name" value="<?php echo $name ?>" class="form-control" id="name" min="1" max="50">
               </div>
+
+              <div class="form-group">
+                <label for="company_name">Toplam Alan</label>
+                <input type="text" name="name" value="<?php echo $total_area ?>" class="form-control" id="name" min="1" max="50">
+              </div>
+
+
+              <div class="form-group">
+                <label for="company_name">Dolu  Alan</label>
+                <input type="text" name="name" value="<?php echo $full_area ?>" class="form-control" id="name" min="1" max="50">
+              </div>
+
+
+              <div class="form-group">
+                <label for="company_name">Boş Alan</label>
+                <input type="text" name="name" value="<?php echo $empty_area ?>" class="form-control" id="name" min="1" max="50">
+              </div>
+
+
+
               <hr>
             </div>
           </div>
@@ -29,7 +49,7 @@
         </div>
       </div>
       <div class="col-md-8"> 
-      <input type="hidden" value="<?php echo $scheme_media_id ?>" name="media_id" id="media_id">
+         <input type="hidden" value="<?php echo $scheme_media_id ?>" name="media_id" id="media_id">
         <?php  if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) :  ?> 
         <div class="background_attachment_metabox_container">
           <img  class="img-fluid" src="<?php echo $scheme_media_data[0]; ?> " alt="">
