@@ -89,8 +89,8 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
         <div class="h-100 overflow-hidden rounded-5 mx-auto">
           <div class="media text-muted pt-3 mx-auto">
             <strong style="font-size:25px;color:<?php echo $building->text_color ?> " class="d-block text-gray-dark mx-auto text-center "><?php echo $building->name ?></strong>
-            <span style="font-size:20px" class="d-block text-gray-dark  mx-auto text-center">Toplam: <?php echo $toplamOfis?> ofis <br>
-              <span><?php echo $toplamDoluOfis?> Dolu Ofis</span> 
+            <span style="font-size:20px" class="d-block text-gray-dark  mx-auto text-center"><strong><?php echo $toplamOfis?></strong> Toplam  Ofis <br>
+              <span><strong><?php echo $toplamDoluOfis?> </strong>   Dolu Ofis</span> 
             </span>
             <br>
             <select class="form-select form-select-sm mx-auto" style="width: 130px;" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
