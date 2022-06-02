@@ -188,7 +188,7 @@ foreach ($buildingsList as $building) :
             </ul>
 
     <?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
-        <a href="http://summit.test/wp-admin/admin.php?page=stnc_map_company&binaid=1&kat=<?php echo $building->floor_id ?>&st_trigger=show&id=<?php echo $building->id ?>">düzenle</a>
+        <a href="/wp-admin/admin.php?page=stnc_map_company&binaid=1&kat=<?php echo $building->floor_id ?>&st_trigger=show&id=<?php echo $building->id ?>">düzenle</a>
        <?php } ?>
 
           </div>
