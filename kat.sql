@@ -37,7 +37,7 @@ INSERT INTO `wp_stnc_map_building` (`id`, `name`, `global_capacity`, `total_offi
 CREATE TABLE IF NOT EXISTS `wp_stnc_map_floors` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tekno_id` int(10) unsigned NOT NULL,
+  `building_id` int(10) unsigned NOT NULL,
   `type` int(11) NOT NULL,
   `full_office` int(10) unsigned NOT NULL,
   `empty_office` int(10) unsigned NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `wp_stnc_map_floors` (
 
 -- Dumping data for table summit.wp_stnc_map_floors: 23 rows
 /*!40000 ALTER TABLE `wp_stnc_map_floors` DISABLE KEYS */;
-INSERT INTO `wp_stnc_map_floors` (`id`, `name`, `tekno_id`, `type`, `full_office`, `empty_office`, `full_area`, `empty_area`, `total_area`, `scheme`, `scheme_media_id`, `created_at`, `updated_at`, `class`) VALUES
+INSERT INTO `wp_stnc_map_floors` (`id`, `name`, `building_id`, `type`, `full_office`, `empty_office`, `full_area`, `empty_area`, `total_area`, `scheme`, `scheme_media_id`, `created_at`, `updated_at`, `class`) VALUES
 	(1, 'BODRUM KAT', 1, 0, 0, 0, 0.00, 0.00, 0.00, 't1-bodrum.jpg', NULL, NULL, '2018-10-23 09:15:13', '1'),
 	(2, 'ZEMİN KAT', 1, 0, 0, 0, 0.00, 0.00, 0.00, 't1-zemin.jpg', NULL, NULL, '2018-10-23 09:31:41', '2'),
 	(4, '1.KAT', 1, 0, 0, 0, 0.00, 0.00, 0.00, 't1-k1.jpg', NULL, NULL, '2018-10-23 09:39:47', '3'),

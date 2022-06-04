@@ -40,7 +40,7 @@ $sql = "SELECT * FROM " . $wp_stnc_map_floors1 . ' ';
       echo "<br>";
        echo "<div style='color:red'>"?> <?php echo $main_building_name=$building->name ?> <?php echo "</div>"?>
         <?php echo "<br>"?>
-        <?php  $wp_stnc_map_floors =$wpdb->prefix . 'stnc_map_floors where tekno_id='.$building->id.'';
+        <?php  $wp_stnc_map_floors =$wpdb->prefix . 'stnc_map_floors where building_id='.$building->id.'';
         $sql = "SELECT * FROM " . $wp_stnc_map_floors . ' ';
     
         $buildingsList = $wpdb->get_results($sql);

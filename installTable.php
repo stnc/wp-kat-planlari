@@ -74,7 +74,7 @@ function stnc_wp_floor_database_install1()
        $sql = "CREATE TABLE IF NOT EXISTS  " . $wpdb->prefix . $stncForm_tableNameMain . " (
               id INT NOT NULL AUTO_INCREMENT,
               name VARCHAR(255) NOT NULL ,
-              tekno_id INT(10) UNSIGNED NOT NULL,
+              building_id INT(10) UNSIGNED NOT NULL,
               type INT(11) NOT NULL,
               full_office INT(10) UNSIGNED NOT NULL,
               empty_office INT(10) UNSIGNED NOT NULL,
@@ -98,8 +98,8 @@ function stnc_wp_floor_database_install1()
        
 
     // echo $wpdb->last_error;
-  //  INDEX `tekno_kats_tekno_id_foreign` (`tekno_id`) USING BTREE,
-//	CONSTRAINT `tekno_kats_tekno_id_foreign` FOREIGN KEY (`tekno_id`) REFERENCES `summit`.`wp_stnc_map_building` (`id`) ON UPDATE RESTRICT ON DELETE CASCADE
+  //  INDEX `tekno_kats_building_id_foreign` (`building_id`) USING BTREE,
+//	CONSTRAINT `tekno_kats_building_id_foreign` FOREIGN KEY (`building_id`) REFERENCES `summit`.`wp_stnc_map_building` (`id`) ON UPDATE RESTRICT ON DELETE CASCADE
 }
 
 register_activation_hook(__FILE__, 'stnc_wp_floor_database_install1');

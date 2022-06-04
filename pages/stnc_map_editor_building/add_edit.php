@@ -3,7 +3,7 @@
   <div class="container-fluid"> 
     <?php if (isset($_SESSION['stnc_map_flash_msg'] )) { ?> <p class="alert alert-success"> <?php echo $_SESSION['stnc_map_flash_msg']; ?> 
     </p> <?php unset($_SESSION['stnc_map_flash_msg']); ?> <?php } ?> <div>
-      <span style="color:red"> <?php echo $tekno_id ?>. Bina / <?php echo $katadi ?> </span> için firma <?php  echo $title?> işlemi
+      <span style="color:red"> <?php echo $building_id ?>. Bina / <?php echo $katadi ?> </span> için firma <?php  echo $title?> işlemi
     </div> <?php echo $form  ?> <div class="row">
       <div class="col-md-4">
         <div class="form-group">

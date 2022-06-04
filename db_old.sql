@@ -15,7 +15,7 @@
 -- Dumping data for table summit.wp_stnc_map_binalar_eski: ~611 rows (approximately)
 DELETE FROM `wp_stnc_map_binalar_eski`;
 /*!40000 ALTER TABLE `wp_stnc_map_binalar_eski` DISABLE KEYS */;
-INSERT INTO `wp_stnc_map_binalar_eski` (`id`, `tekno_id`, `tekno_kat_id`, `tekno_ofis_id`, `name`, `created_at`, `updated_at`) VALUES
+INSERT INTO `wp_stnc_map_binalar_eski` (`id`, `building_id`, `tekno_kat_id`, `tekno_ofis_id`, `name`, `created_at`, `updated_at`) VALUES
 	(1, 1, 1, 267, 'ZANKA MÜHENDİSLİK LİMİTED ŞİRKETİ', '2018-10-31 09:40:29', '2018-10-31 09:40:29'),
 	(2, 1, 1, 268, 'MUHARREM KÖSE - KENT MEDIA İNTERNET HİZMETLERİ BASIN YAYIN VE REKLAMCILIK', '2018-10-31 09:40:29', '2018-10-31 09:40:29'),
 	(3, 1, 1, 269, 'LESCARD YAZILIM DANIŞMANLIK VE İNSAN KAYNAKLARI LİMİTED ŞİRKETİ', '2018-10-31 09:40:29', '2018-10-31 09:40:29'),
@@ -645,7 +645,7 @@ INSERT INTO `wp_stnc_map_building` (`id`, `name`, `global_capacity`, `total_offi
 -- Dumping data for table `wp_stnc_map_floors`
 --
 
-INSERT INTO `wp_stnc_map_floors` (`id`, `name`, `tekno_id`, `type`, `full_office`, `empty_office`, `full_area`, `empty_area`, `total_area`, `scheme`, `scheme_media_id`, `created_at`, `updated_at`, `class`) VALUES
+INSERT INTO `wp_stnc_map_floors` (`id`, `name`, `building_id`, `type`, `full_office`, `empty_office`, `full_area`, `empty_area`, `total_area`, `scheme`, `scheme_media_id`, `created_at`, `updated_at`, `class`) VALUES
 (1, 'BODRUM KAT', 1, 0, 0, 0, '0.00', '0.00', '0.00', 't1-bodrum.jpg', NULL, NULL, '2018-10-23 06:15:13', '1'),
 (2, 'ZEMİN KAT', 1, 0, 0, 0, '0.00', '0.00', '0.00', 't1-zemin.jpg', NULL, NULL, '2018-10-23 06:31:41', '2'),
 (4, '1.KAT', 1, 0, 0, 0, '0.00', '0.00', '0.00', 't1-k1.jpg', NULL, NULL, '2018-10-23 06:39:47', '3'),
