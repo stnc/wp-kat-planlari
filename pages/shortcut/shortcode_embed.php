@@ -113,7 +113,7 @@ foreach ($buildingsList as $building) :
   
         <div class="img-area col-3 cl-left">
           <figure>
-            <a  target="_target" href="http://yeni.erciyesteknopark.com/firma/abis-teknoloji/">
+            <a  target="_target" href="<?php echo $building->web_site ?>">
               <img src="<?php echo  $image[0] ?>" class="img-responsive- rt-team-img" alt="<?php echo $building->company_name ?>" loading="lazy" width="197" height="78">
             </a>
           </figure>
