@@ -15,9 +15,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Dumping database structure for summit
-CREATE DATABASE IF NOT EXISTS `summit` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `summit`;
+
 
 -- Dumping structure for table summit.wp_stnc_map_building
 CREATE TABLE IF NOT EXISTS `wp_stnc_map_building` (
