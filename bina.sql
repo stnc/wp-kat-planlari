@@ -46,7 +46,7 @@ INSERT INTO `wp_stnc_map_building` (`id`, `name`, `short_name`, `text_color`, `c
 CREATE TABLE IF NOT EXISTS `wp_stnc_map_floors` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tekno_id` int(10) unsigned NOT NULL,
+  `building_id` int(10) unsigned NOT NULL,
   `type` int(11) NOT NULL,
   `full_office` int(10) unsigned NOT NULL,
   `empty_office` int(10) unsigned NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `wp_stnc_map_floors` (
 -- Dumping data for table summit.wp_stnc_map_floors: 23 rows
 DELETE FROM `wp_stnc_map_floors`;
 /*!40000 ALTER TABLE `wp_stnc_map_floors` DISABLE KEYS */;
-INSERT INTO `wp_stnc_map_floors` (`id`, `name`, `tekno_id`, `type`, `full_office`, `empty_office`, `full_area`, `empty_area`, `total_area`, `scheme`, `scheme_media_id`, `created_at`, `updated_at`, `class`, `web_permission`) VALUES
+INSERT INTO `wp_stnc_map_floors` (`id`, `name`, `building_id`, `type`, `full_office`, `empty_office`, `full_area`, `empty_area`, `total_area`, `scheme`, `scheme_media_id`, `created_at`, `updated_at`, `class`, `web_permission`) VALUES
 	(1, 'Bodrum Kat', 1, 0, 0, 0, 471.56, 67.49, 539.05, 't1-bodrum.jpg', 9841, NULL, '2018-10-23 06:15:13', '1', '[{"door_number_permission":false,"square_meters_permission":false,"email_permission":false,"phone_permission":false,"mobile_phone_permission":false,"web_site_permission":false,"company_description_permission":false,"address_permission":false}]'),
 	(2, 'ZEMİN KAT', 1, 0, 0, 0, 399.18, 0.00, 399.18, 't1-zemin.jpg', 9842, NULL, '2018-10-23 06:31:41', '2', '[{"door_number_permission":false,"square_meters_permission":false,"email_permission":false,"phone_permission":false,"mobile_phone_permission":false,"web_site_permission":false,"company_description_permission":false,"address_permission":false}]'),
 	(4, '1. Kat', 1, 0, 0, 0, 492.50, 0.00, 492.50, 't1-k1.jpg', 9843, NULL, '2018-10-23 06:39:47', '3', '[{"door_number_permission":false,"square_meters_permission":false,"email_permission":false,"phone_permission":false,"mobile_phone_permission":false,"web_site_permission":false,"company_description_permission":false,"address_permission":false}]'),

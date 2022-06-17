@@ -42,7 +42,7 @@ function stnc_wp_floor_adminMenu_stnc_map_editor_stnc()
        
           $total_area  = $map->total_area;//toplam
        
-         $tekno_id  = $map->tekno_id;
+         $building_id  = $map->building_id;
  
          $scheme_media_id  = $map->scheme_media_id;
          $scheme_media_data = wp_get_attachment_image_src(    $scheme_media_id  ,'full' );

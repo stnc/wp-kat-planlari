@@ -96,12 +96,12 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
             <select class="form-select form-select-sm mx-auto" style="width: 130px;" aria-label=".form-select-sm example" onchange="javascript:handleSelect(this)">
               <option value="">Kat Seçiniz</option>
               <?php 
-                  $stncForm_tableNameMain =$wpdb->prefix .'stnc_map_floors WHERE tekno_id='.$building->id ;
+                  $stncForm_tableNameMain =$wpdb->prefix .'stnc_map_floors WHERE building_id='.$building->id ;
                   $sql = "SELECT * FROM " .   $stncForm_tableNameMain ;
                   $floorsList = $wpdb->get_results($sql);
                   foreach ($floorsList as $floors) :
                   ?>
-              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=<?php echo $floors->tekno_id ?>&kat=<?php echo $floors->id ?>"><?php echo $floors->name ?></option>
+              <option value="/wp-admin/admin.php?page=stnc_map_view&st_trigger=show&binaid=<?php echo $floors->building_id ?>&kat=<?php echo $floors->id ?>"><?php echo $floors->name ?></option>
               <?php endforeach ?>
             </select>
           </div>

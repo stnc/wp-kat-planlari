@@ -6,10 +6,10 @@ $katId=$_GET['kat'];
     $wp_stnc_map_floors =$wpdb->prefix . 'stnc_map_floors';
     $wp_stnc_map_building =$wpdb->prefix . 'stnc_map_building';
 
-//    echo "SELECT bina.name AS bina,kat.name kat_adi,kat.tekno_id,kat.scheme,bina.id
+//    echo "SELECT bina.name AS bina,kat.name kat_adi,kat.building_id,kat.scheme,bina.id
 //    AS bina_id,kat.id AS katid  FROM ".   $wp_stnc_map_floors." AS kat INNER JOIN ".$wp_stnc_map_building."  AS bina  ON  bina.id=1 AND kat.id = 5";
 // die;
-$map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,kat.tekno_id,kat.scheme,bina.id
+$map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,kat.building_id,kat.scheme,bina.id
  AS bina_id,kat.id AS katid  FROM ".   $wp_stnc_map_floors." AS kat INNER JOIN ".$wp_stnc_map_building."  AS bina  ON  bina.id=%d AND kat.id = %d", $binaId,$katId));
   
          $scheme = $map->scheme;
