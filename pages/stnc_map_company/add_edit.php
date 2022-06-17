@@ -125,7 +125,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                         <div class="form-group">
                             <label for="company_name"><strong>Firma adi</strong> </label>
                             <input type="text" name="company_name" value="<?php echo $company_name ?>" class="form-control" id="company_name" min="1" max="50">
-                            <input type="text" name="floor_id" value="<?php echo  isset($_GET["kat"])?>" >
+                            <input type="hidden" name="floor_id" value="<?php echo  isset($_GET["kat"])?>" >
                         </div>
                         <hr>
 
