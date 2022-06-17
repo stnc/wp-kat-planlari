@@ -121,7 +121,12 @@ function stnc_wp_floor_adminMenu_stnc_map_company()
         $company_description = isset($_POST["company_description"]) ? sanitize_text_field($_POST["company_description"]) : " ";
         $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
         $media_id = isset($_POST["media_id"]) ? sanitize_text_field($_POST["media_id"]) : " ";
-        $web_permission = isset($_POST["web_permission"]) ? json_decode($_POST["web_permission"], true) : '[{\"door_number_permission\":false,\"square_meters_permission\":false,\"email_permission\":false,\"phone_permission\":false,\"mobile_phone_permission\":false,\"web_site_permission\":false,\"company_description_permission\":false,\"address_permission\":false}]';
+        $web_permission = '[{\"door_number_permission\":false,\"square_meters_permission\":false,\"email_permission\":false,\"phone_permission\":false,\"mobile_phone_permission\":false,\"web_site_permission\":false,\"company_description_permission\":false,\"address_permission\":false}]';
+        $data =  str_replace([" ", '\\'], null, $web_permission);
+        $web_permission =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
+        print_r(     $web_permission);
+        $is_empty = 0;
+        
         include ('add_edit.php');
     }
 
@@ -142,7 +147,9 @@ function stnc_wp_floor_adminMenu_stnc_map_company()
         $building_id = isset($_GET["binaid"]) ? sanitize_text_field($_GET["binaid"]) : " ";
         $floor_id = isset($_GET["kat"]) ? sanitize_text_field($_GET["kat"]) : " ";
         $media_id = isset($_POST["media_id"]) ? sanitize_text_field($_POST["media_id"]) : 0;
-        $web_permission = isset($_POST["web_permission"]) ? json_decode($_POST["web_permission"], true) : '[{\"door_number_permission\":false,\"square_meters_permission\":false,\"email_permission\":false,\"phone_permission\":false,\"mobile_phone_permission\":false,\"web_site_permission\":false,\"company_description_permission\":false,\"address_permission\":false}]';
+        $web_permission = isset($_POST["web_permission"]) ? "" : '';
+// print_r(  json_decode($_POST["web_permission"], true) );
+// die;
 
 
         $success =   $wpdb->insert(

@@ -133,14 +133,15 @@ jQuery.noConflict();
     wkMedia.open();
   });
 
-$('#savebtn-stncMap,#savebtn-stncMap2').click(function(e) {
-     //   e.preventDefault();
+$('.permission_check').click(function(e) {
+    //    e.preventDefault();
+    //    alert("dsds");
         var eventsholded = [];
 
 
         var event = new Object();
         event.door_number_permission =    $('#door_number_permission').is(':checked');          
-        event.square_meters_permission =    $('#square_meters_permission').is(':checked');          
+        // event.square_meters_permission =    $('#square_meters_permission').is(':checked');          
         event.email_permission =    $('#email_permission').is(':checked');          
         event.phone_permission =    $('#phone_permission').is(':checked');          
         event.mobile_phone_permission =    $('#mobile_phone_permission').is(':checked');          

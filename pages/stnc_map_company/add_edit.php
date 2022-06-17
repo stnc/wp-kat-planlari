@@ -113,17 +113,19 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
 
                         <div class="form-group">
                             <label for="door_number"><strong>Kapi Numarasi</strong> </label>
+                            
                             <input type="number" name="door_number" value="<?php echo $door_number ?>"
                                 class="form-control" id="door_number" min="1" max="100">
                             <small id="kat_numarasiHelp" class="form-text text-muted">kat numarasi sayisal olmalidir</small>
                             <br>
-                         <input type="checkbox"  <?php  echo  $door_number_permission_check?>  id="door_number_permission"> Web önyüzünde görünmesin
+                         <input type="checkbox" class="permission_check" <?php  echo  $door_number_permission_check?>  id="door_number_permission"> Web önyüzünde görünmesin
  
                         </div>
                         <hr>
                         <div class="form-group">
                             <label for="company_name"><strong>Firma adi</strong> </label>
                             <input type="text" name="company_name" value="<?php echo $company_name ?>" class="form-control" id="company_name" min="1" max="50">
+                            <input type="text" name="floor_id" value="<?php echo  isset($_GET["kat"])?>" >
                         </div>
                         <hr>
 
@@ -137,14 +139,14 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                         <div class="form-group">
                             <label for="email"> <strong>Firma email adresi</strong> </label>
                             <input type="text" name="email" value="<?php echo $email ?>" class="form-control" id="email">
-                            <input type="checkbox"   <?php  echo  $email_permission_check?>  id="email_permission"> Web önyüzünde görünmesin
+                            <input type="checkbox" class="permission_check"  <?php  echo  $email_permission_check?>  id="email_permission"> Web önyüzünde görünmesin
                         </div>
                         <hr>
 
                         <div class="form-group">
                             <label for="phone"> <strong>Firma telefon</strong> </label>
                             <input type="text" name="phone" value="<?php echo $phone ?>" class="form-control" id="phone">
-                            <input type="checkbox"  <?php  echo  $phone_permission_check?>   id="phone_permission"> Web önyüzünde görünmesin
+                            <input type="checkbox" class="permission_check"  <?php  echo  $phone_permission_check?>   id="phone_permission"> Web önyüzünde görünmesin
                         </div>
 
 
@@ -166,7 +168,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                             <label for="mobile_phone"> <strong>Firma cep telefon</strong> </label>
                             <input type="text" name="mobile_phone" value="<?php echo $mobile_phone ?>"
                                 class="form-control" id="mobile_phone">
-                                <input type="checkbox" <?php  echo  $mobile_phone_permission_check?>   id="mobile_phone_permission"> Web önyüzünde görünmesin
+                                <input type="checkbox" class="permission_check" <?php  echo  $mobile_phone_permission_check?>   id="mobile_phone_permission"> Web önyüzünde görünmesin
                         </div>
 
                         <hr>
@@ -174,7 +176,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                         <div class="form-group">
                             <label for="web_site"> <strong>Firma WEB sitesi</strong>  </label>
                             <input type="text" name="web_site" value="<?php echo $web_site ?>" class="form-control" id="web_site">
-                            <input type="checkbox"  <?php  echo  $web_site_permission_check?>   id="web_site_permission"> Web önyüzünde görünmesin
+                            <input type="checkbox" class="permission_check" <?php  echo  $web_site_permission_check?>   id="web_site_permission"> Web önyüzünde görünmesin
                         </div>
                         <hr>
 
@@ -182,7 +184,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                             <label for="company_description"> <strong>Firma hakkında detaylı bilgi</strong> </label>
                             <textarea class="form-control" name="company_description" id="company_description"
                                 rows="3"><?php echo $company_description ?></textarea>
-                                <input type="checkbox"  <?php  echo  $company_description_permission_check?>   id="company_description_permission"> Web önyüzünde görünmesin
+                                <input type="checkbox" class="permission_check" <?php  echo  $company_description_permission_check?>   id="company_description_permission"> Web önyüzünde görünmesin
                         </div>
 
                         <hr>
@@ -190,7 +192,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                             <label for="address"><strong>Adres</strong></label>
 
                             <textarea class="form-control" name="address" id="address" rows="3"><?php echo $address ?></textarea>
-                            <input type="checkbox"  <?php  echo  $address_permission_check?>   id="address_permission"> Web önyüzünde görünmesin
+                            <input type="checkbox" class="permission_check" <?php  echo  $address_permission_check?>   id="address_permission"> Web önyüzünde görünmesin
                         </div>
                         <hr>
 

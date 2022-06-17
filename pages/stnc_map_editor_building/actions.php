@@ -14,9 +14,10 @@ function stnc_wp_floor_adminMenu_stnc_map_editor_stnc()
     date_default_timezone_set('Europe/Istanbul');
     $date = date('Y-m-d h:i:s');
 
+  
 
-
-
+    $stncForm_tableNameMain =$wpdb->prefix .'stnc_map_floors' ;
+    
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) {
  
         // $thepost = $wpdb->get_row($wpdb->prepare("SELECT *  FROM ".$stncForm_tableNameMain . "  WHERE id = %d", $_GET['kat']));
