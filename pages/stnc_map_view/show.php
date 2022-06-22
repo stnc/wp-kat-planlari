@@ -47,7 +47,9 @@ foreach ($results as $key => $result):
 ?>
 
                         <div data-toggle="tooltip" data-placement="left"
-                            style="left:<?php echo $position["left"] != "" ? $position["left"] - 12 : '0'; ?>px; top:  <?php echo $position["top"] != "" ? $position["top"] - 116 : '0'; ?>px;" title="<h4 class='fer'> <?php echo $result->company_name ?> </h4> <br> <span><?php echo $result->phone ?></span> <?php echo $result->email ?> <br><?php echo $result->company_description ?><br>   <?php echo $image ?>" data-bs-html="true"
+                            style="left:<?php echo $position["left"] != "" ? $position["left"] - 12 : '0'; ?>px; top:  <?php echo $position["top"] != "" ? $position["top"] - 116 : '0'; ?>px;" title="<h4 class='fer'>
+                            <?php if  ($result->is_empty === "1") :   ?>   BOŞ OFİS <?php else : ?> <?php echo $result->company_name; ?> <?php endif ; ?>
+                                 </h4> <br> <span><?php echo $result->phone ?></span> <?php echo $result->email ?> <br><?php echo $result->company_description ?><br>   <?php echo $image ?>" data-bs-html="true"
                             id="ex-<?php echo $result->door_number; ?>-draggable" data-bs-toggle="tooltip"
                             class="dragAbsolute">
                             <span class="dragAbsoluteSpan1"><?php echo $result->door_number; ?></span>
