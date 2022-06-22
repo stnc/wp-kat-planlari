@@ -175,13 +175,6 @@ function stnc_wp_floor_adminMenu_stnc_map_company()
             ),
         );
 
-
-        
-
-        // echo $wpdb->last_query;
-        //  die;
-
-
         if ($success) {
             $_SESSION['stnc_map_flash_msg'] = 'Kayıt Yapıldı';
             $lastid = $wpdb->insert_id;
@@ -189,8 +182,6 @@ function stnc_wp_floor_adminMenu_stnc_map_company()
             die;
         }
 
-   
- 
     }
 
 
