@@ -95,6 +95,7 @@ function stnc_wp_floor_adminMenu_stnc_map_company()
                 'media_id' =>    $media_id,
                 'web_permission' =>    $web_permission,
                 'add_date' =>   $date,
+                'is_empty' =>0,
             ),
             array('id' => $_GET['id'])
         );
@@ -170,6 +171,7 @@ function stnc_wp_floor_adminMenu_stnc_map_company()
                 'media_id' =>      $media_id ,
                 'web_permission' =>    $web_permission,
                 'add_date' =>   $date,
+                   'is_empty' => 0,
             ),
         );
 
@@ -242,14 +244,15 @@ function stnc_wp_floor_adminMenu_stnc_map_company()
             $stncForm_tableNameMain,
             array(
                 'door_number' =>   $door_number,
+                'square_meters' => $square_meters,
+                'map_location' =>   $map_location,
+                'address' =>   $address,
                 'company_name' =>  "",
-                'square_meters' =>  "",
                 'email' =>    "",
                 'phone' =>    "",
                 'mobile_phone' =>  "",
                 'web_site' =>   "",
                 'company_description' =>   "",
-                'address' =>    "",
                 'media_id' =>     "",
                 'web_permission' =>   '[{\"door_number_permission\":false,\"square_meters_permission\":false,\"email_permission\":false,\"phone_permission\":false,\"mobile_phone_permission\":false,\"web_site_permission\":false,\"company_description_permission\":false,\"address_permission\":false}]',
                 'add_date' =>  "",
