@@ -10,6 +10,7 @@ function stnc_wp_floor_database_install1()
             id INT NOT NULL AUTO_INCREMENT,
             building_id TINYINT DEFAULT NULL,
             floor_id TINYINT DEFAULT NULL,  
+            company_category_id TINYINT DEFAULT NULL,  
             door_number TINYINT DEFAULT NULL,
             company_name varchar(255) DEFAULT NULL,
             square_meters varchar(255) DEFAULT NULL,
@@ -94,7 +95,16 @@ function stnc_wp_floor_database_install1()
        dbDelta($sql);
 
 
-
+       $stncForm_tableNameMain = 'stnc_map_company_categories';
+       $charset_collate = $wpdb->get_charset_collate();
+        $sql = "CREATE TABLE IF NOT EXISTS  " . $wpdb->prefix . $stncForm_tableNameMain . " (
+               id INT NOT NULL AUTO_INCREMENT,
+               name VARCHAR(255) NOT NULL ,
+               status TINYINT(1) NULL DEFAULT '1' ,
+               PRIMARY KEY  (id)
+           ) $charset_collate;";
+           require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+        dbDelta($sql);
        
 
     // echo $wpdb->last_error;

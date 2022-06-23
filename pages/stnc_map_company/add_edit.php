@@ -137,6 +137,24 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                         <hr>
 
                         <div class="form-group">
+                            <label for="company_category_id"> <strong>Kategorisi</strong> </label>
+                              <select name="company_category_id">
+                                    <?php foreach ($categoriesList as $categories) : ?>
+                                        <option  <?php if ($categories->id == $company_category_id) echo 'selected'; ?> value="<?php echo $categories->id ?>">
+                                        <?php echo $categories->name ?></option>
+                                   <?php endforeach ?>
+                            </select>
+                        </div>
+                        <hr>
+
+
+
+                  
+
+
+
+
+                        <div class="form-group">
                             <label for="email"> <strong>Firma email adresi</strong> </label>
                             <input type="text" name="email" value="<?php echo $email ?>" class="form-control" id="email">
                             <input type="checkbox" class="permission_check"  <?php  echo  $email_permission_check?>  id="email_permission"> Web önyüzünde görünmesin

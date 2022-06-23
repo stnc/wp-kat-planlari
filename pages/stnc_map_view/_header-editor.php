@@ -93,7 +93,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/wp-admin">Wordpess Panel</a>
+                        <a class="nav-link active" aria-current="page" href="/wp-admin">Wordpress Panel</a>
                     </li>
                     
                 </ul>

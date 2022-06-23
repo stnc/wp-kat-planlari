@@ -33,7 +33,7 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
             <a class="nav-link" href="/wp-admin/admin.php?page=stnc_map_homepage">Bina Listesi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/wp-admin">Wordpess Panel</a>
+            <a class="nav-link active" aria-current="page" href="/wp-admin">Wordpress Panel</a>
           </li>
         </ul>
         <div class="text-center">
