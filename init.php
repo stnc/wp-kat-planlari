@@ -8,6 +8,18 @@ Author: selman tunç
 Text Domain: stnc-wp-floor-plans
 Domain Path: /languages/
 */ 
+
+
+/*
+ * Template Name: Firmalar Listesi
+ * Description: firmalar listesi sayfası 
+* @package WordPress
+ *@subpackage stnc-kiosk
+ *@since stnc-building 2.0
+ */
+
+
+ 
 error_reporting(E_ALL);
 error_reporting(-1);
 ini_set('error_reporting', E_ALL);
@@ -50,6 +62,7 @@ require_once "pages/stncForm_company_list.php";
 require_once "pages/stncForm-adminMenu_About.php";
 require_once "pages/shortcut/shortcode_generate_page.php";
 require_once "pages/shortcut/shortcode_embed.php";
+require_once "company-frontpage.php";
 
 
 
