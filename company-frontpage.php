@@ -63,6 +63,7 @@ add_shortcode( 'stnc_building_for_company', 'stnc_map_building_company_shortcode
 ?>
 <script src='http://summit.test/wp-content/plugins/stnc-binalar/assets/js/isotope.pkgd.min.js?ver=1' id='isotope-pkgd-min-jscss-script-js'></script>
  <script>
+   	(function() {
    // init Isotope
    var $grid = $('.grid').isotope({
   itemSelector: '.element-item',
@@ -89,7 +90,7 @@ $('.filters-select').on( 'change', function() {
   filterValue = filterFns[ filterValue ] || filterValue;
   $grid.isotope({ filter: filterValue });
 });
-
+}());
  </script>
 
       <select class="filters-select">
