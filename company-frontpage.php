@@ -93,7 +93,6 @@ var $grid = $('.grid').isotope({
 
 // bind filter on select change
 jQuery('.filters-select').on( 'change', function() {
-
   var filterValue = this.value;
   $grid.isotope({ filter: filterValue });
 });
@@ -101,7 +100,6 @@ jQuery('.filters-select').on( 'change', function() {
 
 // bind filter on select change
 jQuery('.filters-select-comnpany').on( 'change', function() {
-  // get filter value from option value
   var filterValue = this.value;
   $grid.isotope({ filter: filterValue });
 });
