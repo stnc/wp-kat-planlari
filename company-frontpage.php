@@ -1,9 +1,10 @@
 <?php 
-
+// https://codepen.io/desandro/pen/YzPMBx
 //isotope.pkgd.min.js
 
 function stnc_building_for_company_js_css() {
-	wp_register_script("isotope-pkgd-min-jscss-script", plugins_url("/assets/js/isotope.pkgd.min.js", __FILE__), array('jquery'), "1.0", true);
+	wp_register_script("isotope-pkgd-min-jscss-script", plugins_url("/assets/js/isotope.pkgd.min.js", __FILE__), array('jquery'), "2.0", true);
+	// wp_register_script("list-min-jscss-script", plugins_url("/assets/js/list.min.js", __FILE__), array('jquery'), "2.0", true);
 	// wp_register_style("zz-shortcode-jscss-style", plugins_url("style.css", __FILE__), array(), "1.0", "all");
 }
 
@@ -32,6 +33,7 @@ add_shortcode( 'stnc_building_for_company', 'stnc_map_building_company_shortcode
     ), $attr );
  
     wp_enqueue_script("isotope-pkgd-min-jscss-script",array('jquery') , '1.0', false);
+    // wp_enqueue_script("list-min-jscss-script",array('jquery') , '1.0', false);
     wp_enqueue_script( 'jquery' );
     if ($args['id']==""){
     return 'Missing parameter';
@@ -48,59 +50,88 @@ add_shortcode( 'stnc_building_for_company', 'stnc_map_building_company_shortcode
 
     // }
 
-  $wp_stnc_map_floors1 =$wpdb->prefix . 'stnc_map_floors_locations';
+$wp_stnc_map_floors1 =$wpdb->prefix . 'stnc_map_floors_locations order by company_name asc';
   //  $wp_stnc_map_floors1 =$wpdb->prefix . 'stnc_map_floors_locations WHERE floor_id='.$args['id'].'';
+$sql = "SELECT * FROM " . $wp_stnc_map_floors1 . ' ';
+$buildingsList = $wpdb->get_results($sql);
 
-  $sql = "SELECT * FROM " . $wp_stnc_map_floors1 . ' ';
 
 
-   $buildingsList = $wpdb->get_results($sql);
+$wp_stnc_map_companyList =$wpdb->prefix . 'stnc_map_company_categories';
+  //  $wp_stnc_map_floors1 =$wpdb->prefix . 'stnc_map_floors_locations WHERE floor_id='.$args['id'].'';
+$sql = "SELECT * FROM " . $wp_stnc_map_companyList . '  where status=1';
+$stncMapCompanyList = $wpdb->get_results($sql);
+
+
+$wp_stnc_map_buildingList =$wpdb->prefix . 'stnc_map_building';
+  //  $wp_stnc_map_floors1 =$wpdb->prefix . 'stnc_map_floors_locations WHERE floor_id='.$args['id'].'';
+$sql = "SELECT * FROM " . $wp_stnc_map_buildingList . ' ';
+$stncMapBuildingList = $wpdb->get_results($sql);
 // echo '<pre>';
 // print_r($buildingsList);
 // die;
 
 
 ?>
-<script src='http://summit.test/wp-content/plugins/stnc-binalar/assets/js/isotope.pkgd.min.js?ver=1' id='isotope-pkgd-min-jscss-script-js'></script>
+
  <script>
-   	(function() {
+   'use strict';
+
+
+
+jQuery.noConflict();
+
+
+
+jQuery(document).ready(function ($) {
+
    // init Isotope
-   var $grid = $('.grid').isotope({
+var $grid = $('.grid').isotope({
   itemSelector: '.element-item',
-  layoutMode: 'fitRows'
+  // layoutMode: 'fitRows'
 });
-// filter functions
-var filterFns = {
-  // show if number is greater than 50
-  numberGreaterThan50: function() {
-    var number = $(this).find('.number').text();
-    return parseInt( number, 10 ) > 50;
-  },
-  // show if name ends with -ium
-  ium: function() {
-    var name = $(this).find('.name').text();
-    return name.match( /ium$/ );
-  }
-};
+
 // bind filter on select change
-$('.filters-select').on( 'change', function() {
-  // get filter value from option value
+jQuery('.filters-select').on( 'change', function() {
+
   var filterValue = this.value;
-  // use filterFn if matches value
-  filterValue = filterFns[ filterValue ] || filterValue;
   $grid.isotope({ filter: filterValue });
 });
-}());
+
+
+// bind filter on select change
+jQuery('.filters-select-comnpany').on( 'change', function() {
+  // get filter value from option value
+  var filterValue = this.value;
+  $grid.isotope({ filter: filterValue });
+});
+
+
+
+});
  </script>
 
+
+
+
       <select class="filters-select">
-        <option value="*">show all</option>
-        <option value=".1">1</option>
-        <option value=".2">2</option>
+        <option value="*">Hepsini Göster</option>
+        <?php foreach ($stncMapCompanyList as $stncMapCompany) : ?>
+         <option value=".company<?php echo $stncMapCompany -> id ?>"><?php  echo $stncMapCompany -> name ?></option>
+        <?php endforeach ?>
       </select>
 
-<div class="business-container">
-<div class="grid">
+
+      <select class="filters-select-comnpany">
+        <option value="*">Hepsini Göster</option>
+        <?php foreach ($stncMapBuildingList as $stncMapBuilding) : ?>
+         <option value=".build<?php echo $stncMapBuilding -> id ?>"><?php  echo $stncMapBuilding -> name ?></option>
+        <?php endforeach ?>
+      </select>
+      <input class="search" placeholder="Search" />
+
+<div class="business-container" id="company-list">
+<div class="grid list" >
 <?php
 foreach ($buildingsList as $building) : 
   $door_number_permission_check=true;
@@ -150,14 +181,22 @@ foreach ($buildingsList as $building) :
 }
 
     $image = wp_get_attachment_image_src(   $building -> media_id ,'full' );
+
+if ($image){
+  $images=$image[0] ;
+} else {
+  $images="/wp-content/uploads/2022/02/in-company-English-classes-head2.jpg";
+}
+
+
  ?>
 
-    <div class="grid-display element-item <?php echo $building->floor_id ?> ">
+    <div class="grid-display element-item company<?php echo $building->company_category_id ?> build<?php echo $building->building_id ?>  ">
       <div class="row">
           <div class="img-area col-3 cl-left">
             <figure>
               <a  target="_target" href="<?php echo $building->web_site ?>">
-                <img src="<?php echo  $image[0] ?>" class="img-responsive- rt-team-img" alt="<?php echo $building->company_name ?>" loading="lazy" width="197" height="78">
+                <img src="<?php echo   $images ?>" class="img-responsive- rt-team-img" alt="<?php echo $building->company_name ?>" loading="lazy" width="197" height="78">
               </a>
             </figure>
           </div>
@@ -165,6 +204,7 @@ foreach ($buildingsList as $building) :
           <div class="rttm-content-area col-9 cl-left">
               <span class="team-name">
                 <a  target="_blank" title="<?php echo $building->company_name ?>" href="<?php echo $building->web_site ?>"><?php echo $building->company_name ?></a>
+                <div class="name" ><?php echo $building->company_name ?></div>
               </span>
 
             <?php if  ($company_description_permission_check) : ?>
@@ -181,7 +221,7 @@ foreach ($buildingsList as $building) :
               <?php if ($building->email!="") : ?>
                 <li>
                   <i class="far fa-envelope"></i>
-                  <a href="mailto:<?php echo $building->email ?>">
+                  <a class="mail" href="mailto:<?php echo $building->email ?>">
                     <span class="tlp-email"><?php echo $building->email ?></span>
                   </a>
                 </li>
