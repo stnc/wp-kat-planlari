@@ -50,7 +50,7 @@ add_shortcode( 'stnc_building_for_company', 'stnc_map_building_company_shortcode
 
     // }
 
-$wp_stnc_map_floors1 =$wpdb->prefix . 'stnc_map_floors_locations order by company_name asc';
+$wp_stnc_map_floors1 =$wpdb->prefix . 'stnc_map_floors_locations where is_empty=0  order by company_name asc';
   //  $wp_stnc_map_floors1 =$wpdb->prefix . 'stnc_map_floors_locations WHERE floor_id='.$args['id'].'';
 $sql = "SELECT * FROM " . $wp_stnc_map_floors1 . ' ';
 $buildingsList = $wpdb->get_results($sql);
@@ -85,7 +85,7 @@ jQuery.noConflict();
 
 jQuery(document).ready(function ($) {
 
-   // init Isotope
+   // init Isotopefdsdf4325435h6h
 var $grid = $('.grid').isotope({
   itemSelector: '.element-item',
   // layoutMode: 'fitRows'

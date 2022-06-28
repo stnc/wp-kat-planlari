@@ -249,7 +249,7 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                  <br>
                 <?php endif ; ?>
 
-       
+                <a href="/wp-admin/admin.php?page=stnc_map_company&st_trigger=office_empty&binaid=1&kat=1&id=<?php echo $_GET['id']?>" class="btn btn-warning"> Sonraki Şirket</a>
 
                 <textarea id="web_permission" name="web_permission" style="display:none"></textarea>
 
