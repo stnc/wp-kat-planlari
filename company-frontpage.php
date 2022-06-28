@@ -75,6 +75,7 @@ $stncMapBuildingList = $wpdb->get_results($sql);
 ?>
 
  <script>
+   
    'use strict';
 
 

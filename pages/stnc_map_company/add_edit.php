@@ -3,8 +3,14 @@
 $binaId=$_GET['binaid'];
 $katId=$_GET['kat'];
 
+
+
+
     $wp_stnc_map_floors =$wpdb->prefix . 'stnc_map_floors';
     $wp_stnc_map_building =$wpdb->prefix . 'stnc_map_building';
+
+
+
 
 //    echo "SELECT bina.name AS bina,kat.name kat_adi,kat.building_id,kat.scheme,bina.id
 //    AS bina_id,kat.id AS katid  FROM ".   $wp_stnc_map_floors." AS kat INNER JOIN ".$wp_stnc_map_building."  AS bina  ON  bina.id=1 AND kat.id = 5";
@@ -12,6 +18,11 @@ $katId=$_GET['kat'];
 $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,kat.building_id,kat.scheme,bina.id
  AS bina_id,kat.id AS katid  FROM ".   $wp_stnc_map_floors." AS kat INNER JOIN ".$wp_stnc_map_building."  AS bina  ON  bina.id=%d AND kat.id = %d", $binaId,$katId));
   
+
+  $nextCompany= $wpdb->get_var('SELECT COUNT(*) FROM ' . $wp_stnc_map_floors . ' WHERE id > ' .  $map->katid  );
+  $prevCompany= $wpdb->get_var('SELECT COUNT(*) FROM ' . $wp_stnc_map_floors . ' WHERE id < ' .  $map->katid  );
+
+
          $scheme = $map->scheme;
     
          $binaName = $map->bina;
@@ -248,8 +259,11 @@ $map = $wpdb->get_row($wpdb->prepare("SELECT bina.name AS bina,kat.name kat_adi,
                 <br>
                  <br>
                 <?php endif ; ?>
+             
+                <a href="/wp-admin/admin.php?page=stnc_map_company&st_trigger=office_empty&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>&id=<?php echo $nextCompany?>" class="btn btn-warning"> Sonraki Şirket</a>
 
-                <a href="/wp-admin/admin.php?page=stnc_map_company&st_trigger=office_empty&binaid=1&kat=1&id=<?php echo $_GET['id']?>" class="btn btn-warning"> Sonraki Şirket</a>
+
+                <a href="/wp-admin/admin.php?page=stnc_map_company&st_trigger=office_empty&binaid=<?php echo $_GET['binaid']?>&kat=<?php echo $_GET['kat']?>&id=<?php echo $prevCompany?>" class="btn btn-warning"> Önceki Şirket</a>
 
                 <textarea id="web_permission" name="web_permission" style="display:none"></textarea>
 
