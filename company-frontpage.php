@@ -109,24 +109,41 @@ jQuery('.filters-select-comnpany').on( 'change', function() {
 });
  </script>
 
+<div class="row" style="margin: 20px 0 20px 0 !important;
+display: block;
+padding: 15px;
+background-color: #eee;
+border-radius: 5px;">
 
 
+<div class="col-6 cl-left">
 
+   <label for="sas">Sektör Seçiniz</label>
       <select class="filters-select">
         <option value="*">Hepsini Göster</option>
         <?php foreach ($stncMapCompanyList as $stncMapCompany) : ?>
          <option value=".company<?php echo $stncMapCompany -> id ?>"><?php  echo $stncMapCompany -> name ?></option>
         <?php endforeach ?>
       </select>
+</div>
 
-
+<div class="col-6 cl-left">
+<label for="sas">Bina seçiniz</label>
       <select class="filters-select-comnpany">
         <option value="*">Hepsini Göster</option>
         <?php foreach ($stncMapBuildingList as $stncMapBuilding) : ?>
          <option value=".build<?php echo $stncMapBuilding -> id ?>"><?php  echo $stncMapBuilding -> name ?></option>
         <?php endforeach ?>
       </select>
-      <input class="search" placeholder="Search" />
+</div>
+
+
+
+</div>
+
+
+
+     
 
 <div class="business-container" id="company-list">
 <div class="grid list" >
